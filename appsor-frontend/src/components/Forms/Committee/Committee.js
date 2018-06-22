@@ -7,8 +7,8 @@ class Committee extends Component {
     this.state = {
 
     };
-    this.handlePressPrev = this.props.handlePressPrev.bind(this, 'Affiliations');
-    this.handlePressNext = this.props.handlePressNext.bind(this, 'Result');
+    this.handlePressPrev = this.props.handlePress.bind(this, 'Prev');
+    this.handlePressNext = this.props.handlePress.bind(this, 'Next');
   }
 
   render() {
@@ -25,8 +25,7 @@ class Committee extends Component {
 }
 
 Committee.propTypes = {
-  handlePressNext: PropTypes.func.isRequired,
-  handlePressPrev: PropTypes.func.isRequired,
+  handlePress: PropTypes.func.isRequired,
 };
 
 export default Committee;

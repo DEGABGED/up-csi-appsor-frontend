@@ -7,7 +7,7 @@ class Home extends Component {
     this.state = {
 
     };
-    this.handlePressNext = this.props.handlePressNext.bind(this, 'BasicInfo');
+    this.handlePressNext = this.props.handlePress.bind(this, 'Next');
   }
 
   render() {
@@ -23,7 +23,7 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  handlePressNext: PropTypes.func.isRequired,
+  handlePress: PropTypes.func.isRequired,
 };
 
 export default Home;

@@ -7,8 +7,8 @@ class Affiliations extends Component {
     this.state = {
 
     };
-    this.handlePressPrev = this.props.handlePressPrev.bind(this, 'SkillsInterests');
-    this.handlePressNext = this.props.handlePressNext.bind(this, 'Committee');
+    this.handlePressPrev = this.props.handlePress.bind(this, 'Prev');
+    this.handlePressNext = this.props.handlePress.bind(this, 'Next');
   }
 
   render() {
@@ -25,8 +25,7 @@ class Affiliations extends Component {
 }
 
 Affiliations.propTypes = {
-  handlePressNext: PropTypes.func.isRequired,
-  handlePressPrev: PropTypes.func.isRequired,
+  handlePress: PropTypes.func.isRequired,
 };
 
 export default Affiliations;

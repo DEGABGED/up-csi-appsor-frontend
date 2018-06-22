@@ -5,37 +5,41 @@ import Affiliations from './Forms/Affiliations/Affiliations';
 import BasicInfo from './Forms/BasicInfo/BasicInfo';
 import Committee from './Forms/Committee/Committee';
 import SkillsInterests from './Forms/SkillsInterests/SkillsInterests';
+import pages from '../utils/pageorder';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 'Home',
+      currentPage: 'Home',
     };
-    this.handlePressPrev = this.handlePressPrev.bind(this);
-    this.handlePressNext = this.handlePressNext.bind(this);
+    this.handlePress = this.handlePress.bind(this);
     this.renderPage = this.renderPage.bind(this);
   }
 
-  handlePressPrev(prevPage) {
-    this.setState({
-      page: prevPage,
-    });
-  }
-
-  handlePressNext(nextPage) {
-    this.setState({
-      page: nextPage,
-    });
+  handlePress(direction) {
+    switch (direction) {
+      case 'Prev': {
+        this.setState({ currentPage: pages.prev().value });
+        break;
+      }
+      case 'Next': {
+        this.setState({ currentPage: pages.next().value });
+        break;
+      }
+      default: {
+        break;
+      }
+    }
   }
 
   renderPage() {
     let page;
-    switch (this.state.page) {
+    switch (this.state.currentPage) {
       case 'Home': {
         page = (
           <Home
-            handlePressNext={this.handlePressNext}
+            handlePress={this.handlePress}
           />
         );
         break;
@@ -43,8 +47,7 @@ class App extends Component {
       case 'Affiliations': {
         page = (
           <Affiliations
-            handlePressNext={this.handlePressNext}
-            handlePressPrev={this.handlePressPrev}
+            handlePress={this.handlePress}
           />
         );
         break;
@@ -52,8 +55,7 @@ class App extends Component {
       case 'BasicInfo': {
         page = (
           <BasicInfo
-            handlePressNext={this.handlePressNext}
-            handlePressPrev={this.handlePressPrev}
+            handlePress={this.handlePress}
           />
         );
         break;
@@ -61,8 +63,7 @@ class App extends Component {
       case 'Committee': {
         page = (
           <Committee
-            handlePressNext={this.handlePressNext}
-            handlePressPrev={this.handlePressPrev}
+            handlePress={this.handlePress}
           />
         );
         break;
@@ -70,8 +71,7 @@ class App extends Component {
       case 'SkillsInterests': {
         page = (
           <SkillsInterests
-            handlePressNext={this.handlePressNext}
-            handlePressPrev={this.handlePressPrev}
+            handlePress={this.handlePress}
           />
         );
         break;
