@@ -7,8 +7,15 @@ class App extends Component {
     super(props);
     this.state = {
       currentPage: 'Home',
+      formData: {
+        basicInfo: null,
+        skillsInterests: null,
+        affiliations: null,
+        committee: null,
+      },
     };
     this.handlePress = this.handlePress.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handlePress(direction) {
@@ -27,10 +34,29 @@ class App extends Component {
     }
   }
 
+  handleChange(data, page, field) {
+    this.setState(prevState => ({
+      formData: {
+        ...prevState.formData,
+        [page]: {
+          ...prevState.formData[`${page}`],
+          [field]: data,
+        },
+      },
+    }));
+  }
+
+  // API Call
+  // handleSubmit() {
+
+  // }
+
   render() {
+    console.log(this.state.formData);
     return (
       <Page
         handlePress={this.handlePress}
+        handleChange={this.handleChange}
         currentPage={this.state.currentPage}
       />
     );

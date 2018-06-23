@@ -20,6 +20,7 @@ class Page extends Component {
         page = (
           <Home
             handlePress={this.props.handlePress}
+            handleChange={this.props.handleChange}
           />
         );
         break;
@@ -28,6 +29,7 @@ class Page extends Component {
         page = (
           <Affiliations
             handlePress={this.props.handlePress}
+            handleChange={this.props.handleChange}
           />
         );
         break;
@@ -36,6 +38,7 @@ class Page extends Component {
         page = (
           <BasicInfo
             handlePress={this.props.handlePress}
+            handleChange={this.props.handleChange}
           />
         );
         break;
@@ -44,6 +47,7 @@ class Page extends Component {
         page = (
           <Committee
             handlePress={this.props.handlePress}
+            handleChange={this.props.handleChange}
           />
         );
         break;
@@ -52,6 +56,7 @@ class Page extends Component {
         page = (
           <SkillsInterests
             handlePress={this.props.handlePress}
+            handleChange={this.props.handleChange}
           />
         );
         break;
@@ -71,6 +76,7 @@ class Page extends Component {
 
 Page.propTypes = {
   handlePress: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
   currentPage: PropTypes.string.isRequired,
 };
 
