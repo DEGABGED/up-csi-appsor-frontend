@@ -6,6 +6,7 @@ const pagesIterator = new Iterator([
   'SkillsInterests',
   'Affiliations',
   'Committee',
+  'Result',
 ]);
 
 const pages = pagesIterator[Symbol.iterator]();

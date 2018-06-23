@@ -14,24 +14,17 @@ class App extends Component {
         committee: null,
       },
     };
-    this.handlePress = this.handlePress.bind(this);
+    this.handlePressPrev = this.handlePressPrev.bind(this);
+    this.handlePressNext = this.handlePressNext.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handlePress(direction) {
-    switch (direction) {
-      case 'Prev': {
-        this.setState({ currentPage: pages.prev().value });
-        break;
-      }
-      case 'Next': {
-        this.setState({ currentPage: pages.next().value });
-        break;
-      }
-      default: {
-        break;
-      }
-    }
+  handlePressPrev() {
+    this.setState({ currentPage: pages.prev().value });
+  }
+
+  handlePressNext() {
+    this.setState({ currentPage: pages.next().value });
   }
 
   handleChange(data, page, field) {
@@ -52,10 +45,11 @@ class App extends Component {
   // }
 
   render() {
-    console.log(this.state.formData);
+    console.log(JSON.stringify(this.state.formData))
     return (
       <Page
-        handlePress={this.handlePress}
+        handlePressPrev={this.handlePressPrev}
+        handlePressNext={this.handlePressNext}
         handleChange={this.handleChange}
         currentPage={this.state.currentPage}
       />

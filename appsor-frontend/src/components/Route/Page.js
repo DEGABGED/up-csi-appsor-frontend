@@ -19,7 +19,8 @@ class Page extends Component {
       case 'Home': {
         page = (
           <Home
-            handlePress={this.props.handlePress}
+            handlePressPrev={this.props.handlePressPrev}
+            handlePressNext={this.props.handlePressNext}
             handleChange={this.props.handleChange}
           />
         );
@@ -28,7 +29,8 @@ class Page extends Component {
       case 'Affiliations': {
         page = (
           <Affiliations
-            handlePress={this.props.handlePress}
+            handlePressPrev={this.props.handlePressPrev}
+            handlePressNext={this.props.handlePressNext}
             handleChange={this.props.handleChange}
           />
         );
@@ -37,7 +39,8 @@ class Page extends Component {
       case 'BasicInfo': {
         page = (
           <BasicInfo
-            handlePress={this.props.handlePress}
+            handlePressPrev={this.props.handlePressPrev}
+            handlePressNext={this.props.handlePressNext}
             handleChange={this.props.handleChange}
           />
         );
@@ -46,7 +49,8 @@ class Page extends Component {
       case 'Committee': {
         page = (
           <Committee
-            handlePress={this.props.handlePress}
+            handlePressPrev={this.props.handlePressPrev}
+            handlePressNext={this.props.handlePressNext}
             handleChange={this.props.handleChange}
           />
         );
@@ -55,7 +59,8 @@ class Page extends Component {
       case 'SkillsInterests': {
         page = (
           <SkillsInterests
-            handlePress={this.props.handlePress}
+            handlePressPrev={this.props.handlePressPrev}
+            handlePressNext={this.props.handlePressNext}
             handleChange={this.props.handleChange}
           />
         );
@@ -75,7 +80,8 @@ class Page extends Component {
 }
 
 Page.propTypes = {
-  handlePress: PropTypes.func.isRequired,
+  handlePressPrev: PropTypes.func.isRequired,
+  handlePressNext: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   currentPage: PropTypes.string.isRequired,
 };

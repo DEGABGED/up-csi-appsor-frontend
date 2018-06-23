@@ -7,8 +7,6 @@ class BasicInfo extends Component {
     this.state = {
       animate: true,
     };
-    this.handlePressPrev = this.props.handlePress.bind(this, 'Prev');
-    this.handlePressNext = this.props.handlePress.bind(this, 'Next');
     this.handleChange = this.props.handleChange.bind(this);
   }
 
@@ -26,15 +24,16 @@ class BasicInfo extends Component {
         </header>
         <input onChange={event => this.handleChange(event.target.value, 'basicInfo', 'firstName')} />
         <input onChange={event => this.handleChange(event.target.value, 'basicInfo', 'lastName')} />
-        <button onClick={this.handlePressPrev}>Prev Page!</button>
-        <button onClick={this.handlePressNext}>Next Page!</button>
+        <button onClick={this.props.handlePressPrev}>Prev Page!</button>
+        <button onClick={this.props.handlePressNext}>Next Page!</button>
       </div>
     );
   }
 }
 
 BasicInfo.propTypes = {
-  handlePress: PropTypes.func.isRequired,
+  handlePressPrev: PropTypes.func.isRequired,
+  handlePressNext: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

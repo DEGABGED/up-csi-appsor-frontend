@@ -7,7 +7,6 @@ class Home extends Component {
     this.state = {
 
     };
-    this.handlePressNext = this.props.handlePress.bind(this, 'Next');
   }
 
   render() {
@@ -16,14 +15,14 @@ class Home extends Component {
         <header>
           <h1>Welcome to HOME</h1>
         </header>
-        <button onClick={this.handlePressNext}>Next Page!</button>
+        <button onClick={this.props.handlePressNext}>Next Page!</button>
       </div>
     );
   }
 }
 
 Home.propTypes = {
-  handlePress: PropTypes.func.isRequired,
+  handlePressNext: PropTypes.func.isRequired,
 };
 
 export default Home;

@@ -7,8 +7,6 @@ class Committee extends Component {
     this.state = {
 
     };
-    this.handlePressPrev = this.props.handlePress.bind(this, 'Prev');
-    this.handlePressNext = this.props.handlePress.bind(this, 'Next');
   }
 
   render() {
@@ -17,15 +15,16 @@ class Committee extends Component {
         <header>
           <h1>Welcome to Committee</h1>
         </header>
-        <button onClick={this.handlePressPrev}>Prev Page!</button>
-        <button onClick={this.handlePressNext}>Next Page!</button>
+        <button onClick={this.props.handlePressPrev}>Prev Page!</button>
+        <button onClick={this.props.handlePressNext}>Next Page!</button>
       </div>
     );
   }
 }
 
 Committee.propTypes = {
-  handlePress: PropTypes.func.isRequired,
+  handlePressPrev: PropTypes.func.isRequired,
+  handlePressNext: PropTypes.func.isRequired,
 };
 
 export default Committee;
