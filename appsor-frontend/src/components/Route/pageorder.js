@@ -1,4 +1,4 @@
-import Iterator from './Iterator';
+import Iterator from '../../utils/Iterator';
 
 const pagesIterator = new Iterator([
   'Home',
