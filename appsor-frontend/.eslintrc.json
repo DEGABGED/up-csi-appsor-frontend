@@ -1,0 +1,12 @@
+{
+    "extends": "airbnb",
+    "rules": {
+        "no-plusplus": "off",
+        "react/no-did-mount-set-state": "off",
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    }
+}
