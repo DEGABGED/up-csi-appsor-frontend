@@ -2,8 +2,10 @@ class Applicant < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_NAME_REGEX = /[\w\s]+/i
 
-  has_many :affiliations
-  has_many :committees, through: :committee_choice
+  has_many :affiliations, dependent: :delete_all
+  has_many :committee_choices, dependent: :delete_all
+  accepts_nested_attributes_for :affiliations
+  accepts_nested_attributes_for :committee_choices
 
   validates :last_name, presence: true, format: { with: VALID_NAME_REGEX }
   validates :first_name, presence: true, format: { with: VALID_NAME_REGEX }

@@ -36,7 +36,31 @@ module Api
     private
 
     def applicant_params
-      params.permit(:last_name, :first_name, :middle_initial, :nickname, :birthday, :address, :skills, :interests, :experience, :student_number, :email, :contact_number)
+      params.require(:applicant).permit(
+        :last_name,
+        :first_name,
+        :middle_initial,
+        :nickname,
+        :address,
+        :email,
+        :contact_number,
+        :student_number,
+        :birthday,
+        :skills,
+        :interests,
+        :experience,
+        affiliations_attributes: [
+          :id,
+          :org_name,
+          :position
+        ],
+        committee_choices_attributes: [
+          :id,
+          :committee_id,
+          :priority,
+          :reason
+        ]
+      )
     end
 
     def set_applicant

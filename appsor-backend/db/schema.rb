@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180623041629) do
+ActiveRecord::Schema.define(version: 20180627141206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20180623041629) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "affiliations", "applicants"
-  add_foreign_key "committee_choices", "applicants"
-  add_foreign_key "committee_choices", "committees"
+  add_foreign_key "affiliations", "applicants", on_delete: :cascade
+  add_foreign_key "committee_choices", "applicants", on_delete: :cascade
+  add_foreign_key "committee_choices", "committees", on_delete: :cascade
 end
