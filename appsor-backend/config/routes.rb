@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   namespace :api do
     resources :applicants, except: [:new, :edit]
     resources :committees, except: [:new, :edit]
+    post '/applicants/form', to: 'applicants#create_from_form'
   end
 end
