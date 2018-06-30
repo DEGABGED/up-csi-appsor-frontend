@@ -32,6 +32,7 @@ class Page extends Component {
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
             handleChange={this.props.handleChange}
+            affiliations={this.props.formData.affiliations}
           />
         );
         break;
@@ -42,6 +43,7 @@ class Page extends Component {
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
             handleChange={this.props.handleChange}
+            basicInfo={this.props.formData.basicInfo}
           />
         );
         break;
@@ -52,6 +54,7 @@ class Page extends Component {
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
             handleChange={this.props.handleChange}
+            committees={this.props.formData.committees}
           />
         );
         break;
@@ -62,6 +65,7 @@ class Page extends Component {
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
             handleChange={this.props.handleChange}
+            skillsInterests={this.props.formData.skillsInterests}
           />
         );
         break;
@@ -84,6 +88,7 @@ Page.propTypes = {
   handlePressNext: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   currentPage: PropTypes.string.isRequired,
+  formData: PropTypes.object.isRequired,
 };
 
 export default Page;
