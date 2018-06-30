@@ -27,13 +27,14 @@ class App extends Component {
     this.setState({ currentPage: pages.next().value });
   }
 
-  handleChange(data, page, field) {
+  handleChange(page, field, event) {
+    const { target: { value } } = event;
     this.setState(prevState => ({
       formData: {
         ...prevState.formData,
         [page]: {
           ...prevState.formData[`${page}`],
-          [field]: data,
+          [field]: value,
         },
       },
     }));

@@ -7,7 +7,10 @@ class BasicInfo extends Component {
     this.state = {
       animate: true,
     };
-    this.handleChange = this.props.handleChange.bind(this);
+    this.handleFirstName = this.props.handleChange.bind(this, 'basicInfo', 'firstName');
+    this.handleLastName = this.props.handleChange.bind(this, 'basicInfo', 'lastName');
+    this.handleMidInitial = this.props.handleChange.bind(this, 'basicInfo', 'midInitial');
+    this.handleNickName = this.props.handleChange.bind(this, 'basicInfo', 'nickName');
   }
 
   componentDidMount() {
@@ -22,8 +25,10 @@ class BasicInfo extends Component {
         <header>
           <h1>Welcome to BasicInfo</h1>
         </header>
-        <input onChange={event => this.handleChange(event.target.value, 'basicInfo', 'firstName')} />
-        <input onChange={event => this.handleChange(event.target.value, 'basicInfo', 'lastName')} />
+        <input onChange={this.handleFirstName} />
+        <input onChange={this.handleLastName} />
+        <input onChange={this.handleMidInitial} />
+        <input onChange={this.handleNickName} />
         <button onClick={this.props.handlePressPrev}>Prev Page!</button>
         <button onClick={this.props.handlePressNext}>Next Page!</button>
       </div>
