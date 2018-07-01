@@ -21,7 +21,6 @@ class Page extends Component {
           <Home
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
-            handleChange={this.props.handleChange}
           />
         );
         break;
@@ -31,7 +30,8 @@ class Page extends Component {
           <Affiliations
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
-            handleChange={this.props.handleChange}
+            handleDynamicForm={this.props.handleDynamicForm}
+            handleDeleteForm={this.props.handleDeleteForm}
             affiliations={this.props.formData.affiliations}
           />
         );
@@ -42,7 +42,7 @@ class Page extends Component {
           <BasicInfo
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
-            handleChange={this.props.handleChange}
+            handleForm={this.props.handleForm}
             basicInfo={this.props.formData.basicInfo}
           />
         );
@@ -53,7 +53,7 @@ class Page extends Component {
           <Committee
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
-            handleChange={this.props.handleChange}
+
             committees={this.props.formData.committees}
           />
         );
@@ -64,7 +64,7 @@ class Page extends Component {
           <SkillsInterests
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
-            handleChange={this.props.handleChange}
+            handleDropdown={this.props.handleDropdown}
             skillsInterests={this.props.formData.skillsInterests}
           />
         );
@@ -86,7 +86,10 @@ class Page extends Component {
 Page.propTypes = {
   handlePressPrev: PropTypes.func.isRequired,
   handlePressNext: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  handleForm: PropTypes.func.isRequired,
+  handleDynamicForm: PropTypes.func.isRequired,
+  handleDeleteForm: PropTypes.func.isRequired,
+  handleDropdown: PropTypes.func.isRequired,
   currentPage: PropTypes.string.isRequired,
   formData: PropTypes.object.isRequired,
 };

@@ -8,15 +8,15 @@ class BasicInfo extends Component {
     this.state = {
       animate: true,
     };
-    this.handleFirstName = this.props.handleChange.bind(this, 'basicInfo', 'firstName');
-    this.handleLastName = this.props.handleChange.bind(this, 'basicInfo', 'lastName');
-    this.handleMidInitial = this.props.handleChange.bind(this, 'basicInfo', 'middleInitial');
-    this.handleNickname = this.props.handleChange.bind(this, 'basicInfo', 'nickname');
-    this.handleStudentNo = this.props.handleChange.bind(this, 'basicInfo', 'studentNumber');
-    this.handleBirthday = this.props.handleChange.bind(this, 'basicInfo', 'birthday');
-    this.handleContactNo = this.props.handleChange.bind(this, 'basicInfo', 'contactNumber');
-    this.handleEmail = this.props.handleChange.bind(this, 'basicInfo', 'email');
-    this.handleAddress = this.props.handleChange.bind(this, 'basicInfo', 'address');
+    this.handleFirstName = this.props.handleForm.bind(this, 'basicInfo', 'firstName');
+    this.handleLastName = this.props.handleForm.bind(this, 'basicInfo', 'lastName');
+    this.handleMidInitial = this.props.handleForm.bind(this, 'basicInfo', 'middleInitial');
+    this.handleNickname = this.props.handleForm.bind(this, 'basicInfo', 'nickname');
+    this.handleStudentNo = this.props.handleForm.bind(this, 'basicInfo', 'studentNumber');
+    this.handleBirthday = this.props.handleForm.bind(this, 'basicInfo', 'birthday');
+    this.handleContactNo = this.props.handleForm.bind(this, 'basicInfo', 'contactNumber');
+    this.handleEmail = this.props.handleForm.bind(this, 'basicInfo', 'email');
+    this.handleAddress = this.props.handleForm.bind(this, 'basicInfo', 'address');
   }
 
   componentDidMount() {
@@ -50,7 +50,7 @@ class BasicInfo extends Component {
 BasicInfo.propTypes = {
   handlePressPrev: PropTypes.func.isRequired,
   handlePressNext: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  handleForm: PropTypes.func.isRequired,
   basicInfo: PropTypes.object.isRequired,
 };
 

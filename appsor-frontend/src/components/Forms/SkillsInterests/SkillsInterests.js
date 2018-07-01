@@ -11,9 +11,9 @@ class SkillsInterests extends Component {
     };
     this.createOptions = this.createOptions.bind(this);
     this.updateOptions = this.updateOptions.bind(this);
-    this.handleSkills = this.props.handleChange.bind(this, 'skillsInterests', 'skills');
-    this.handleInterests = this.props.handleChange.bind(this, 'skillsInterests', 'interests');
-    this.handleExperience = this.props.handleChange.bind(this, 'skillsInterests', 'experience');
+    this.handleSkills = this.props.handleDropdown.bind(this, 'skillsInterests', 'skills');
+    this.handleInterests = this.props.handleDropdown.bind(this, 'skillsInterests', 'interests');
+    this.handleExperience = this.props.handleDropdown.bind(this, 'skillsInterests', 'experience');
   }
 
   createOptions(list) {
@@ -58,7 +58,7 @@ class SkillsInterests extends Component {
 SkillsInterests.propTypes = {
   handlePressPrev: PropTypes.func.isRequired,
   handlePressNext: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  handleDropdown: PropTypes.func.isRequired,
   skillsInterests: PropTypes.object.isRequired,
 };
 
