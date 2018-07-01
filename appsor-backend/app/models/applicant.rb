@@ -1,6 +1,8 @@
 class Applicant < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_NAME_REGEX = /[\w\s]+/i
+  VALID_STUDENT_NUMBER_REGEX = /20\d{2}-\d{5}/i
+  VALID_CONTACT_NUMBER_REGEX = /\(\+63\) 9\d{2} \d{3} \d{4}/i
 
   has_many :affiliations, dependent: :delete_all
   has_many :committee_choices, dependent: :delete_all
@@ -24,7 +26,7 @@ class Applicant < ApplicationRecord
   validates :student_number,
             presence: true,
             uniqueness: { case_sensitive: false },
-            numericality: { only_integer: true }
+            format: { with: VALID_STUDENT_NUMBER_REGEX }
 
   validates :email,
             presence: true,
@@ -33,7 +35,8 @@ class Applicant < ApplicationRecord
 
   validates :contact_number,
             presence: true,
-            uniqueness: { case_sensitive: false }
+            uniqueness: { case_sensitive: false },
+            format: { with: VALID_CONTACT_NUMBER_REGEX }
 
   def name
     "#{self.last_name}, #{self.first_name} #{self.middle_initial}"
