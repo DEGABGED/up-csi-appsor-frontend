@@ -53,7 +53,8 @@ class Page extends Component {
           <Committee
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
-
+            handleDynamicForm={this.props.handleDynamicForm}
+            handleDynamicDropdown={this.props.handleDynamicDropdown}
             committees={this.props.formData.committees}
           />
         );
@@ -89,6 +90,7 @@ Page.propTypes = {
   handleForm: PropTypes.func.isRequired,
   handleDynamicForm: PropTypes.func.isRequired,
   handleDeleteForm: PropTypes.func.isRequired,
+  handleDynamicDropdown: PropTypes.func.isRequired,
   handleDropdown: PropTypes.func.isRequired,
   currentPage: PropTypes.string.isRequired,
   formData: PropTypes.object.isRequired,

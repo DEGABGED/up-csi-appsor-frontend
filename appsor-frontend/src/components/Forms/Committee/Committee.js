@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Form from './presentational/Form';
+import defaultOptions from './presentational/defaultOptions';
 
 class Committee extends Component {
   constructor(props) {
@@ -7,14 +9,40 @@ class Committee extends Component {
     this.state = {
 
     };
+    this.updateOptions = this.updateOptions.bind(this);
+    this.renderForms = this.renderForms.bind(this);
+    this.handleCommittee = this.props.handleDynamicDropdown.bind(this, 'committees', 'committee_id');
+    this.handleReason = this.props.handleDynamicForm.bind(this, 'committees', 'reason');
+  }
+
+  updateOptions() {
+    for (let id = 0; id < 3; id++) {
+      if (this.props.committees[id].committee_id) {
+        defaultOptions[this.props.committees[id].committee_id - 1].disabled = true;
+      }
+    }
+    return defaultOptions;
+  }
+
+  renderForms() {
+    const forms = [];
+    for (let id = 0; id < 3; id++) {
+      forms.push(<Form
+        key={id}
+        formID={id}
+        options={this.updateOptions()}
+        committees={this.props.committees[id]}
+        handleCommittee={this.handleCommittee}
+        handleReason={this.handleReason}
+      />);
+    }
+    return forms;
   }
 
   render() {
     return (
       <div>
-        <header>
-          <h1>Welcome to Committee</h1>
-        </header>
+        { this.renderForms() }
         <button onClick={this.props.handlePressPrev}>Prev Page!</button>
         <button onClick={this.props.handlePressNext}>Next Page!</button>
       </div>
@@ -25,6 +53,9 @@ class Committee extends Component {
 Committee.propTypes = {
   handlePressPrev: PropTypes.func.isRequired,
   handlePressNext: PropTypes.func.isRequired,
+  handleDynamicForm: PropTypes.func.isRequired,
+  handleDynamicDropdown: PropTypes.func.isRequired,
+  committees: PropTypes.array.isRequired,
 };
 
 export default Committee;

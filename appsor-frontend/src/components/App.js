@@ -13,6 +13,7 @@ class App extends Component {
     this.handleForm = this.handleForm.bind(this);
     this.handleDynamicForm = this.handleDynamicForm.bind(this);
     this.handleDeleteForm = this.handleDeleteForm.bind(this);
+    this.handleDynamicDropdown = this.handleDynamicDropdown.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
   }
 
@@ -74,6 +75,20 @@ class App extends Component {
     }));
   }
 
+  handleDynamicDropdown(page, field, form, event, data) {
+    const { value } = data;
+    this.setState(prevState => ({
+      formData: {
+        ...prevState.formData,
+        [page]: update(prevState.formData[`${page}`], {
+          [form]: {
+            [field]: { $set: value },
+          },
+        }),
+      },
+    }));
+  }
+
   handleDropdown(page, field, event, data) {
     const { value } = data;
     this.setState(prevState => ({
@@ -103,6 +118,7 @@ class App extends Component {
         handleForm={this.handleForm}
         handleDynamicForm={this.handleDynamicForm}
         handleDeleteForm={this.handleDeleteForm}
+        handleDynamicDropdown={this.handleDynamicDropdown}
         handleDropdown={this.handleDropdown}
       />
     );
