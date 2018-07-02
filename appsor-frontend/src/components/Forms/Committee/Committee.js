@@ -15,6 +15,7 @@ class Committee extends Component {
     this.handleReason = this.props.handleDynamicForm.bind(this, 'committees', 'reason');
   }
 
+  // The logic to disable duplicate choices for the Dropdown
   updateOptions() {
     for (let id = 0; id < 3; id++) {
       if (this.props.committees[id].committee_id) {
@@ -24,6 +25,7 @@ class Committee extends Component {
     return defaultOptions;
   }
 
+  // To avoid repeating code, this iterates through all the Froms
   renderForms() {
     const forms = [];
     for (let id = 0; id < 3; id++) {

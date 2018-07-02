@@ -4,38 +4,39 @@ import TextField from '@material-ui/core/TextField';
 import { ContactNoMask, StudentNoMask } from './TextMask';
 
 function View(props) {
-  const contactNoFormat = '(+63) 9           ';
-  const studentNoFormat = '20  -     ';
+  const contactNoFormat = '(+63) 9';
+  const studentNoFormat = '20  -';
+  const defaultDate = '1999-01-01';
 
   return (
     <div>
       <TextField
         label="First Name"
-        defaultValue={props.basicInfo.firstName ? props.basicInfo.firstName : ''}
+        value={props.basicInfo.firstName || ''}
         onChange={props.handleFirstName}
       />
 
       <TextField
         label="Last Name"
-        defaultValue={props.basicInfo.lastName ? props.basicInfo.lastName : ''}
+        value={props.basicInfo.lastName || ''}
         onChange={props.handleLastName}
       />
 
       <TextField
         label="Middle Initial"
-        defaultValue={props.basicInfo.middleInitial ? props.basicInfo.middleInitial : ''}
+        value={props.basicInfo.middleInitial || ''}
         onChange={props.handleMidInitial}
       />
 
       <TextField
         label="Nickname"
-        defaultValue={props.basicInfo.nickname ? props.basicInfo.nickname : ''}
+        value={props.basicInfo.nickname || ''}
         onChange={props.handleNickname}
       />
 
       <TextField
         label="Student Number"
-        value={studentNoFormat}
+        value={props.basicInfo.studentNumber || studentNoFormat}
         onChange={props.handleStudentNo}
         InputProps={{
           inputComponent: StudentNoMask,
@@ -45,13 +46,13 @@ function View(props) {
       <TextField
         label="Birthday"
         type="date"
-        defaultValue={props.basicInfo.birthday ? props.basicInfo.birthday : '1999-01-01'}
+        value={props.basicInfo.birthday || defaultDate}
         onChange={props.handleBirthday}
       />
 
       <TextField
         label="Contact Number"
-        value={contactNoFormat}
+        value={props.basicInfo.contactNumber || contactNoFormat}
         onChange={props.handleContactNo}
         InputProps={{
           inputComponent: ContactNoMask,
@@ -60,13 +61,13 @@ function View(props) {
 
       <TextField
         label="Email"
-        defaultValue={props.basicInfo.email ? props.basicInfo.email : ''}
+        value={props.basicInfo.email || ''}
         onChange={props.handleEmail}
       />
 
       <TextField
         label="Address"
-        defaultValue={props.basicInfo.address ? props.basicInfo.address : ''}
+        value={props.basicInfo.address || ''}
         onChange={props.handleAddress}
       />
     </div>

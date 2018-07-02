@@ -15,7 +15,7 @@ class Page extends Component {
 
   renderPage() {
     let page;
-    switch (this.props.currentPage) {
+    switch (this.props.data.currentPage) {
       case 'Home': {
         page = (
           <Home
@@ -32,7 +32,7 @@ class Page extends Component {
             handlePressNext={this.props.handlePressNext}
             handleDynamicForm={this.props.handleDynamicForm}
             handleDeleteForm={this.props.handleDeleteForm}
-            affiliations={this.props.formData.affiliations}
+            affiliations={this.props.data.affiliations}
           />
         );
         break;
@@ -43,7 +43,7 @@ class Page extends Component {
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
             handleForm={this.props.handleForm}
-            basicInfo={this.props.formData.basicInfo}
+            basicInfo={this.props.data.basicInfo}
           />
         );
         break;
@@ -55,7 +55,7 @@ class Page extends Component {
             handlePressNext={this.props.handlePressNext}
             handleDynamicForm={this.props.handleDynamicForm}
             handleDynamicDropdown={this.props.handleDynamicDropdown}
-            committees={this.props.formData.committees}
+            committees={this.props.data.committees}
           />
         );
         break;
@@ -66,7 +66,7 @@ class Page extends Component {
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
             handleDropdown={this.props.handleDropdown}
-            skillsInterests={this.props.formData.skillsInterests}
+            skillsInterests={this.props.data.skillsInterests}
           />
         );
         break;
@@ -92,8 +92,7 @@ Page.propTypes = {
   handleDeleteForm: PropTypes.func.isRequired,
   handleDynamicDropdown: PropTypes.func.isRequired,
   handleDropdown: PropTypes.func.isRequired,
-  currentPage: PropTypes.string.isRequired,
-  formData: PropTypes.object.isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default Page;

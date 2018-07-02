@@ -16,17 +16,21 @@ class Affiliations extends Component {
     this.handleDuties = this.props.handleDynamicForm.bind(this, 'affiliations', 'duties');
   }
 
+  // Add Forms to the UI (the state handles the
+  //  additional form through a loop)
   addForm() {
     this.setState({ formsCount: this.state.formsCount + 1 });
   }
 
-  deleteForm(id) {
+  // Deletes the ith form from the UI
+  deleteForm(formID) {
     this.setState(
       { formsCount: this.state.formsCount - 1 },
-      this.props.handleDeleteForm('affiliations', id),
+      this.props.handleDeleteForm('affiliations', formID),
     );
   }
 
+  // Render all the Forms
   renderForms() {
     const forms = [];
     for (let id = 0; id < this.state.formsCount; id++) {
