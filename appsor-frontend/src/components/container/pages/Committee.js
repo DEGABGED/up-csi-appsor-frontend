@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Form from './presentational/Form';
-import defaultOptions from './presentational/defaultOptions';
+import CommitteeForm from '../../presentational/forms/CommitteeForm';
+import { committeeOptions } from '../../presentational/helper/defaultOptions';
 
 class Committee extends Component {
   constructor(props) {
@@ -19,17 +19,17 @@ class Committee extends Component {
   updateOptions() {
     for (let id = 0; id < 3; id++) {
       if (this.props.committees[id].committee_id) {
-        defaultOptions[this.props.committees[id].committee_id - 1].disabled = true;
+        committeeOptions[this.props.committees[id].committee_id - 1].disabled = true;
       }
     }
-    return defaultOptions;
+    return committeeOptions;
   }
 
   // To avoid repeating code, this iterates through all the Froms
   renderForms() {
     const forms = [];
     for (let id = 0; id < 3; id++) {
-      forms.push(<Form
+      forms.push(<CommitteeForm
         key={id}
         formID={id}
         options={this.updateOptions()}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Form from './presentational/Form';
+import AffiliationsForm from '../../presentational/forms/AffiliationsForm';
 
 class Affiliations extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class Affiliations extends Component {
   renderForms() {
     const forms = [];
     for (let id = 0; id < this.state.formsCount; id++) {
-      forms.push(<Form
+      forms.push(<AffiliationsForm
         key={id}
         formID={id}
         affiliations={this.props.affiliations[id]

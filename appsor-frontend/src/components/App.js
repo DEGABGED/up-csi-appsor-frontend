@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import update from 'immutability-helper';
-import Page from './Route/Page';
-import pages from './Route/pageorder';
-import initialState from './appstate';
+import Page from './container/helper/Page';
+import pages from './container/helper/pageorder';
+import initialState from './container/helper/appstate';
 
 class App extends Component {
   constructor(props) {

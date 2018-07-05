@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
-import { ContactNoMask, StudentNoMask } from './TextMask';
+import { ContactNoMask, StudentNoMask } from '../helper/TextMask';
 
 function View(props) {
   const contactNoFormat = '(+63) 9';

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Home from '../Home/Home';
-import Result from '../Result/Result';
-import Affiliations from '../Forms/Affiliations/Affiliations';
-import BasicInfo from '../Forms/BasicInfo/BasicInfo';
-import Committee from '../Forms/Committee/Committee';
-import SkillsInterests from '../Forms/SkillsInterests/SkillsInterests';
+import Home from '../pages/Home';
+import Result from '../pages/Result';
+import Affiliations from '../pages/Affiliations';
+import BasicInfo from '../pages/BasicInfo';
+import Committee from '../pages/Committee';
+import SkillsInterests from '../pages/SkillsInterests';
 
 class Page extends Component {
   constructor(props) {

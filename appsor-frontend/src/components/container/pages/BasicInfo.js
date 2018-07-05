@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import View from './presentational/View';
+import BasicInfoView from '../../presentational/view/BasicInfoView';
 
 class BasicInfo extends Component {
   constructor(props) {
@@ -28,7 +28,7 @@ class BasicInfo extends Component {
   render() {
     return (
       <div>
-        <View
+        <BasicInfoView
           basicInfo={this.props.basicInfo}
           handleFirstName={this.handleFirstName}
           handleLastName={this.handleLastName}

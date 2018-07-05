@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 
-function Form(props) {
+function AffiliationsForm(props) {
   return (
     <div>
       <TextField
@@ -28,7 +28,7 @@ function Form(props) {
   );
 }
 
-Form.propTypes = {
+AffiliationsForm.propTypes = {
   formID: PropTypes.number.isRequired,
   affiliations: PropTypes.object.isRequired,
   deleteForm: PropTypes.func.isRequired,
@@ -37,4 +37,4 @@ Form.propTypes = {
   handleDuties: PropTypes.func.isRequired,
 };
 
-export default Form;
+export default AffiliationsForm;

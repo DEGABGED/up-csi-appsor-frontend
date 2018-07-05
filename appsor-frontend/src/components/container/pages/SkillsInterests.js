@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import View from './presentational/View';
-import defaultOptions from './presentational/defaultOptions';
+import SkillsInterestsView from '../../presentational/view/SkillsInterestsView';
+import { skillsInterestsOptions } from '../../presentational/helper/defaultOptions';
 
 class SkillsInterests extends Component {
   constructor(props) {
@@ -24,24 +24,26 @@ class SkillsInterests extends Component {
     const { skills, interests, experience } = this.props.skillsInterests;
     return {
       skills: !skills.length
-        || defaultOptions.skills.includes(skills[skills.length - 1])
-        ? this.createOptions(defaultOptions.skills)
-        : this.createOptions([...defaultOptions.skills, skills[skills.length - 1]]),
+        || skillsInterestsOptions.skills.includes(skills[skills.length - 1])
+        ? this.createOptions(skillsInterestsOptions.skills)
+        : this.createOptions([...skillsInterestsOptions.skills, skills[skills.length - 1]]),
       interests: !interests.length
-        || defaultOptions.interests.includes(interests[interests.length - 1])
-        ? this.createOptions(defaultOptions.interests)
-        : this.createOptions([...defaultOptions.interests, interests[interests.length - 1]]),
+        || skillsInterestsOptions.interests.includes(interests[interests.length - 1])
+        ? this.createOptions(skillsInterestsOptions.interests)
+        : this.createOptions([...skillsInterestsOptions.interests,
+          interests[interests.length - 1]]),
       experience: !experience.length
-        || defaultOptions.experience.includes(experience[experience.length - 1])
-        ? this.createOptions(defaultOptions.experience)
-        : this.createOptions([...defaultOptions.experience, experience[experience.length - 1]]),
+        || skillsInterestsOptions.experience.includes(experience[experience.length - 1])
+        ? this.createOptions(skillsInterestsOptions.experience)
+        : this.createOptions([...skillsInterestsOptions.experience,
+          experience[experience.length - 1]]),
     };
   }
 
   render() {
     return (
       <div>
-        <View
+        <SkillsInterestsView
           options={this.updateOptions()}
           skillsInterests={this.props.skillsInterests}
           handleSkills={this.handleSkills}
