@@ -17,6 +17,10 @@ class Committee extends Component {
 
   // The logic to disable duplicate choices for the Dropdown
   updateOptions() {
+    // Enable all options first to fix bug of all disabled option
+    for (let id = 0; id < 6; id++) {
+      committeeOptions[id].disabled = false;
+    }
     for (let id = 0; id < 3; id++) {
       if (this.props.committees[id].committee_id) {
         committeeOptions[this.props.committees[id].committee_id - 1].disabled = true;
