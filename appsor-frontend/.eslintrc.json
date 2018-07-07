@@ -2,6 +2,7 @@
     "extends": "airbnb",
     "rules": {
         "no-plusplus": "off",
+        "function-paren-newline": "off",
         "class-methods-use-this": "off",
         "react/no-did-mount-set-state": "off",
         "react/forbid-prop-types": "off",

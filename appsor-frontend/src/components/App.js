@@ -42,11 +42,13 @@ class App extends Component {
     // For updating previously built forms
     if (this.state[`${page}`][form]) {
       this.setState(prevState => ({
-        [page]: update(prevState[`${page}`], {
-          [form]: {
-            [field]: { $set: value },
+        [page]: update(
+          prevState[`${page}`], {
+            [form]: {
+              [field]: { $set: value },
+            },
           },
-        }),
+        ),
       }));
     // For creating new forms
     } else {
