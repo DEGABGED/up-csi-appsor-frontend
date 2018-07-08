@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Home from '../Home/Home';
-import Result from '../Result/Result';
-import Affiliations from '../Forms/Affiliations/Affiliations';
-import BasicInfo from '../Forms/BasicInfo/BasicInfo';
-import Committee from '../Forms/Committee/Committee';
-import SkillsInterests from '../Forms/SkillsInterests/SkillsInterests';
+import Home from '../pages/Home';
+import Result from '../pages/Result';
+import Affiliations from '../pages/Affiliations';
+import BasicInfo from '../pages/BasicInfo';
+import Committee from '../pages/Committee';
+import SkillsInterests from '../pages/SkillsInterests';
 
 class Page extends Component {
   constructor(props) {
@@ -15,13 +15,12 @@ class Page extends Component {
 
   renderPage() {
     let page;
-    switch (this.props.currentPage) {
+    switch (this.props.data.currentPage) {
       case 'Home': {
         page = (
           <Home
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
-            handleChange={this.props.handleChange}
           />
         );
         break;
@@ -31,7 +30,9 @@ class Page extends Component {
           <Affiliations
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
-            handleChange={this.props.handleChange}
+            handleDynamicForm={this.props.handleDynamicForm}
+            handleDeleteForm={this.props.handleDeleteForm}
+            affiliations={this.props.data.affiliations}
           />
         );
         break;
@@ -41,7 +42,8 @@ class Page extends Component {
           <BasicInfo
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
-            handleChange={this.props.handleChange}
+            handleForm={this.props.handleForm}
+            basicInfo={this.props.data.basicInfo}
           />
         );
         break;
@@ -51,7 +53,9 @@ class Page extends Component {
           <Committee
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
-            handleChange={this.props.handleChange}
+            handleDynamicForm={this.props.handleDynamicForm}
+            handleDynamicDropdown={this.props.handleDynamicDropdown}
+            committees={this.props.data.committees}
           />
         );
         break;
@@ -61,7 +65,8 @@ class Page extends Component {
           <SkillsInterests
             handlePressPrev={this.props.handlePressPrev}
             handlePressNext={this.props.handlePressNext}
-            handleChange={this.props.handleChange}
+            handleDropdown={this.props.handleDropdown}
+            skillsInterests={this.props.data.skillsInterests}
           />
         );
         break;
@@ -82,8 +87,12 @@ class Page extends Component {
 Page.propTypes = {
   handlePressPrev: PropTypes.func.isRequired,
   handlePressNext: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  currentPage: PropTypes.string.isRequired,
+  handleForm: PropTypes.func.isRequired,
+  handleDynamicForm: PropTypes.func.isRequired,
+  handleDeleteForm: PropTypes.func.isRequired,
+  handleDynamicDropdown: PropTypes.func.isRequired,
+  handleDropdown: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired,
 };
 
 export default Page;

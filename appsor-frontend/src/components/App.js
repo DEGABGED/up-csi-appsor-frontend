@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import Page from './Route/Page';
-import pages from './Route/pageorder';
+import update from 'immutability-helper';
+import Page from './container/helper/Page';
+import pages from './container/helper/pageorder';
+import initialState from './container/helper/appstate';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentPage: 'Home',
-      formData: {
-        basicInfo: null,
-        skillsInterests: null,
-        affiliations: null,
-        committee: null,
-      },
-    };
+    this.state = initialState;
     this.handlePressPrev = this.handlePressPrev.bind(this);
     this.handlePressNext = this.handlePressNext.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleForm = this.handleForm.bind(this);
+    this.handleDynamicForm = this.handleDynamicForm.bind(this);
+    this.handleDeleteForm = this.handleDeleteForm.bind(this);
+    this.handleDynamicDropdown = this.handleDynamicDropdown.bind(this);
+    this.handleDropdown = this.handleDropdown.bind(this);
   }
 
   handlePressPrev() {
@@ -27,14 +25,68 @@ class App extends Component {
     this.setState({ currentPage: pages.next().value });
   }
 
-  handleChange(data, page, field) {
+  // Used by BasicInfo
+  handleForm(page, field, event) {
+    const { target: { value } } = event;
     this.setState(prevState => ({
-      formData: {
-        ...prevState.formData,
-        [page]: {
-          ...prevState.formData[`${page}`],
-          [field]: data,
+      [page]: {
+        ...prevState[`${page}`],
+        [field]: value,
+      },
+    }));
+  }
+
+  // Used by Affiliations Page Dynamic Form
+  handleDynamicForm(page, field, form, event) {
+    const { target: { value } } = event;
+    // For updating previously built forms
+    if (this.state[`${page}`][form]) {
+      this.setState(prevState => ({
+        [page]: update(
+          prevState[`${page}`], {
+            [form]: {
+              [field]: { $set: value },
+            },
+          },
+        ),
+      }));
+    // For creating new forms
+    } else {
+      this.setState(prevState => ({
+        [page]: [
+          ...prevState[`${page}`],
+          { [field]: value },
+        ],
+      }));
+    }
+  }
+
+  // Used by Affiliations for Deletion of Dynamic Forms
+  handleDeleteForm(page, formID) {
+    const value = this.state[`${page}`].slice();
+    value.splice(formID, 1);
+    this.setState({ [page]: value });
+  }
+
+  // Used by Committee
+  handleDynamicDropdown(page, field, form, event, data) {
+    const { value } = data;
+    this.setState(prevState => ({
+      [page]: update(prevState[`${page}`], {
+        [form]: {
+          [field]: { $set: value },
         },
+      }),
+    }));
+  }
+
+  // Used by skillsInterest
+  handleDropdown(page, field, event, data) {
+    const { value } = data;
+    this.setState(prevState => ({
+      [page]: {
+        ...prevState[`${page}`],
+        [field]: value,
       },
     }));
   }
@@ -45,13 +97,17 @@ class App extends Component {
   // }
 
   render() {
-    console.log(JSON.stringify(this.state.formData))
+    console.log(this.state);
     return (
       <Page
+        data={this.state}
         handlePressPrev={this.handlePressPrev}
         handlePressNext={this.handlePressNext}
-        handleChange={this.handleChange}
-        currentPage={this.state.currentPage}
+        handleForm={this.handleForm}
+        handleDynamicForm={this.handleDynamicForm}
+        handleDeleteForm={this.handleDeleteForm}
+        handleDynamicDropdown={this.handleDynamicDropdown}
+        handleDropdown={this.handleDropdown}
       />
     );
   }
