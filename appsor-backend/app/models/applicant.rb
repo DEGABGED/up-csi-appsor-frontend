@@ -41,4 +41,8 @@ class Applicant < ApplicationRecord
   def name
     "#{self.last_name}, #{self.first_name} #{self.middle_initial}"
   end
+
+  def ordered_committee_choices
+    self.committee_choices.sort_by {|obj| obj.priority}
+  end
 end
