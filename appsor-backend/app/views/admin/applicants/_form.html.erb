@@ -1,0 +1,62 @@
+<%= form_with(model: [:admin, applicant], local: true) do |form| %>
+  <% if applicant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(applicant.errors.count, "error") %> prohibited this applicant from being saved:</h2>
+
+      <ul>
+      <% applicant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :last_name %><br />
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :first_name %><br />
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :middle_initial %><br />
+    <%= form.text_field :middle_initial %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nickname %><br />
+    <%= form.text_field :nickname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :birthday %><br />
+    <%= form.date_field :birthday %>
+  </div>
+
+  <div class="field">
+    <%= form.label :student_number %><br />
+    <%= form.text_field :student_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %><br />
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contact_number %><br />
+    <%= form.text_field :contact_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %><br />
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
