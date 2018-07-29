@@ -1,0 +1,8 @@
+<h3><%= @committee.name %> Committee</h3>
+<div>
+  <p>
+    <%= @committee.desc %>
+  </p>
+</div>
+<%= link_to 'Edit', edit_admin_committee_path(@committee) %> |
+<%= link_to 'Back', admin_committees_path %>
