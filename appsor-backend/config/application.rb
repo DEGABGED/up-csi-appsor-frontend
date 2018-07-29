@@ -17,6 +17,6 @@ module AppsorBackend
     config.autoload_paths << Rails.root.join('lib', 'handlers')
 
     # Niddleware for converting JSON between camelCase and snake_case
-    config.middleware.use OliveBranch::Middleware
+    config.middleware.use OliveBranch::Middleware, inflection: 'camel'
   end
 end

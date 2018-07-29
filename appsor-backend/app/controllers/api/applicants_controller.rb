@@ -2,8 +2,6 @@ module Api
   class ApplicantsController < ApiController
     include ApplicantHandler
 
-    before_action :set_applicant, only: [:show, :update, :destroy]
-
     def create
       @applicant = Applicant.new(applicant_params)
 
@@ -12,28 +10,6 @@ module Api
       else
         json_response(@applicant.errors, :unprocessable_entity)
       end
-    end
-
-    def index
-      @applicants = Applicant.all
-      json_response(@applicants)
-    end
-
-    def show
-      json_response(@applicant)
-    end
-
-    def update
-      if @applicant.update(applicant_params)
-        head :no_content
-      else
-        json_response(@applicant.errors, :unprocessable_entity)
-      end
-    end
-
-    def destroy
-      @applicant.destroy
-      head :no_content
     end
 
     private
@@ -57,10 +33,6 @@ module Api
           :committees => [ :priority, :committee_id, :reason ]
         )
       )
-    end
-
-    def set_applicant
-      @applicant = Applicant.find(params[:id])
     end
   end
 end
