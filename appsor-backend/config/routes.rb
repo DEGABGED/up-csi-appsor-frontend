@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admins
+  devise_for :admins, path: 'admin'
 
   namespace :api do
     resources :applicants, only: [:create]
