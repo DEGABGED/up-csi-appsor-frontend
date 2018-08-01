@@ -18,18 +18,13 @@ class Page extends Component {
     switch (this.props.data.currentPage) {
       case 'Home': {
         page = (
-          <Home
-            handlePressPrev={this.props.handlePressPrev}
-            handlePressNext={this.props.handlePressNext}
-          />
+          <Home />
         );
         break;
       }
       case 'Affiliations': {
         page = (
           <Affiliations
-            handlePressPrev={this.props.handlePressPrev}
-            handlePressNext={this.props.handlePressNext}
             handleDynamicForm={this.props.handleDynamicForm}
             handleDeleteForm={this.props.handleDeleteForm}
             affiliations={this.props.data.affiliations}
@@ -40,8 +35,6 @@ class Page extends Component {
       case 'BasicInfo': {
         page = (
           <BasicInfo
-            handlePressPrev={this.props.handlePressPrev}
-            handlePressNext={this.props.handlePressNext}
             handleForm={this.props.handleForm}
             basicInfo={this.props.data.basicInfo}
           />
@@ -51,8 +44,6 @@ class Page extends Component {
       case 'Committee': {
         page = (
           <Committee
-            handlePressPrev={this.props.handlePressPrev}
-            handlePressNext={this.props.handlePressNext}
             handleDynamicForm={this.props.handleDynamicForm}
             handleDynamicDropdown={this.props.handleDynamicDropdown}
             committees={this.props.data.committees}
@@ -63,8 +54,6 @@ class Page extends Component {
       case 'SkillsInterests': {
         page = (
           <SkillsInterests
-            handlePressPrev={this.props.handlePressPrev}
-            handlePressNext={this.props.handlePressNext}
             handleDropdown={this.props.handleDropdown}
             skillsInterests={this.props.data.skillsInterests}
           />
@@ -80,13 +69,11 @@ class Page extends Component {
   }
 
   render() {
-    return <div>{this.renderPage()}</div>;
+    return <div>{this.renderPage()}<br /></div>;
   }
 }
 
 Page.propTypes = {
-  handlePressPrev: PropTypes.func.isRequired,
-  handlePressNext: PropTypes.func.isRequired,
   handleForm: PropTypes.func.isRequired,
   handleDynamicForm: PropTypes.func.isRequired,
   handleDeleteForm: PropTypes.func.isRequired,

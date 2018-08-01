@@ -53,16 +53,12 @@ class Affiliations extends Component {
       <div>
         { this.renderForms() }
         <button onClick={this.addForm}>Add New Org</button>
-        <button onClick={this.props.handlePressPrev}>Prev Page!</button>
-        <button onClick={this.props.handlePressNext}>Next Page!</button>
       </div>
     );
   }
 }
 
 Affiliations.propTypes = {
-  handlePressPrev: PropTypes.func.isRequired,
-  handlePressNext: PropTypes.func.isRequired,
   handleDynamicForm: PropTypes.func.isRequired,
   handleDeleteForm: PropTypes.func.isRequired,
   affiliations: PropTypes.array.isRequired,

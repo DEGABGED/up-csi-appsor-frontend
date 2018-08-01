@@ -8,21 +8,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = initialState;
-    this.handlePressPrev = this.handlePressPrev.bind(this);
-    this.handlePressNext = this.handlePressNext.bind(this);
     this.handleForm = this.handleForm.bind(this);
     this.handleDynamicForm = this.handleDynamicForm.bind(this);
     this.handleDeleteForm = this.handleDeleteForm.bind(this);
     this.handleDynamicDropdown = this.handleDynamicDropdown.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
-  }
-
-  handlePressPrev() {
-    this.setState({ currentPage: pages.prev().value });
-  }
-
-  handlePressNext() {
-    this.setState({ currentPage: pages.next().value });
   }
 
   // Used by BasicInfo
@@ -96,19 +86,36 @@ class App extends Component {
 
   // }
 
-  render() {
-    console.log(this.state);
-    return (
-      <Page
-        data={this.state}
-        handlePressPrev={this.handlePressPrev}
-        handlePressNext={this.handlePressNext}
+  // Display all the pages in the same page (no more routing)
+  renderPages() {
+    const renderedPages = [];
+    let page = null;
+    for (page of pages) {
+      renderedPages.push(
+        <Page
+        key={page}
+        data={{
+          ...this.state,
+          currentPage: page
+        }}
         handleForm={this.handleForm}
         handleDynamicForm={this.handleDynamicForm}
         handleDeleteForm={this.handleDeleteForm}
         handleDynamicDropdown={this.handleDynamicDropdown}
         handleDropdown={this.handleDropdown}
-      />
+        />
+      );
+    }
+
+    return renderedPages;
+  }
+
+  render() {
+    console.log(this.state);
+    return (
+      <div>
+      {this.renderPages()}
+      </div>
     );
   }
 }
