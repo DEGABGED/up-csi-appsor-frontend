@@ -31,6 +31,8 @@ class Affiliations extends Component {
   }
 
   // Render all the Forms
+  // The handleChange function here makes sure that only the
+  //    relevant slice of the values is edited
   renderForms() {
     return this.props.affiliations.map((m, i) => (
       <AffiliationsForm
