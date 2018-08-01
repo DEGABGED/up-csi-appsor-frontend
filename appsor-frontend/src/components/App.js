@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import update from 'immutability-helper';
-import Page from './container/helper/Page';
+
+import Home from './container/pages/Home';
+import Affiliations from './container/pages/Affiliations';
+import BasicInfo from './container/pages/BasicInfo';
+import Committee from './container/pages/Committee';
+import SkillsInterests from './container/pages/SkillsInterests';
+import Result from './container/pages/Result';
+
 import pages from './container/helper/pageorder';
 import initialState from './container/helper/appstate';
 
@@ -86,35 +93,35 @@ class App extends Component {
 
   // }
 
-  // Display all the pages in the same page (no more routing)
-  renderPages() {
-    const renderedPages = [];
-    let page = null;
-    for (page of pages) {
-      renderedPages.push(
-        <Page
-        key={page}
-        data={{
-          ...this.state,
-          currentPage: page
-        }}
-        handleForm={this.handleForm}
-        handleDynamicForm={this.handleDynamicForm}
-        handleDeleteForm={this.handleDeleteForm}
-        handleDynamicDropdown={this.handleDynamicDropdown}
-        handleDropdown={this.handleDropdown}
-        />
-      );
-    }
-
-    return renderedPages;
-  }
-
   render() {
     console.log(this.state);
     return (
       <div>
-      {this.renderPages()}
+        <Home />
+        <br />
+        <BasicInfo
+          handleForm={this.handleForm}
+          basicInfo={this.state.basicInfo}
+        />
+        <br />
+        <SkillsInterests
+          handleDropdown={this.handleDropdown}
+          skillsInterests={this.state.skillsInterests}
+        />
+        <br />
+        <Affiliations
+          handleDynamicForm={this.handleDynamicForm}
+          handleDeleteForm={this.handleDeleteForm}
+          affiliations={this.state.affiliations}
+        />
+        <br />
+        <Committee
+          handleDynamicForm={this.handleDynamicForm}
+          handleDynamicDropdown={this.handleDynamicDropdown}
+          committees={this.state.committees}
+        />
+        <br />
+        <Result />
       </div>
     );
   }
