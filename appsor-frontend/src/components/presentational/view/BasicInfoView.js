@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { ContactNoMask, StudentNoMask } from '../helper/TextMask';
+import { Field } from 'formik';
 
 function View(props) {
   const contactNoFormat = '(+63) 9';
@@ -12,32 +13,37 @@ function View(props) {
     <div>
       <TextField
         label="First Name"
+        name="firstName"
         value={props.basicInfo.firstName || ''}
-        onChange={props.handleFirstName}
+        onChange={props.handleChange}
       />
 
       <TextField
         label="Last Name"
+        name="lastName"
         value={props.basicInfo.lastName || ''}
-        onChange={props.handleLastName}
+        onChange={props.handleChange}
       />
 
       <TextField
         label="Middle Initial"
+        name="middleInitial"
         value={props.basicInfo.middleInitial || ''}
-        onChange={props.handleMidInitial}
+        onChange={props.handleChange}
       />
 
       <TextField
         label="Nickname"
+        name="nickname"
         value={props.basicInfo.nickname || ''}
-        onChange={props.handleNickname}
+        onChange={props.handleChange}
       />
 
       <TextField
         label="Student Number"
+        name="studentNumber"
         value={props.basicInfo.studentNumber || studentNoFormat}
-        onChange={props.handleStudentNo}
+        onChange={props.handleChange}
         InputProps={{
           inputComponent: StudentNoMask,
         }}
@@ -45,15 +51,17 @@ function View(props) {
 
       <TextField
         label="Birthday"
+        name="birthday"
         type="date"
         value={props.basicInfo.birthday || defaultDate}
-        onChange={props.handleBirthday}
+        onChange={props.handleChange}
       />
 
       <TextField
         label="Contact Number"
+        name="contactNumber"
         value={props.basicInfo.contactNumber || contactNoFormat}
-        onChange={props.handleContactNo}
+        onChange={props.handleChange}
         InputProps={{
           inputComponent: ContactNoMask,
         }}
@@ -61,14 +69,16 @@ function View(props) {
 
       <TextField
         label="Email"
+        name="email"
         value={props.basicInfo.email || ''}
-        onChange={props.handleEmail}
+        onChange={props.handleChange}
       />
 
       <TextField
         label="Address"
+        name="address"
         value={props.basicInfo.address || ''}
-        onChange={props.handleAddress}
+        onChange={props.handleChange}        
       />
     </div>
   );
@@ -76,15 +86,7 @@ function View(props) {
 
 View.propTypes = {
   basicInfo: PropTypes.object.isRequired,
-  handleFirstName: PropTypes.func.isRequired,
-  handleLastName: PropTypes.func.isRequired,
-  handleMidInitial: PropTypes.func.isRequired,
-  handleNickname: PropTypes.func.isRequired,
-  handleStudentNo: PropTypes.func.isRequired,
-  handleBirthday: PropTypes.func.isRequired,
-  handleContactNo: PropTypes.func.isRequired,
-  handleEmail: PropTypes.func.isRequired,
-  handleAddress: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default View;
