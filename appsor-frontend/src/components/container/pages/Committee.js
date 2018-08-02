@@ -49,16 +49,12 @@ class Committee extends Component {
     return (
       <div>
         { this.renderForms() }
-        <button onClick={this.props.handlePressPrev}>Prev Page!</button>
-        <button onClick={this.props.handlePressNext}>Next Page!</button>
       </div>
     );
   }
 }
 
 Committee.propTypes = {
-  handlePressPrev: PropTypes.func.isRequired,
-  handlePressNext: PropTypes.func.isRequired,
   handleDynamicForm: PropTypes.func.isRequired,
   handleDynamicDropdown: PropTypes.func.isRequired,
   committees: PropTypes.array.isRequired,

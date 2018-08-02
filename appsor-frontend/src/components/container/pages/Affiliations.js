@@ -5,47 +5,49 @@ import AffiliationsForm from '../../presentational/forms/AffiliationsForm';
 class Affiliations extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      formsCount: this.props.affiliations.length,
-    };
     this.addForm = this.addForm.bind(this);
     this.deleteForm = this.deleteForm.bind(this);
     this.renderForms = this.renderForms.bind(this);
-    this.handleOrgName = this.props.handleDynamicForm.bind(this, 'affiliations', 'orgName');
-    this.handlePosition = this.props.handleDynamicForm.bind(this, 'affiliations', 'position');
-    this.handleDuties = this.props.handleDynamicForm.bind(this, 'affiliations', 'duties');
   }
 
   // Add Forms to the UI (the state handles the
   //  additional form through a loop)
   addForm() {
-    this.setState({ formsCount: this.state.formsCount + 1 });
+    this.props.handleChange([
+      ...this.props.affiliations,
+      {
+        orgName: null,
+        position: null,
+        duties: null,
+      },
+    ]);
   }
 
   // Deletes the ith form from the UI
   deleteForm(formID) {
-    this.setState(
-      { formsCount: this.state.formsCount - 1 },
-      this.props.handleDeleteForm('affiliations', formID),
-    );
+    const value = this.props.affiliations.slice();
+    value.splice(formID, 1);
+    this.props.handleChange(value);
   }
 
   // Render all the Forms
+  // The handleChange function here makes sure that only the
+  //    relevant slice of the values is edited
   renderForms() {
-    const forms = [];
-    for (let id = 0; id < this.state.formsCount; id++) {
-      forms.push(<AffiliationsForm
-        key={id}
-        formID={id}
-        affiliations={this.props.affiliations[id]
-          || { orgName: null, position: null, duties: null }}
+    return this.props.affiliations.map((m, i) => (
+      <AffiliationsForm
+        key={i}
+        formID={i}
+        affiliations={m}
         deleteForm={this.deleteForm}
-        handleOrgName={this.handleOrgName}
-        handlePosition={this.handlePosition}
-        handleDuties={this.handleDuties}
-      />);
-    }
-    return forms;
+        handleChange={e => {
+          const { name, value } = e.currentTarget;
+          let newAffiliations = [...this.props.affiliations];
+          newAffiliations[i][name] = value;
+          this.props.handleChange(newAffiliations);
+        }}
+      />
+    ));
   }
 
   render() {
@@ -53,18 +55,13 @@ class Affiliations extends Component {
       <div>
         { this.renderForms() }
         <button onClick={this.addForm}>Add New Org</button>
-        <button onClick={this.props.handlePressPrev}>Prev Page!</button>
-        <button onClick={this.props.handlePressNext}>Next Page!</button>
       </div>
     );
   }
 }
 
 Affiliations.propTypes = {
-  handlePressPrev: PropTypes.func.isRequired,
-  handlePressNext: PropTypes.func.isRequired,
-  handleDynamicForm: PropTypes.func.isRequired,
-  handleDeleteForm: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
   affiliations: PropTypes.array.isRequired,
 };
 

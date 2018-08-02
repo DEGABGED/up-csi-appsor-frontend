@@ -50,16 +50,12 @@ class SkillsInterests extends Component {
           handleInterests={this.handleInterests}
           handleExperience={this.handleExperience}
         />
-        <button onClick={this.props.handlePressPrev}>Prev Page!</button>
-        <button onClick={this.props.handlePressNext}>Next Page!</button>
       </div>
     );
   }
 }
 
 SkillsInterests.propTypes = {
-  handlePressPrev: PropTypes.func.isRequired,
-  handlePressNext: PropTypes.func.isRequired,
   handleDropdown: PropTypes.func.isRequired,
   skillsInterests: PropTypes.object.isRequired,
 };

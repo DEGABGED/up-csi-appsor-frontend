@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import update from 'immutability-helper';
-import Page from './container/helper/Page';
+
+import Home from './container/pages/Home';
+import Affiliations from './container/pages/Affiliations';
+import BasicInfo from './container/pages/BasicInfo';
+import Committee from './container/pages/Committee';
+import SkillsInterests from './container/pages/SkillsInterests';
+import Result from './container/pages/Result';
+
 import pages from './container/helper/pageorder';
 import initialState from './container/helper/appstate';
 
@@ -8,21 +15,11 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = initialState;
-    this.handlePressPrev = this.handlePressPrev.bind(this);
-    this.handlePressNext = this.handlePressNext.bind(this);
     this.handleForm = this.handleForm.bind(this);
     this.handleDynamicForm = this.handleDynamicForm.bind(this);
     this.handleDeleteForm = this.handleDeleteForm.bind(this);
     this.handleDynamicDropdown = this.handleDynamicDropdown.bind(this);
     this.handleDropdown = this.handleDropdown.bind(this);
-  }
-
-  handlePressPrev() {
-    this.setState({ currentPage: pages.prev().value });
-  }
-
-  handlePressNext() {
-    this.setState({ currentPage: pages.next().value });
   }
 
   // Used by BasicInfo
@@ -99,16 +96,33 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
-      <Page
-        data={this.state}
-        handlePressPrev={this.handlePressPrev}
-        handlePressNext={this.handlePressNext}
-        handleForm={this.handleForm}
-        handleDynamicForm={this.handleDynamicForm}
-        handleDeleteForm={this.handleDeleteForm}
-        handleDynamicDropdown={this.handleDynamicDropdown}
-        handleDropdown={this.handleDropdown}
-      />
+      <div>
+        <Home />
+        <br />
+        <BasicInfo
+          handleForm={this.handleForm}
+          basicInfo={this.state.basicInfo}
+        />
+        <br />
+        <SkillsInterests
+          handleDropdown={this.handleDropdown}
+          skillsInterests={this.state.skillsInterests}
+        />
+        <br />
+        <Affiliations
+          handleDynamicForm={this.handleDynamicForm}
+          handleDeleteForm={this.handleDeleteForm}
+          affiliations={this.state.affiliations}
+        />
+        <br />
+        <Committee
+          handleDynamicForm={this.handleDynamicForm}
+          handleDynamicDropdown={this.handleDynamicDropdown}
+          committees={this.state.committees}
+        />
+        <br />
+        <Result />
+      </div>
     );
   }
 }

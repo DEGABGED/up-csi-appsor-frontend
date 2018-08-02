@@ -40,16 +40,12 @@ class BasicInfo extends Component {
           handleEmail={this.handleEmail}
           handleAddress={this.handleAddress}
         />
-        <button onClick={this.props.handlePressPrev}>Prev Page!</button>
-        <button onClick={this.props.handlePressNext}>Next Page!</button>
       </div>
     );
   }
 }
 
 BasicInfo.propTypes = {
-  handlePressPrev: PropTypes.func.isRequired,
-  handlePressNext: PropTypes.func.isRequired,
   handleForm: PropTypes.func.isRequired,
   basicInfo: PropTypes.object.isRequired,
 };
