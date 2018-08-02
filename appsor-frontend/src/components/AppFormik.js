@@ -16,7 +16,6 @@ import initialState from './container/helper/appstate';
 // if you plan to use a custom input handler, follow the format for Affiliations
 //    and implement your custom handler in the component itself
 const MainForm = ({
-  form,
   values,
   errors,
   touched,
