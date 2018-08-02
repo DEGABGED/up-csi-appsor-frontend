@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withFormik } from 'formik';
+import { withFormik, Form } from 'formik';
 import update from 'immutability-helper';
 
 import Home from './container/pages/Home';
@@ -43,7 +43,7 @@ const MainForm = ({
       }}
       affiliations={values.affiliations}
     />
-  </form>
+  </Form>
 );
 
 // add items here as necessary (validation, etc)
@@ -54,4 +54,3 @@ const ConnectedForm = withFormik({
 })(MainForm);
 
 export default ConnectedForm;
-
