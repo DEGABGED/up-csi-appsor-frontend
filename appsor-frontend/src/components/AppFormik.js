@@ -52,7 +52,7 @@ const MainForm = ({
       }}
       affiliations={values.affiliations}
     />
-  </Form>
+  </form>
 );
 
 // add items here as necessary (validation, etc)
