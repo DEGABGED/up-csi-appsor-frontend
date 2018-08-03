@@ -28,7 +28,8 @@ const MainForm = ({
 }) => (
   <form onSubmit={handleSubmit}>
     <SkillsInterests
-      handleChange={(field, event, { value }) => {
+      handleChange={(event, { value }) => {
+        const field = event.currentTarget.parentNode.parentNode.attributes.name.value;
         setFieldValue(`skillsInterests[${field}]`, value);
       }}
       skillsInterests={values.skillsInterests}

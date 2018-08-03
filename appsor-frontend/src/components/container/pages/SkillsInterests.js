@@ -4,13 +4,6 @@ import SkillsInterestsView from '../../presentational/view/SkillsInterestsView';
 import { skillsInterestsOptions } from '../../presentational/helper/defaultOptions';
 
 class SkillsInterests extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChangeSkills = this.props.handleChange.bind(this, 'skills');
-    this.handleChangeInterests = this.props.handleChange.bind(this, 'interests');
-    this.handleChangeExperience = this.props.handleChange.bind(this, 'experience');
-  }
-
   createOptions(list) {
     return list.map(item => ({ text: item, value: item }));
   }
@@ -41,9 +34,7 @@ class SkillsInterests extends Component {
         <SkillsInterestsView
           options={this.updateOptions()}
           skillsInterests={this.props.skillsInterests}
-          handleChangeSkills={this.handleChangeSkills}
-          handleChangeInterests={this.handleChangeInterests}
-          handleChangeExperience={this.handleChangeExperience}
+          handleChange={this.props.handleChange}
         />
       </div>
     );
