@@ -4,18 +4,6 @@ import SkillsInterestsView from '../../presentational/view/SkillsInterestsView';
 import { skillsInterestsOptions } from '../../presentational/helper/defaultOptions';
 
 class SkillsInterests extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-    this.createOptions = this.createOptions.bind(this);
-    this.updateOptions = this.updateOptions.bind(this);
-    this.handleSkills = this.props.handleDropdown.bind(this, 'skillsInterests', 'skills');
-    this.handleInterests = this.props.handleDropdown.bind(this, 'skillsInterests', 'interests');
-    this.handleExperience = this.props.handleDropdown.bind(this, 'skillsInterests', 'experience');
-  }
-
   createOptions(list) {
     return list.map(item => ({ text: item, value: item }));
   }
@@ -46,9 +34,7 @@ class SkillsInterests extends Component {
         <SkillsInterestsView
           options={this.updateOptions()}
           skillsInterests={this.props.skillsInterests}
-          handleSkills={this.handleSkills}
-          handleInterests={this.handleInterests}
-          handleExperience={this.handleExperience}
+          handleChange={this.props.handleChange}
         />
       </div>
     );
@@ -56,7 +42,7 @@ class SkillsInterests extends Component {
 }
 
 SkillsInterests.propTypes = {
-  handleDropdown: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
   skillsInterests: PropTypes.object.isRequired,
 };
 

@@ -2,14 +2,18 @@ const skillsInterestsOptions = {
   skills: [
     'Javascript',
     'Python',
+    'Writing',
+    'Public Speaking',
   ],
   interests: [
-    'Javascript',
-    'Python',
+    'Machine Learning',
+    'Project Management',
+    'Event Handling',
   ],
   experience: [
-    'Javascript',
-    'Python',
+    'Stock Trading',
+    'Project Management',
+    'Event Handling',
   ],
 };
 

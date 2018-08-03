@@ -7,35 +7,38 @@ function View(props) {
     <div>
       <Dropdown
         placeholder="Skills"
+        name="skills"
         options={props.options.skills}
-        defaultValue={props.skillsInterests.skills}
+        closeOnBlur
         allowAdditions
         multiple
         selection
         search
-        onChange={props.handleSkills}
+        onChange={props.handleChange}
       />
 
       <Dropdown
         placeholder="Interests"
+        name="interests"
         options={props.options.interests}
-        defaultValue={props.skillsInterests.interests}
+        closeOnBlur
         allowAdditions
         multiple
         selection
         search
-        onChange={props.handleInterests}
+        onChange={props.handleChange}
       />
 
       <Dropdown
         placeholder="Experience"
+        name="experience"
         options={props.options.experience}
-        defaultValue={props.skillsInterests.experience}
+        closeOnBlur
         allowAdditions
         multiple
         selection
         search
-        onChange={props.handleExperience}
+        onChange={props.handleChange}
       />
     </div>
   );
@@ -43,10 +46,7 @@ function View(props) {
 
 View.propTypes = {
   options: PropTypes.object.isRequired,
-  skillsInterests: PropTypes.object.isRequired,
-  handleSkills: PropTypes.func.isRequired,
-  handleInterests: PropTypes.func.isRequired,
-  handleExperience: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default View;
