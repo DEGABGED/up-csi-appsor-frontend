@@ -27,6 +27,15 @@ const MainForm = ({
   setFieldValue,
 }) => (
   <form onSubmit={handleSubmit}>
+    <BasicInfo
+      handleChange={(value) => {
+        setValues({
+          ...values,
+          basicInfo: value,
+        })
+      }}
+      basicInfo={values.basicInfo}
+    />
     <SkillsInterests
       handleChange={(event, { value }) => {
         const field = event.currentTarget.parentNode.parentNode.attributes.name.value;
@@ -43,7 +52,7 @@ const MainForm = ({
       }}
       affiliations={values.affiliations}
     />
-  </Form>
+  </form>
 );
 
 // add items here as necessary (validation, etc)
