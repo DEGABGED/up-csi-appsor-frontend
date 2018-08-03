@@ -12,6 +12,8 @@ import Result from './container/pages/Result';
 import pages from './container/helper/pageorder';
 import initialState from './container/helper/appstate';
 
+import { object } from 'yup'
+
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
 //    and implement your custom handler in the component itself
