@@ -20,6 +20,7 @@ class BasicInfo extends Component {
         <BasicInfoView
           basicInfo={this.props.basicInfo}
           handleChange={this.handleChange}
+          errors={this.props.errors}
         />
       </div>
     );
@@ -29,6 +30,7 @@ class BasicInfo extends Component {
 BasicInfo.propTypes = {
   handleChange: PropTypes.func.isRequired,
   basicInfo: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 export default BasicInfo;

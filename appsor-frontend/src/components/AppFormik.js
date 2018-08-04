@@ -13,6 +13,7 @@ import pages from './container/helper/pageorder';
 import initialState from './container/helper/appstate';
 
 import { object } from 'yup'
+import basicInfoSchema from './container/validation_schemas/BasicInfoSchema'
 
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
@@ -37,6 +38,7 @@ const MainForm = ({
         })
       }}
       basicInfo={values.basicInfo}
+      errors={errors.basicInfo}
     />
     <SkillsInterests
       handleChange={(event, { value }) => {
@@ -61,6 +63,9 @@ const MainForm = ({
 const ConnectedForm = withFormik({
   mapPropsToValues: props => props.values,
   validate: (values, props) => {},
+  validationSchema: object().shape({
+    basicInfo: basicInfoSchema
+  }),
   handleSubmit: values => console.log(values),
 })(MainForm);
 
