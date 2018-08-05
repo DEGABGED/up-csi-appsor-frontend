@@ -13,8 +13,7 @@ import pages from './container/helper/pageorder';
 import initialState from './container/helper/appstate';
 
 import { object } from 'yup'
-import basicInfoSchema from './container/validation_schemas/BasicInfoSchema'
-
+import basicInfoSchema from './container/validationSchemas/BasicInfoSchema'
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
 //    and implement your custom handler in the component itself
@@ -56,17 +55,19 @@ const MainForm = ({
       }}
       affiliations={values.affiliations}
     />
+    <hr/>
+    <button color="primary" type='submit'>Submit</button>
   </form>
 );
 
 // add items here as necessary (validation, etc)
 const ConnectedForm = withFormik({
   mapPropsToValues: props => props.values,
-  validate: (values, props) => {},
   validationSchema: object().shape({
     basicInfo: basicInfoSchema
   }),
   handleSubmit: values => console.log(values),
+  validateOnChange: false,
 })(MainForm);
 
 export default ConnectedForm;
