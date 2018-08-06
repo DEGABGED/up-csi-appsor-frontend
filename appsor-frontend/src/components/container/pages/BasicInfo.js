@@ -5,11 +5,12 @@ import BasicInfoView from '../../presentational/view/BasicInfoView';
 class BasicInfo extends Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange = e => {
-    const { name, value } = e.currentTarget;
-    let newBasicInfo = {...this.props.basicInfo, [name]:value};
+  handleChange(event) {
+    const { name, value } = event.currentTarget;
+    const newBasicInfo = { ...this.props.basicInfo, [name]: value };
     newBasicInfo[name] = value;
     this.props.handleChange(newBasicInfo);
   }
@@ -30,7 +31,7 @@ class BasicInfo extends Component {
 BasicInfo.propTypes = {
   handleChange: PropTypes.func.isRequired,
   basicInfo: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 };
 
 export default BasicInfo;

@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
-import { withFormik, Form } from 'formik';
-import update from 'immutability-helper';
+import React from 'react';
+import { withFormik } from 'formik';
+import { object } from 'yup';
 
-import Home from './container/pages/Home';
+// import Home from './container/pages/Home';
 import Affiliations from './container/pages/Affiliations';
 import BasicInfo from './container/pages/BasicInfo';
-import Committee from './container/pages/Committee';
+// import Committee from './container/pages/Committee';
 import SkillsInterests from './container/pages/SkillsInterests';
-import Result from './container/pages/Result';
+// import Result from './container/pages/Result';
 
-import pages from './container/helper/pageorder';
-import initialState from './container/helper/appstate';
-
-import { object } from 'yup'
-import basicInfoSchema from './container/validationSchemas/BasicInfoSchema'
+import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
+import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
 //    and implement your custom handler in the component itself
@@ -34,7 +31,7 @@ const MainForm = ({
         setValues({
           ...values,
           basicInfo: value,
-        })
+        });
       }}
       basicInfo={values.basicInfo}
       errors={errors.basicInfo}
@@ -45,6 +42,7 @@ const MainForm = ({
         setFieldValue(`skillsInterests[${field}]`, value);
       }}
       skillsInterests={values.skillsInterests}
+      errors={errors.skillsInterests}
     />
     <Affiliations
       handleChange={(value) => {
@@ -55,8 +53,8 @@ const MainForm = ({
       }}
       affiliations={values.affiliations}
     />
-    <hr/>
-    <button color="primary" type='submit'>Submit</button>
+    <hr />
+    <button color="primary" type="submit">Submit</button>
   </form>
 );
 
@@ -64,7 +62,8 @@ const MainForm = ({
 const ConnectedForm = withFormik({
   mapPropsToValues: props => props.values,
   validationSchema: object().shape({
-    basicInfo: basicInfoSchema
+    basicInfo: basicInfoSchema,
+    skillsInterests: skillsInterestsSchema,
   }),
   handleSubmit: values => console.log(values),
   validateOnChange: false,
