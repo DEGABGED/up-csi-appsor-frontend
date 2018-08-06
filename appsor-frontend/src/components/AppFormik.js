@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { withFormik } from 'formik';
+import { withFormik, Form } from 'formik';
 import update from 'immutability-helper';
 
 import Home from './container/pages/Home';
@@ -12,6 +12,8 @@ import Result from './container/pages/Result';
 import pages from './container/helper/pageorder';
 import initialState from './container/helper/appstate';
 
+import { object } from 'yup'
+import basicInfoSchema from './container/validationSchemas/BasicInfoSchema'
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
 //    and implement your custom handler in the component itself
@@ -27,6 +29,16 @@ const MainForm = ({
   setFieldValue,
 }) => (
   <form onSubmit={handleSubmit}>
+    <BasicInfo
+      handleChange={(value) => {
+        setValues({
+          ...values,
+          basicInfo: value,
+        })
+      }}
+      basicInfo={values.basicInfo}
+      errors={errors.basicInfo}
+    />
     <SkillsInterests
       handleChange={(event, { value }) => {
         const field = event.currentTarget.parentNode.parentNode.attributes.name.value;
@@ -43,15 +55,19 @@ const MainForm = ({
       }}
       affiliations={values.affiliations}
     />
+    <hr/>
+    <button color="primary" type='submit'>Submit</button>
   </form>
 );
 
 // add items here as necessary (validation, etc)
 const ConnectedForm = withFormik({
   mapPropsToValues: props => props.values,
-  validate: (values, props) => {},
+  validationSchema: object().shape({
+    basicInfo: basicInfoSchema
+  }),
   handleSubmit: values => console.log(values),
+  validateOnChange: false,
 })(MainForm);
 
 export default ConnectedForm;
-

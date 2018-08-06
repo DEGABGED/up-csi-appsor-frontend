@@ -8,67 +8,95 @@ function View(props) {
   const studentNoFormat = '20  -';
   const defaultDate = '1999-01-01';
 
+
+
   return (
     <div>
       <TextField
         label="First Name"
+        name="firstName"
         value={props.basicInfo.firstName || ''}
-        onChange={props.handleFirstName}
+        onChange={props.handleChange}
+        error={typeof(props.errors)!='undefined' && props.errors.firstName}
+        helperText={typeof(props.errors)!='undefined' && props.errors.firstName}
       />
-
       <TextField
         label="Last Name"
+        name="lastName"
         value={props.basicInfo.lastName || ''}
-        onChange={props.handleLastName}
+        onChange={props.handleChange}
+        error={typeof(props.errors)!='undefined' && props.errors.lastName}
+        helperText={typeof(props.errors)!='undefined' && props.errors.lastName}
       />
 
       <TextField
         label="Middle Initial"
+        name="middleInitial"
         value={props.basicInfo.middleInitial || ''}
-        onChange={props.handleMidInitial}
+        onChange={props.handleChange}
+        error={typeof(props.errors)!='undefined' && props.errors.middleInitial}
+        helperText={typeof(props.errors)!='undefined' && props.errors.middleInitial}
       />
 
       <TextField
         label="Nickname"
+        name="nickname"
         value={props.basicInfo.nickname || ''}
-        onChange={props.handleNickname}
+        onChange={props.handleChange}
+        error={typeof(props.errors)!='undefined' && props.errors.nickname}
+        helperText={typeof(props.errors)!='undefined' && props.errors.nickname}
       />
 
       <TextField
         label="Student Number"
+        name="studentNumber"
         value={props.basicInfo.studentNumber || studentNoFormat}
-        onChange={props.handleStudentNo}
+        onChange={props.handleChange}
         InputProps={{
           inputComponent: StudentNoMask,
         }}
+        error={typeof(props.errors)!='undefined' && props.errors.studentNumber}
+        helperText={typeof(props.errors)!='undefined' && props.errors.studentNumber}
       />
 
       <TextField
         label="Birthday"
+        name="birthday"
         type="date"
         value={props.basicInfo.birthday || defaultDate}
-        onChange={props.handleBirthday}
+        onChange={props.handleChange}
+        error={typeof(props.errors)!='undefined' && props.errors.birthday}
+        helperText={typeof(props.errors)!='undefined' && props.errors.birthday}
       />
 
       <TextField
         label="Contact Number"
+        name="contactNumber"
         value={props.basicInfo.contactNumber || contactNoFormat}
-        onChange={props.handleContactNo}
+        onChange={props.handleChange}
         InputProps={{
           inputComponent: ContactNoMask,
         }}
+        error={typeof(props.errors)!='undefined' && props.errors.contactNumber}
+        helperText={typeof(props.errors)!='undefined' && props.errors.contactNumber}
       />
 
       <TextField
         label="Email"
+        name="email"
         value={props.basicInfo.email || ''}
-        onChange={props.handleEmail}
+        onChange={props.handleChange}
+        error={typeof(props.errors)!='undefined' && props.errors.email}
+        helperText={typeof(props.errors)!='undefined' && props.errors.email}
       />
 
       <TextField
         label="Address"
+        name="address"
         value={props.basicInfo.address || ''}
-        onChange={props.handleAddress}
+        onChange={props.handleChange}
+        error={typeof(props.errors)!='undefined' && props.errors.address}
+        helperText={typeof(props.errors)!='undefined' && props.errors.address}
       />
     </div>
   );
@@ -76,15 +104,8 @@ function View(props) {
 
 View.propTypes = {
   basicInfo: PropTypes.object.isRequired,
-  handleFirstName: PropTypes.func.isRequired,
-  handleLastName: PropTypes.func.isRequired,
-  handleMidInitial: PropTypes.func.isRequired,
-  handleNickname: PropTypes.func.isRequired,
-  handleStudentNo: PropTypes.func.isRequired,
-  handleBirthday: PropTypes.func.isRequired,
-  handleContactNo: PropTypes.func.isRequired,
-  handleEmail: PropTypes.func.isRequired,
-  handleAddress: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 export default View;
