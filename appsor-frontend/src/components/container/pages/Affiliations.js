@@ -46,6 +46,7 @@ class Affiliations extends Component {
           newAffiliations[i][name] = value;
           this.props.handleChange(newAffiliations);
         }}
+        errors={typeof (this.props.errors) !== 'undefined' && this.props.errors[i]}
       />
     ));
   }
@@ -54,7 +55,7 @@ class Affiliations extends Component {
     return (
       <div>
         { this.renderForms() }
-        <button onClick={this.addForm}>Add New Org</button>
+        <button type='button' onClick={this.addForm}>Add New Org</button>
       </div>
     );
   }
