@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FieldArray } from 'formik';
+
 import AffiliationsForm from '../../presentational/forms/AffiliationsForm';
 
 class Affiliations extends Component {
@@ -33,29 +35,44 @@ class Affiliations extends Component {
   // Render all the Forms
   // The handleChange function here makes sure that only the
   //    relevant slice of the values is edited
-  renderForms() {
-    return this.props.affiliations.map((m, i) => (
-      <AffiliationsForm
-        key={i}
-        formID={i}
-        affiliations={m}
-        deleteForm={this.deleteForm}
-        handleChange={e => {
-          const { name, value } = e.currentTarget;
-          let newAffiliations = [...this.props.affiliations];
-          newAffiliations[i][name] = value;
-          this.props.handleChange(newAffiliations);
-        }}
-      />
-    ));
+  renderForms(helpers) {
+    return (
+      <div>
+        {this.props.affiliations.map((a, i) => (
+          <AffiliationsForm
+            key={i}
+            formID={i}
+            affiliations={a}
+            deleteForm={() => helpers.remove(i)}
+            handleChange={(e) => {
+              const { name, value } = e.currentTarget;
+              const newAffiliations = [...this.props.affiliations];
+              newAffiliations[i][name] = value;
+              this.props.handleChange(newAffiliations);
+            }}
+            errors={typeof (this.props.errors) === 'undefined' ? undefined : this.props.errors[i]}
+          />
+        ))}
+        <button
+          type="button"
+          onClick={() => helpers.push({
+            orgName: null,
+            position: null,
+            duties: null,
+          })}
+        >Add New Org
+        </button>
+      </div>
+    );
   }
 
   render() {
     return (
-      <div>
-        { this.renderForms() }
-        <button onClick={this.addForm}>Add New Org</button>
-      </div>
+      <FieldArray
+        name="affiliations"
+        validateOnChange={false}
+        render={this.renderForms}
+      />
     );
   }
 }
@@ -63,6 +80,11 @@ class Affiliations extends Component {
 Affiliations.propTypes = {
   handleChange: PropTypes.func.isRequired,
   affiliations: PropTypes.array.isRequired,
+  errors: PropTypes.arrayOf(PropTypes.object),
+};
+
+Affiliations.defaultProps = {
+  errors: undefined,
 };
 
 export default Affiliations;

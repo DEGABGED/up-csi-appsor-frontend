@@ -15,7 +15,7 @@ function View(props) {
         name="firstName"
         value={props.basicInfo.firstName || ''}
         onChange={props.handleChange}
-        error={typeof (props.errors) !== 'undefined' && props.errors.firstName}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.firstName}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.firstName}
       />
       <TextField
@@ -23,7 +23,7 @@ function View(props) {
         name="lastName"
         value={props.basicInfo.lastName || ''}
         onChange={props.handleChange}
-        error={typeof (props.errors) !== 'undefined' && props.errors.lastName}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.lastName}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.lastName}
       />
 
@@ -32,7 +32,7 @@ function View(props) {
         name="middleInitial"
         value={props.basicInfo.middleInitial || ''}
         onChange={props.handleChange}
-        error={typeof (props.errors) !== 'undefined' && props.errors.middleInitial}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.middleInitial}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.middleInitial}
       />
 
@@ -41,7 +41,7 @@ function View(props) {
         name="nickname"
         value={props.basicInfo.nickname || ''}
         onChange={props.handleChange}
-        error={typeof (props.errors) !== 'undefined' && props.errors.nickname}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.nickname}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.nickname}
       />
 
@@ -53,7 +53,7 @@ function View(props) {
         InputProps={{
           inputComponent: StudentNoMask,
         }}
-        error={typeof (props.errors) !== 'undefined' && props.errors.studentNumber}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.studentNumber}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.studentNumber}
       />
 
@@ -63,7 +63,7 @@ function View(props) {
         type="date"
         value={props.basicInfo.birthday || defaultDate}
         onChange={props.handleChange}
-        error={typeof (props.errors) !== 'undefined' && props.errors.birthday}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.birthday}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.birthday}
       />
 
@@ -75,7 +75,7 @@ function View(props) {
         InputProps={{
           inputComponent: ContactNoMask,
         }}
-        error={typeof (props.errors) !== 'undefined' && props.errors.contactNumber}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.contactNumber}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.contactNumber}
       />
 
@@ -84,7 +84,7 @@ function View(props) {
         name="email"
         value={props.basicInfo.email || ''}
         onChange={props.handleChange}
-        error={typeof (props.errors) !== 'undefined' && props.errors.email}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.email}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.email}
       />
 
@@ -93,7 +93,7 @@ function View(props) {
         name="address"
         value={props.basicInfo.address || ''}
         onChange={props.handleChange}
-        error={typeof (props.errors) !== 'undefined' && props.errors.address}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.address}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.address}
       />
     </div>
@@ -103,7 +103,11 @@ function View(props) {
 View.propTypes = {
   basicInfo: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
+  errors: PropTypes.object,
+};
+
+View.defaultProps = {
+  errors: undefined,
 };
 
 export default View;

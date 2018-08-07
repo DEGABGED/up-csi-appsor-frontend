@@ -1,6 +1,7 @@
 import React from 'react';
 import { withFormik } from 'formik';
 import { object } from 'yup';
+import PropTypes from 'prop-types';
 
 // import Home from './container/pages/Home';
 import Affiliations from './container/pages/Affiliations';
@@ -11,6 +12,7 @@ import SkillsInterests from './container/pages/SkillsInterests';
 
 import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
 import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
+import affiliationsSchema from './container/validationSchemas/AffiliationsSchema';
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
 //    and implement your custom handler in the component itself
@@ -52,11 +54,32 @@ const MainForm = ({
         });
       }}
       affiliations={values.affiliations}
+      errors={errors.affiliations}
     />
     <hr />
     <button color="primary" type="submit">Submit</button>
   </form>
 );
+
+MainForm.propTypes = {
+  values: PropTypes.object.isRequired,
+  errors: PropTypes.shape({
+    basicInfo: PropTypes.object,
+    skillsInterests: PropTypes.object,
+    affiliations: PropTypes.arrayOf(PropTypes.object),
+  }),
+  touched: PropTypes.object.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleBlur: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  isSubmitting: PropTypes.bool.isRequired,
+  setValues: PropTypes.func.isRequired,
+  setFieldValue: PropTypes.func.isRequired,
+};
+
+MainForm.defaultProps = {
+  errors: undefined,
+};
 
 // add items here as necessary (validation, etc)
 const ConnectedForm = withFormik({
@@ -64,9 +87,11 @@ const ConnectedForm = withFormik({
   validationSchema: object().shape({
     basicInfo: basicInfoSchema,
     skillsInterests: skillsInterestsSchema,
+    affiliations: affiliationsSchema,
   }),
   handleSubmit: values => console.log(values),
   validateOnChange: false,
+  validateOnBlur: false,
 })(MainForm);
 
 export default ConnectedForm;

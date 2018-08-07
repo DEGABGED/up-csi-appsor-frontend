@@ -31,7 +31,11 @@ class BasicInfo extends Component {
 BasicInfo.propTypes = {
   handleChange: PropTypes.func.isRequired,
   basicInfo: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired,
+  errors: PropTypes.object,
+};
+
+BasicInfo.defaultProps = {
+  errors: undefined,
 };
 
 export default BasicInfo;
