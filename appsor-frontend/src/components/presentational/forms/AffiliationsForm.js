@@ -10,8 +10,8 @@ function AffiliationsForm(props) {
         name="orgName"
         value={props.affiliations.orgName || ''}
         onChange={props.handleChange}
-        error={typeof (props.errors) !== 'undefined' && props.errors.orgName}
-        helpertext={typeof (props.errors) !== 'undefined' && props.errors.orgName}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.orgName}
+        helpertext={typeof (props.errors) !== 'undefined' ? props.errors.orgName : undefined}
       />
 
       <TextField
@@ -19,8 +19,8 @@ function AffiliationsForm(props) {
         name="position"
         value={props.affiliations.position || ''}
         onChange={props.handleChange}
-        error={typeof (props.errors) !== 'undefined' && props.errors.position}
-        helpertext={typeof (props.errors) !== 'undefined' && props.errors.position}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.position}
+        helpertext={typeof (props.errors) !== 'undefined' ? props.errors.position : undefined}
       />
 
       <TextField
@@ -28,14 +28,15 @@ function AffiliationsForm(props) {
         name="duties"
         value={props.affiliations.duties || ''}
         onChange={props.handleChange}
-        error={typeof (props.errors) !== 'undefined' && props.errors.duties}
-        helpertext={typeof (props.errors) !== 'undefined' && props.errors.duties}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.duties}
+        helpertext={typeof (props.errors) !== 'undefined' ? props.errors.duties : undefined}
       />
 
       <button
-        type='button'
+        type="button"
         onClick={() => props.deleteForm(props.formID)}
-      >Delete Form</button>
+      >Delete Form
+      </button>
     </div>
   );
 }
@@ -45,6 +46,11 @@ AffiliationsForm.propTypes = {
   affiliations: PropTypes.object.isRequired,
   deleteForm: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
+  errors: PropTypes.object,
+};
+
+AffiliationsForm.defaultProps = {
+  errors: undefined,
 };
 
 export default AffiliationsForm;

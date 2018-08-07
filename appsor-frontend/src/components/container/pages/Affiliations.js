@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AffiliationsForm from '../../presentational/forms/AffiliationsForm';
 import { FieldArray } from 'formik';
+
+import AffiliationsForm from '../../presentational/forms/AffiliationsForm';
 
 class Affiliations extends Component {
   constructor(props) {
@@ -43,20 +44,24 @@ class Affiliations extends Component {
             formID={i}
             affiliations={a}
             deleteForm={() => helpers.remove(i)}
-            handleChange={e => {
+            handleChange={(e) => {
               const { name, value } = e.currentTarget;
-              let newAffiliations = [...this.props.affiliations];
+              const newAffiliations = [...this.props.affiliations];
               newAffiliations[i][name] = value;
               this.props.handleChange(newAffiliations);
             }}
-            errors={typeof (this.props.errors) !== 'undefined' && this.props.errors[i]}
+            errors={typeof (this.props.errors) === 'undefined' ? undefined : this.props.errors[i]}
           />
         ))}
-        <button type='button' onClick={() => helpers.push({
-          orgName: null,
-          position: null,
-          duties: null,
-        })}>Add New Org</button>
+        <button
+          type="button"
+          onClick={() => helpers.push({
+            orgName: null,
+            position: null,
+            duties: null,
+          })}
+        >Add New Org
+        </button>
       </div>
     );
   }
@@ -64,7 +69,7 @@ class Affiliations extends Component {
   render() {
     return (
       <FieldArray
-        name='affiliations'
+        name="affiliations"
         validateOnChange={false}
         render={this.renderForms}
       />
@@ -75,6 +80,11 @@ class Affiliations extends Component {
 Affiliations.propTypes = {
   handleChange: PropTypes.func.isRequired,
   affiliations: PropTypes.array.isRequired,
+  errors: PropTypes.arrayOf(PropTypes.object),
+};
+
+Affiliations.defaultProps = {
+  errors: undefined,
 };
 
 export default Affiliations;
