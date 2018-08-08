@@ -20,6 +20,8 @@ class Committee extends Component {
         committees={this.props.committees[id]}
         handleChangeCommittee={this.props.handleChangeCommittee}
         handleChangeReason={this.props.handleChangeReason}
+        errors={this.props.errors !== undefined? this.props.errors[id] : undefined}
+        duplicates={this.props.duplicates !== undefined? this.props.duplicates[id] : undefined}
       />);
     }
     return forms;

@@ -13,6 +13,7 @@ import SkillsInterests from './container/pages/SkillsInterests';
 import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
 import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
 import affiliationsSchema from './container/validationSchemas/AffiliationsSchema';
+import committeesSchema from './container/validationSchemas/CommitteesSchema';
 
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
@@ -67,6 +68,8 @@ const MainForm = ({
         setFieldValue(`committees[${parseInt(id, 10)}].reason`, event.target.value);
       }}
       committees={values.committees}
+      errors={errors.committees}
+      duplicates={errors.committeeDuplicates}
     />
     <hr />
     <button color="primary" type="submit">Submit</button>
@@ -93,14 +96,35 @@ MainForm.defaultProps = {
   errors: undefined,
 };
 
+
 // add items here as necessary (validation, etc)
 const ConnectedForm = withFormik({
   mapPropsToValues: props => props.values,
   validationSchema: object().shape({
     basicInfo: basicInfoSchema,
+    committees: committeesSchema,
     skillsInterests: skillsInterestsSchema,
     affiliations: affiliationsSchema,
   }),
+  validate: (values, props) => {//used for checking for duplicates
+    const committee_errors = [];
+    const committee_ids = [];
+
+    //get committee ids
+    for(let i = 0; i < 3; i++){
+      committee_ids[i] = values.committees[i].committee_id;
+    }
+    //check for duplicates
+    for(let i = 0; i < 2; i++){
+      for(let j = i+1; j<3; j++){
+        if(committee_ids[i] != null && committee_ids[j] != null && committee_ids[i]==committee_ids[j]){
+          committee_errors[i] = "Duplicates are not allowed";
+          committee_errors[j] = "Duplicates are not allowed";
+        }
+      }
+    }
+    return {committeeDuplicates: committee_errors}
+  },
   handleSubmit: values => console.log(values),
   validateOnChange: false,
   validateOnBlur: false,
