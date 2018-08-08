@@ -64,7 +64,7 @@ const MainForm = ({
       }}
       handleChangeReason={(event) => {
         const id = event.target.name;
-        setFieldValue(`committees[${id}].reason`, event.target.value);
+        setFieldValue(`committees[${parseInt(id, 10)}].reason`, event.target.value);
       }}
       committees={values.committees}
     />

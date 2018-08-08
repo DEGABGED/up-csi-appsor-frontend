@@ -9,7 +9,7 @@ function Form(props) {
       <Dropdown
         placeholder="Committee"
         options={props.options}
-        name={props.formID}
+        name={`${props.formID}`}
         value={props.committees.committee_id}
         selection
         search
@@ -18,7 +18,7 @@ function Form(props) {
 
       <TextField
         label="Reason"
-        name={props.formID}
+        name={`${props.formID}`}
         value={props.committees.reason || ''}
         onChange={props.handleChangeReason}
       />
@@ -31,7 +31,7 @@ Form.propTypes = {
   options: PropTypes.array.isRequired,
   committees: PropTypes.object.isRequired,
   handleChangeCommittee: PropTypes.func.isRequired,
-  handleReason: PropTypes.func.isRequired,
+  handleChangeReason: PropTypes.func.isRequired,
 };
 
 export default Form;
