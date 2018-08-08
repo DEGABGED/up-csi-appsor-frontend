@@ -6,13 +6,14 @@ import PropTypes from 'prop-types';
 // import Home from './container/pages/Home';
 import Affiliations from './container/pages/Affiliations';
 import BasicInfo from './container/pages/BasicInfo';
-// import Committee from './container/pages/Committee';
+import Committee from './container/pages/Committee';
 import SkillsInterests from './container/pages/SkillsInterests';
 // import Result from './container/pages/Result';
 
 import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
 import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
 import affiliationsSchema from './container/validationSchemas/AffiliationsSchema';
+
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
 //    and implement your custom handler in the component itself
@@ -55,6 +56,17 @@ const MainForm = ({
       }}
       affiliations={values.affiliations}
       errors={errors.affiliations}
+    />
+    <Committee
+      handleChangeCommittee={(event, { value }) => {
+        const id = event.currentTarget.parentNode.parentNode.attributes.name.value;
+        setFieldValue(`committees[${parseInt(id, 10)}].committee_id`, value);
+      }}
+      handleChangeReason={(event) => {
+        const id = event.target.name;
+        setFieldValue(`committees[${id}].reason`, event.target.value);
+      }}
+      committees={values.committees}
     />
     <hr />
     <button color="primary" type="submit">Submit</button>

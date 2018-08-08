@@ -9,16 +9,18 @@ function Form(props) {
       <Dropdown
         placeholder="Committee"
         options={props.options}
+        name={props.formID}
         value={props.committees.committee_id}
         selection
         search
-        onChange={(event, data) => props.handleCommittee(props.formID, event, data)}
+        onChange={props.handleChangeCommittee}
       />
 
       <TextField
         label="Reason"
+        name={props.formID}
         value={props.committees.reason || ''}
-        onChange={event => props.handleReason(props.formID, event)}
+        onChange={props.handleChangeReason}
       />
     </div>
   );
@@ -28,7 +30,7 @@ Form.propTypes = {
   formID: PropTypes.number.isRequired,
   options: PropTypes.array.isRequired,
   committees: PropTypes.object.isRequired,
-  handleCommittee: PropTypes.func.isRequired,
+  handleChangeCommittee: PropTypes.func.isRequired,
   handleReason: PropTypes.func.isRequired,
 };
 
