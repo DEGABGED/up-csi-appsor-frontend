@@ -106,24 +106,24 @@ const ConnectedForm = withFormik({
     skillsInterests: skillsInterestsSchema,
     affiliations: affiliationsSchema,
   }),
-  validate: (values, props) => {//used for checking for duplicates
-    const committee_errors = [];
-    const committee_ids = [];
+  validate: (values, props) => {
+    const committeeErrors = [];
+    const committeeIds = [];
 
     //get committee ids
     for(let i = 0; i < 3; i++){
-      committee_ids[i] = values.committees[i].committee_id;
+      committeeIds[i] = values.committees[i].committee_id;
     }
     //check for duplicates
     for(let i = 0; i < 2; i++){
-      for(let j = i+1; j<3; j++){
-        if(committee_ids[i] != null && committee_ids[j] != null && committee_ids[i]==committee_ids[j]){
-          committee_errors[i] = "Duplicates are not allowed";
-          committee_errors[j] = "Duplicates are not allowed";
+      for(let j = i+1; j < 3; j++){
+        if(committeeIds[i] != null && committeeIds[j] != null && committeeIds[i]==committeeIds[j]){
+          committeeErrors[i] = "Duplicates are not allowed";
+          committeeErrors[j] = "Duplicates are not allowed";
         }
       }
     }
-    return {committeeDuplicates: committee_errors}
+    return {committeeDuplicates: committeeErrors}
   },
   handleSubmit: values => console.log(values),
   validateOnChange: false,
