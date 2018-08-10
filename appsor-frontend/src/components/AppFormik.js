@@ -21,11 +21,7 @@ import committeesSchema from './container/validationSchemas/CommitteesSchema';
 const MainForm = ({
   values,
   errors,
-  touched,
-  handleChange,
-  handleBlur,
   handleSubmit,
-  isSubmitting,
   setValues,
   setFieldValue,
 }) => (
@@ -83,11 +79,7 @@ MainForm.propTypes = {
     skillsInterests: PropTypes.object,
     affiliations: PropTypes.arrayOf(PropTypes.object),
   }),
-  touched: PropTypes.object.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  handleBlur: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  isSubmitting: PropTypes.bool.isRequired,
   setValues: PropTypes.func.isRequired,
   setFieldValue: PropTypes.func.isRequired,
 };
@@ -106,24 +98,24 @@ const ConnectedForm = withFormik({
     skillsInterests: skillsInterestsSchema,
     affiliations: affiliationsSchema,
   }),
-  validate: (values, props) => {
+  validate: (values) => {
     const committeeErrors = [];
     const committeeIds = [];
 
-    //get committee ids
-    for(let i = 0; i < 3; i++){
+    // get committee ids
+    for (let i = 0; i < 3; i++) {
       committeeIds[i] = values.committees[i].committee_id;
     }
-    //check for duplicates
-    for(let i = 0; i < 2; i++){
-      for(let j = i+1; j < 3; j++){
-        if(committeeIds[i] != null && committeeIds[j] != null && committeeIds[i]==committeeIds[j]){
-          committeeErrors[i] = "Duplicates are not allowed";
-          committeeErrors[j] = "Duplicates are not allowed";
+    // check for duplicates
+    for (let i = 0; i < 2; i++) {
+      for (let j = i + 1; j < 3; j++) {
+        if (committeeIds[i] != null && committeeIds[i] == committeeIds[j]) {
+          committeeErrors[i] = 'Duplicates are not allowed';
+          committeeErrors[j] = 'Duplicates are not allowed';
         }
       }
     }
-    return {committeeDuplicates: committeeErrors}
+    return { committeeDuplicates: committeeErrors };
   },
   handleSubmit: values => console.log(values),
   validateOnChange: false,
