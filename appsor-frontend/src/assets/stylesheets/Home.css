@@ -1,0 +1,32 @@
+.ui.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding-top: 20px;
+}
+
+.main-title {
+    font-family: 'Nexa Bold';
+    font-size: 60px;
+    margin-bottom: -6px;
+}
+
+.sub-title {
+    font-family: 'Nexa Light';
+    font-size: 35px;
+    margin-top: -6px;
+}
+
+.chevron-button {
+    color: #000000;
+}
+
+.chevron-button:hover {
+    color: #747474;
+}
+
+.bottom-space {
+    padding: 20px;
+}

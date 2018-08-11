@@ -1,22 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Container, Image, Icon } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
-class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+import upcsi from '../../../assets/images/upcsi.png';
+import '../../../assets/stylesheets/Home.css';
 
-    };
-  }
-
-  render() {
-    return (
-      <div>
-        <header>
-          <h1>Welcome to HOME</h1>
-        </header>
-      </div>
-    );
-  }
-}
+const Home = () => (
+  <Container textAlign="center">
+    <Image src={upcsi} size="mini" centered />
+    <div>
+      <h1 className="main-title">INSERT TEXT HERE</h1>
+      <h1 className="sub-title">Insert Text Here</h1>
+    </div>
+    <Link className="chevron-button" to="/committees">
+      <Icon name="chevron circle right" link size="huge" />
+    </Link>
+    <div className="bottom-space" />
+  </Container>
+);
 
 export default Home;
