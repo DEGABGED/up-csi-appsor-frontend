@@ -20,8 +20,8 @@ class Committee extends Component {
         committees={this.props.committees[id]}
         handleChangeCommittee={this.props.handleChangeCommittee}
         handleChangeReason={this.props.handleChangeReason}
-        errors={this.props.errors !== undefined? this.props.errors[id] : undefined}
-        duplicates={this.props.duplicates !== undefined? this.props.duplicates[id] : undefined}
+        errors={this.props.errors !== undefined ? this.props.errors[id] : undefined}
+        duplicates={this.props.duplicates !== undefined ? this.props.duplicates[id] : undefined}
       />);
     }
     return forms;
@@ -37,9 +37,16 @@ class Committee extends Component {
 }
 
 Committee.propTypes = {
+  errors: PropTypes.array,
+  duplicates: PropTypes.array,
   handleChangeCommittee: PropTypes.func.isRequired,
   handleChangeReason: PropTypes.func.isRequired,
   committees: PropTypes.array.isRequired,
+};
+
+Committee.defaultProps = {
+  errors: undefined,
+  duplicates: undefined,
 };
 
 export default Committee;

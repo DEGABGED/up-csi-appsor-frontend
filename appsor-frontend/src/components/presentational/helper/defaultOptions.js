@@ -27,7 +27,3 @@ const committeeOptions = [
 ];
 
 export { skillsInterestsOptions, committeeOptions };
-
-// TODO:
-// Change committee_id value depending
-//  on the Rails config

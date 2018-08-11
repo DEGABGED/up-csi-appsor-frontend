@@ -88,8 +88,3 @@ Affiliations.defaultProps = {
 };
 
 export default Affiliations;
-
-// TODO:
-// Add logic such that User cannot add new Form
-//  not until the user answered all of the previous
-//  forms

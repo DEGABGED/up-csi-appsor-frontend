@@ -109,7 +109,7 @@ const ConnectedForm = withFormik({
     // check for duplicates
     for (let i = 0; i < 2; i++) {
       for (let j = i + 1; j < 3; j++) {
-        if (committeeIds[i] != null && committeeIds[i] == committeeIds[j]) {
+        if (committeeIds[i] != null && committeeIds[i] === committeeIds[j]) {
           committeeErrors[i] = 'Duplicates are not allowed';
           committeeErrors[j] = 'Duplicates are not allowed';
         }
