@@ -6,24 +6,22 @@ import PropTypes from 'prop-types';
 // import Home from './container/pages/Home';
 import Affiliations from './container/pages/Affiliations';
 import BasicInfo from './container/pages/BasicInfo';
-// import Committee from './container/pages/Committee';
+import Committee from './container/pages/Committee';
 import SkillsInterests from './container/pages/SkillsInterests';
 // import Result from './container/pages/Result';
 
 import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
 import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
 import affiliationsSchema from './container/validationSchemas/AffiliationsSchema';
+import committeesSchema from './container/validationSchemas/CommitteesSchema';
+
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
 //    and implement your custom handler in the component itself
 const MainForm = ({
   values,
   errors,
-  touched,
-  handleChange,
-  handleBlur,
   handleSubmit,
-  isSubmitting,
   setValues,
   setFieldValue,
 }) => (
@@ -56,6 +54,19 @@ const MainForm = ({
       affiliations={values.affiliations}
       errors={errors.affiliations}
     />
+    <Committee
+      handleChangeCommittee={(event, { value }) => {
+        const id = event.currentTarget.parentNode.parentNode.attributes.name.value;
+        setFieldValue(`committees[${parseInt(id, 10)}].committee_id`, value);
+      }}
+      handleChangeReason={(event) => {
+        const id = event.target.name;
+        setFieldValue(`committees[${parseInt(id, 10)}].reason`, event.target.value);
+      }}
+      committees={values.committees}
+      errors={errors.committees}
+      duplicates={errors.committeeDuplicates}
+    />
     <hr />
     <button color="primary" type="submit">Submit</button>
   </form>
@@ -68,11 +79,7 @@ MainForm.propTypes = {
     skillsInterests: PropTypes.object,
     affiliations: PropTypes.arrayOf(PropTypes.object),
   }),
-  touched: PropTypes.object.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  handleBlur: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  isSubmitting: PropTypes.bool.isRequired,
   setValues: PropTypes.func.isRequired,
   setFieldValue: PropTypes.func.isRequired,
 };
@@ -81,14 +88,35 @@ MainForm.defaultProps = {
   errors: undefined,
 };
 
+
 // add items here as necessary (validation, etc)
 const ConnectedForm = withFormik({
   mapPropsToValues: props => props.values,
   validationSchema: object().shape({
     basicInfo: basicInfoSchema,
+    committees: committeesSchema,
     skillsInterests: skillsInterestsSchema,
     affiliations: affiliationsSchema,
   }),
+  validate: (values) => {
+    const committeeErrors = [];
+    const committeeIds = [];
+
+    // get committee ids
+    for (let i = 0; i < 3; i++) {
+      committeeIds[i] = values.committees[i].committee_id;
+    }
+    // check for duplicates
+    for (let i = 0; i < 2; i++) {
+      for (let j = i + 1; j < 3; j++) {
+        if (committeeIds[i] != null && committeeIds[i] == committeeIds[j]) {
+          committeeErrors[i] = 'Duplicates are not allowed';
+          committeeErrors[j] = 'Duplicates are not allowed';
+        }
+      }
+    }
+    return { committeeDuplicates: committeeErrors };
+  },
   handleSubmit: values => console.log(values),
   validateOnChange: false,
   validateOnBlur: false,
