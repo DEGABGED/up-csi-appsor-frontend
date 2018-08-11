@@ -113,9 +113,20 @@ const ConnectedForm = withFormik({
         }
       }
     }
-    return { committeeDuplicates: committeeErrors };
+    return committeeErrors.length ? { committeeDuplicates: committeeErrors } : {};
   },
-  handleSubmit: values => console.log(values),
+  handleSubmit: (values) => {
+    console.log(values);
+    fetch('/applicants', {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify(values),
+    })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  },
   validateOnChange: false,
   validateOnBlur: false,
 })(MainForm);

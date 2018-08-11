@@ -28,7 +28,11 @@ module Api
             :email,
             :address
           ],
-          :skills_interests => [ :skills, :interests, :experience ],
+          :skills_interests => [
+            :skills => [],
+            :interests => [],
+            :experience => []
+          ],
           :affiliations => [ :org_name, :position, :duties ],
           :committees => [ :priority, :committee_id, :reason ]
         )
