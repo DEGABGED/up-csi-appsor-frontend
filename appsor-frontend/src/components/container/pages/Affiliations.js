@@ -63,6 +63,7 @@ class Affiliations extends Component {
             position: null,
             duties: null,
           })}
+          disabled={this.props.affiliations.length >= 6}
         >Add New Org
         </button>
       </Container>
