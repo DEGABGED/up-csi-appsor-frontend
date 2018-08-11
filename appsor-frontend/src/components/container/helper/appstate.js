@@ -1,7 +1,6 @@
 // Initial State of App.js
 
 const initialState = {
-  currentPage: 'Home',
   basicInfo: {
     firstName: null,
     middleInitial: null,

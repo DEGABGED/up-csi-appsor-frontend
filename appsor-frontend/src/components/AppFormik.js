@@ -3,12 +3,10 @@ import { withFormik } from 'formik';
 import { object } from 'yup';
 import PropTypes from 'prop-types';
 
-// import Home from './container/pages/Home';
 import Affiliations from './container/pages/Affiliations';
 import BasicInfo from './container/pages/BasicInfo';
 import Committee from './container/pages/Committee';
 import SkillsInterests from './container/pages/SkillsInterests';
-// import Result from './container/pages/Result';
 
 import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
 import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
