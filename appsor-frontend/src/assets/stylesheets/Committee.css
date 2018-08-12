@@ -1,10 +1,13 @@
 .ui.container.committee-container {
+    padding-top: 50px;
+    justify-content: center;
     width: 80%;
 }
 
 .committee-title {
     font-family: 'Nexa Bold';
     font-size: 45px;
+    margin-bottom: 0px;
 }
 
 .column {
