@@ -4,10 +4,11 @@ import { Container } from 'semantic-ui-react';
 
 import BasicInfo from '../../container/pages/BasicInfo';
 import SkillsInterests from '../../container/pages/SkillsInterests';
+import '../../../assets/stylesheets/Base.css';
 import '../../../assets/stylesheets/PersonalInfo.css';
 
 const PersonalInfo = props => (
-  <Container textAlign="center" className="personalinfo-container">
+  <Container textAlign="center" className="page-container">
     <BasicInfo
       handleChange={props.handleChangeBasicInfo}
       basicInfo={props.basicInfo}

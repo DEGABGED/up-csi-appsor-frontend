@@ -4,6 +4,7 @@ import { Container, Button } from 'semantic-ui-react';
 
 import CommitteeForm from '../../presentational/forms/CommitteeForm';
 import { committeeOptions } from '../../presentational/helper/defaultOptions';
+import '../../../assets/stylesheets/Base.css';
 import '../../../assets/stylesheets/Committee.css';
 
 class Committee extends Component {
@@ -32,7 +33,7 @@ class Committee extends Component {
 
   render() {
     return (
-      <Container textAlign="center" className="committee-container">
+      <Container textAlign="center" className="page-container committee-container">
         <h1 className="committee-title">Committee Preference</h1>
         { this.renderForms() }
         <Button primary type="submit">Submit</Button>

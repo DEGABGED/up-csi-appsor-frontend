@@ -4,6 +4,7 @@ import { FieldArray } from 'formik';
 import { Container } from 'semantic-ui-react';
 
 import AffiliationsForm from '../../presentational/forms/AffiliationsForm';
+import '../../../assets/stylesheets/Base.css';
 import '../../../assets/stylesheets/Affiliations.css';
 
 class Affiliations extends Component {
@@ -39,7 +40,7 @@ class Affiliations extends Component {
   //    relevant slice of the values is edited
   renderForms(helpers) {
     return (
-      <Container className="affiliations-container">
+      <Container className="page-container">
         {this.props.affiliations.map((a, i) => (
           <AffiliationsForm
             key={i}
