@@ -1,0 +1,32 @@
+@font-face {
+    font-family: 'Nexa Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Nexa Bold'), url('../fonts/Nexa Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Nexa Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Nexa Light'), url('../fonts/Nexa Light.otf') format('opentype');
+}
+
+body {
+    background-image: url('../images/background.png');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: bottom right;
+    background-size: 75%;
+}
+
+div#root {
+    display: flex;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+body > div#root > div {
+    min-width: 100%;
+    min-height: 100%;
+}
