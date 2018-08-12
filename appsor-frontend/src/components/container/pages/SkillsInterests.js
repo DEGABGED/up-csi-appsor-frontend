@@ -30,13 +30,11 @@ class SkillsInterests extends Component {
 
   render() {
     return (
-      <div>
-        <SkillsInterestsView
-          options={this.updateOptions()}
-          skillsInterests={this.props.skillsInterests}
-          handleChange={this.props.handleChange}
-        />
-      </div>
+      <SkillsInterestsView
+        options={this.updateOptions()}
+        skillsInterests={this.props.skillsInterests}
+        handleChange={this.props.handleChange}
+      />
     );
   }
 }

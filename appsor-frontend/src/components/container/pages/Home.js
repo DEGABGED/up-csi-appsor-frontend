@@ -6,7 +6,7 @@ import upcsi from '../../../assets/images/upcsi.png';
 import '../../../assets/stylesheets/Home.css';
 
 const Home = () => (
-  <Container textAlign="center">
+  <Container className="home-container" textAlign="center">
     <Image src={upcsi} size="mini" centered />
     <div>
       <h1 className="main-title">INSERT TEXT HERE</h1>

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown } from 'semantic-ui-react';
+import { Dropdown, Container } from 'semantic-ui-react';
 
 function View(props) {
   return (
-    <div>
+    <Container>
       <Dropdown
         placeholder="Skills"
         name="skills"
@@ -40,7 +40,7 @@ function View(props) {
         search
         onChange={props.handleChange}
       />
-    </div>
+    </Container>
   );
 }
 

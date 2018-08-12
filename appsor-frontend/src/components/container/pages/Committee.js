@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Container, Button } from 'semantic-ui-react';
+
 import CommitteeForm from '../../presentational/forms/CommitteeForm';
 import { committeeOptions } from '../../presentational/helper/defaultOptions';
+import '../../../assets/stylesheets/Base.css';
+import '../../../assets/stylesheets/Committee.css';
 
 class Committee extends Component {
   constructor(props) {
@@ -29,9 +33,11 @@ class Committee extends Component {
 
   render() {
     return (
-      <div>
+      <Container textAlign="center" className="page-container committee-container">
+        <h1 className="committee-title">Committee Preference</h1>
         { this.renderForms() }
-      </div>
+        <Button primary type="submit">Submit</Button>
+      </Container>
     );
   }
 }

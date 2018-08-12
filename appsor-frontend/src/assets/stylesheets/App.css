@@ -19,14 +19,3 @@ body {
     background-position: bottom right;
     background-size: 75%;
 }
-
-div#root {
-    display: flex;
-    min-width: 100%;
-    min-height: 100%;
-}
-
-body > div#root > div {
-    min-width: 100%;
-    min-height: 100%;
-}
