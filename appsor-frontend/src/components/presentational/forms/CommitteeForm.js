@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
-import { Dropdown, Label } from 'semantic-ui-react';
+import { Dropdown, Label, Image } from 'semantic-ui-react';
+
+import comm0 from '../../../assets/images/committees/comm0.png';
+import comm1 from '../../../assets/images/committees/comm1.png';
+
 
 function Form(props) {
+  const logos = [comm0, comm1, comm1, comm1, comm1, comm1, comm1];
+
   function getDropdownError() {
     let error = typeof (props.errors) !== 'undefined' && !!props.errors.committee_id;
     error = error || (typeof (props.duplicates) !== 'undefined' && !!props.duplicates);
@@ -19,10 +25,18 @@ function Form(props) {
   }
 
   return (
-    <div>
-      <Label>
+    <div className="column">
+      <Image
+        className="committee-logo"
+        src={logos[props.committees.committee_id || 0]}
+        size="tiny"
+      />
+      <Label circular size="big" color="black">{props.formID + 1}</Label>
+      <div className="committee-fields">
+        <p>Committee</p>
         <Dropdown
-          placeholder="Committee"
+          className="committee-field"
+          placeholder="Select a Committee"
           options={props.options}
           name={`${props.formID}`}
           value={props.committees.committee_id}
@@ -31,16 +45,16 @@ function Form(props) {
           onChange={props.handleChangeCommittee}
           error={getDropdownError()}
         />
-        {getDropdownHelperText()}
-      </Label>
-      <TextField
-        label="Reason"
-        name={`${props.formID}`}
-        value={props.committees.reason || ''}
-        onChange={props.handleChangeReason}
-        error={typeof (props.errors) !== 'undefined' && !!props.errors.reason}
-        helperText={typeof (props.errors) !== 'undefined' ? props.errors.reason : undefined}
-      />
+        <TextField
+          className="reason-field"
+          label="Reason"
+          name={`${props.formID}`}
+          value={props.committees.reason || ''}
+          onChange={props.handleChangeReason}
+          error={typeof (props.errors) !== 'undefined' && !!props.errors.reason}
+          helperText={typeof (props.errors) !== 'undefined' ? props.errors.reason : undefined}
+        />
+      </div>
     </div>
   );
 }

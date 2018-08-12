@@ -1,12 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { withFormik } from 'formik';
 import { object } from 'yup';
-import PropTypes from 'prop-types';
 
 import Affiliations from './container/pages/Affiliations';
-import BasicInfo from './container/pages/BasicInfo';
 import Committee from './container/pages/Committee';
-import SkillsInterests from './container/pages/SkillsInterests';
+import PersonalInfo from './presentational/view/PersonalInfo';
 
 import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
 import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
@@ -24,23 +23,21 @@ const MainForm = ({
   setFieldValue,
 }) => (
   <form onSubmit={handleSubmit}>
-    <BasicInfo
-      handleChange={(value) => {
+    <PersonalInfo
+      handleChangeBasicInfo={(value) => {
         setValues({
           ...values,
           basicInfo: value,
         });
       }}
       basicInfo={values.basicInfo}
-      errors={errors.basicInfo}
-    />
-    <SkillsInterests
-      handleChange={(event, { value }) => {
+      errorsBasicInfo={errors.basicInfo}
+      handleChangeSkillsInterests={(event, { value }) => {
         const field = event.currentTarget.parentNode.parentNode.attributes.name.value;
         setFieldValue(`skillsInterests[${field}]`, value);
       }}
       skillsInterests={values.skillsInterests}
-      errors={errors.skillsInterests}
+      errorsSkillsInterests={errors.skillsInterests}
     />
     <Affiliations
       handleChange={(value) => {
@@ -65,8 +62,6 @@ const MainForm = ({
       errors={errors.committees}
       duplicates={errors.committeeDuplicates}
     />
-    <hr />
-    <button color="primary" type="submit">Submit</button>
   </form>
 );
 
@@ -85,7 +80,6 @@ MainForm.propTypes = {
 MainForm.defaultProps = {
   errors: undefined,
 };
-
 
 // add items here as necessary (validation, etc)
 const ConnectedForm = withFormik({

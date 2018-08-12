@@ -17,13 +17,11 @@ class BasicInfo extends Component {
 
   render() {
     return (
-      <div>
-        <BasicInfoView
-          basicInfo={this.props.basicInfo}
-          handleChange={this.handleChange}
-          errors={this.props.errors}
-        />
-      </div>
+      <BasicInfoView
+        basicInfo={this.props.basicInfo}
+        handleChange={this.handleChange}
+        errors={this.props.errors}
+      />
     );
   }
 }

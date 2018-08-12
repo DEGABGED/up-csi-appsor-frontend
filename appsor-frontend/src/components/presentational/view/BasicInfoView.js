@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
+import { Container } from 'semantic-ui-react';
+
 import { ContactNoMask, StudentNoMask } from '../helper/TextMask';
 
 function View(props) {
@@ -9,7 +11,7 @@ function View(props) {
   const defaultDate = '1999-01-01';
 
   return (
-    <div>
+    <Container>
       <TextField
         label="First Name"
         name="firstName"
@@ -96,7 +98,7 @@ function View(props) {
         error={typeof (props.errors) !== 'undefined' && !!props.errors.address}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.address}
       />
-    </div>
+    </Container>
   );
 }
 
