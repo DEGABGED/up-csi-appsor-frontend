@@ -1,0 +1,28 @@
+.add-org-button {
+    width: 80%;
+    text-align: left;
+    margin-top: 1em;
+}
+
+.delete-org-button {
+    padding: 0 !important;
+    min-width: 32px !important;
+    height: 32px !important;
+}
+
+.affiliation-form {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.org-name-input,
+.position-input,
+.duties-input {
+    margin: 0 1rem !important;
+}
+
+.duties-input {
+    flex-grow: 1.5;
+}
