@@ -43,7 +43,8 @@ class Affiliations extends Component {
   renderForms(helpers) {
     return (
       <Container className="page-container">
-        <h1 className="committee-title">Affiliations</h1>
+        <h1 className="page-title">Affiliations</h1>
+        <h3 classNmae="affiliation-counter">{this.props.affiliations.length} / 6</h3>
         {this.props.affiliations.map((a, i) => (
           <AffiliationsForm
             key={i}

@@ -34,7 +34,7 @@ class Committee extends Component {
   render() {
     return (
       <Container textAlign="center" className="page-container committee-container">
-        <h1 className="committee-title">Committee Preference</h1>
+        <h1 className="page-title">Committee Preference</h1>
         { this.renderForms() }
         <Button primary type="submit">Submit</Button>
       </Container>
