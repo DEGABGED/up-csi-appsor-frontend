@@ -46,7 +46,10 @@ AffiliationsForm.propTypes = {
   affiliations: PropTypes.object.isRequired,
   deleteForm: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
-  errors: PropTypes.object,
+  errors: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
 };
 
 AffiliationsForm.defaultProps = {

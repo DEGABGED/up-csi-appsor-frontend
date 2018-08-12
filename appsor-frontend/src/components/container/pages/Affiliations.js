@@ -53,7 +53,10 @@ class Affiliations extends Component {
               newAffiliations[i][name] = value;
               this.props.handleChange(newAffiliations);
             }}
-            errors={typeof (this.props.errors) === 'undefined' ? undefined : this.props.errors[i]}
+            errors={(typeof (this.props.errors) !== 'undefined' && Array.isArray(this.props.errors))
+              ? this.props.errors[i]
+              : this.props.errors
+            }
           />
         ))}
         <button
@@ -63,6 +66,7 @@ class Affiliations extends Component {
             position: null,
             duties: null,
           })}
+          disabled={this.props.affiliations.length >= 6}
         >Add New Org
         </button>
       </Container>
@@ -83,7 +87,10 @@ class Affiliations extends Component {
 Affiliations.propTypes = {
   handleChange: PropTypes.func.isRequired,
   affiliations: PropTypes.array.isRequired,
-  errors: PropTypes.arrayOf(PropTypes.object),
+  errors: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.string,
+  ]),
 };
 
 Affiliations.defaultProps = {

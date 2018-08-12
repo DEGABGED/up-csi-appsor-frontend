@@ -70,7 +70,10 @@ MainForm.propTypes = {
   errors: PropTypes.shape({
     basicInfo: PropTypes.object,
     skillsInterests: PropTypes.object,
-    affiliations: PropTypes.arrayOf(PropTypes.object),
+    affiliations: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.object),
+      PropTypes.string,
+    ]),
   }),
   handleSubmit: PropTypes.func.isRequired,
   setValues: PropTypes.func.isRequired,
