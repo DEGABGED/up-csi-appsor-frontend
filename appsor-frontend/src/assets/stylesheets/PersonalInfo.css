@@ -1,0 +1,71 @@
+/* generic stuff and for mobile screens*/
+.row {
+	display: flex;
+	flex-direction: column !important;
+	justify-content: space-between;
+	margin: 10px 5px;
+}
+
+.dropdown {
+	flex: 1;
+}
+
+.personal-info-container {
+	width: 60% !important;
+}
+
+/* for big desktop screens */
+@media only screen and (min-width: 900px) {
+	.row {
+		flex-direction: row !important;
+	}
+
+	.text-field:first-child {
+		margin-left: 0px !important;
+	}
+
+	.text-field {
+		margin: 0px 10px !important;
+	}
+
+	.text-field:last-child {
+		margin-right: 0px !important;
+	}
+
+	.last-name {
+		flex: 5;
+	}
+
+	.middle-initial {
+		flex: 1;
+	}
+
+	.first-name {
+		flex: 7;
+	}
+
+	.nickname {
+		flex: 5;
+	}
+
+	.student-number {
+		flex: 3;
+	}
+
+	.birthday {
+		flex: 3;
+	}
+
+	.email {
+		flex: 6;
+	}
+
+	.contact-number {
+		flex: 6;
+	}
+
+	.address {
+		flex: 12;
+	}
+
+}

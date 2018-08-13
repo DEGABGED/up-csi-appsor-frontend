@@ -8,7 +8,8 @@ import '../../../assets/stylesheets/Base.css';
 import '../../../assets/stylesheets/PersonalInfo.css';
 
 const PersonalInfo = props => (
-  <Container textAlign="center" className="page-container">
+  <Container textAlign="center" className="page-container personal-info-container">
+    <h1 className="page-title">Personal Information</h1>
     <BasicInfo
       handleChange={props.handleChangeBasicInfo}
       basicInfo={props.basicInfo}

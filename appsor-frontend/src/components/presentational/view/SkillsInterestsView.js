@@ -4,7 +4,8 @@ import { Dropdown, Container } from 'semantic-ui-react';
 
 function View(props) {
   return (
-    <Container>
+    <Container className="skills-interests">
+    <div className="row">
       <Dropdown
         placeholder="Skills"
         name="skills"
@@ -15,8 +16,10 @@ function View(props) {
         selection
         search
         onChange={props.handleChange}
+        className="dropdown"
       />
-
+    </div>
+    <div className="row">
       <Dropdown
         placeholder="Interests"
         name="interests"
@@ -27,19 +30,23 @@ function View(props) {
         selection
         search
         onChange={props.handleChange}
+        className="dropdown"
       />
-
-      <Dropdown
-        placeholder="Experience"
-        name="experience"
-        options={props.options.experience}
-        closeOnBlur
-        allowAdditions
-        multiple
-        selection
-        search
-        onChange={props.handleChange}
-      />
+    </div>
+    <div className="row">
+        <Dropdown
+          placeholder="Experience"
+          name="experience"
+          options={props.options.experience}
+          closeOnBlur
+          allowAdditions
+          multiple
+          selection
+          search
+          onChange={props.handleChange}
+          className="dropdown"
+        />
+    </div>
     </Container>
   );
 }
