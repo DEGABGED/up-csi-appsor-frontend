@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 function AffiliationsForm(props) {
   return (
-    <div>
+    <div className="affiliation-form">
       <TextField
-        label="Org Name"
+        className="org-name-input"
+        label="Organization"
         name="orgName"
         value={props.affiliations.orgName || ''}
         onChange={props.handleChange}
@@ -15,6 +17,7 @@ function AffiliationsForm(props) {
       />
 
       <TextField
+        className="position-input"
         label="Position"
         name="position"
         value={props.affiliations.position || ''}
@@ -24,6 +27,7 @@ function AffiliationsForm(props) {
       />
 
       <TextField
+        className="duties-input"
         label="Duties"
         name="duties"
         value={props.affiliations.duties || ''}
@@ -32,11 +36,11 @@ function AffiliationsForm(props) {
         helpertext={typeof (props.errors) !== 'undefined' ? props.errors.duties : undefined}
       />
 
-      <button
-        type="button"
+      <Button
+        className="delete-org-button"
         onClick={() => props.deleteForm(props.formID)}
-      >Delete Form
-      </button>
+      >X
+      </Button>
     </div>
   );
 }

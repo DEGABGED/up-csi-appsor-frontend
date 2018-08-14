@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FieldArray } from 'formik';
 import { Container } from 'semantic-ui-react';
+import Button from '@material-ui/core/Button';
+
 
 import AffiliationsForm from '../../presentational/forms/AffiliationsForm';
 import '../../../assets/stylesheets/Base.css';
@@ -40,7 +42,8 @@ class Affiliations extends Component {
   //    relevant slice of the values is edited
   renderForms(helpers) {
     return (
-      <Container className="page-container">
+      <Container className="page-container" id="affiliations">
+        <h1 className="page-title">Affiliations</h1>
         {this.props.affiliations.map((a, i) => (
           <AffiliationsForm
             key={i}
@@ -59,16 +62,21 @@ class Affiliations extends Component {
             }
           />
         ))}
-        <button
-          type="button"
-          onClick={() => helpers.push({
-            orgName: null,
-            position: null,
-            duties: null,
-          })}
-          disabled={this.props.affiliations.length >= 6}
-        >Add New Org
-        </button>
+        <div className="add-org-button">
+          <Button
+            onClick={() => helpers.push({
+              orgName: null,
+              position: null,
+              duties: null,
+            })}
+            disabled={this.props.affiliations.length >= 6}
+          >+ Add Organization
+          </Button>
+        </div>
+
+        <div className="section-footer">
+            Press <strong>Ctrl+Enter</strong> to scroll
+        </div>
       </Container>
     );
   }
