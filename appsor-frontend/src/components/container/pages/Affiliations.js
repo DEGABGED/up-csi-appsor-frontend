@@ -70,8 +70,12 @@ class Affiliations extends Component {
               duties: null,
             })}
             disabled={this.props.affiliations.length >= 6}
-          >+ Add Organization ({this.props.affiliations.length} / 6)
+          >+ Add Organization
           </Button>
+        </div>
+
+        <div className="section-footer">
+            Press <strong>Ctrl+Enter</strong> to scroll
         </div>
       </Container>
     );
