@@ -11,13 +11,33 @@
 }
 
 .personal-info-container {
-	width: 60% !important;
+	flex-flow: row !important;
+	display: flex;
+	justify-content: space-around;
 }
 
+.personal-info-form {
+	max-width: 60%;
+}
+
+.glitter-pics {
+	display: none;
+}
+
+.glitter-pics > img {
+	margin: 5px;
+}
 /* for big desktop screens */
 @media only screen and (min-width: 900px) {
 	.row {
 		flex-direction: row !important;
+	}
+
+	.glitter-pics {
+		display: flex;
+		flex-flow: column;
+		justify-content: space-between;
+		flex-shrink: 0;
 	}
 
 	.text-field:first-child {

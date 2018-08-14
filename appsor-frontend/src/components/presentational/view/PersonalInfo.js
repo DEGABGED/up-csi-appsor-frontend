@@ -4,21 +4,37 @@ import { Container } from 'semantic-ui-react';
 
 import BasicInfo from '../../container/pages/BasicInfo';
 import SkillsInterests from '../../container/pages/SkillsInterests';
+import GlitterPics from '../design/GlitterPics';
+
 import '../../../assets/stylesheets/Base.css';
 import '../../../assets/stylesheets/PersonalInfo.css';
 
 const PersonalInfo = props => (
   <Container textAlign="center" className="page-container personal-info-container">
-    <h1 className="page-title">Personal Information</h1>
-    <BasicInfo
-      handleChange={props.handleChangeBasicInfo}
-      basicInfo={props.basicInfo}
-      errors={props.errorsBasicInfo}
+    <GlitterPics
+      begin="5"
+      end="10"
+      columns="2"
+      offset="30"
     />
-    <SkillsInterests
-      handleChange={props.handleChangeSkillsInterests}
-      skillsInterests={props.skillsInterests}
-      errors={props.errorsSkillsInterests}
+    <div className="personal-info-form">
+      <h1 className="page-title">Personal Information</h1>
+      <BasicInfo
+        handleChange={props.handleChangeBasicInfo}
+        basicInfo={props.basicInfo}
+        errors={props.errorsBasicInfo}
+      />
+      <SkillsInterests
+        handleChange={props.handleChangeSkillsInterests}
+        skillsInterests={props.skillsInterests}
+        errors={props.errorsSkillsInterests}
+      />
+    </div>
+    <GlitterPics
+      begin="0"
+      end="5"
+      columns="2"
+      offset="0"
     />
   </Container>
 );
