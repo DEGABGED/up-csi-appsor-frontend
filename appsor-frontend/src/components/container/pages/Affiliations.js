@@ -42,9 +42,8 @@ class Affiliations extends Component {
   //    relevant slice of the values is edited
   renderForms(helpers) {
     return (
-      <Container className="page-container">
+      <Container className="page-container" id="affiliations">
         <h1 className="page-title">Affiliations</h1>
-        <h3 className="affiliation-counter">{this.props.affiliations.length} / 6</h3>
         {this.props.affiliations.map((a, i) => (
           <AffiliationsForm
             key={i}
@@ -72,7 +71,11 @@ class Affiliations extends Component {
             })}
             disabled={this.props.affiliations.length >= 6}
           >+ Add Organization
-        </Button>
+          </Button>
+        </div>
+
+        <div className="section-footer">
+            Press <strong>Ctrl+Enter</strong> to scroll
         </div>
       </Container>
     );
