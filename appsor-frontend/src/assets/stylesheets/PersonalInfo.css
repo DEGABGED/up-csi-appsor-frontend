@@ -14,10 +14,12 @@
 	flex-flow: row !important;
 	display: flex;
 	justify-content: space-around;
+	margin-bottom: 30px;
 }
 
 .personal-info-form {
-	max-width: 60%;
+	max-width: 80%;
+	margin: 0px 50px;
 }
 
 .glitter-pics {
@@ -27,6 +29,11 @@
 .glitter-pics > img {
 	margin: 5px;
 }
+
+.basic-info-container {
+	margin-bottom: 20px;
+}
+
 /* for big desktop screens */
 @media only screen and (min-width: 900px) {
 	.row {

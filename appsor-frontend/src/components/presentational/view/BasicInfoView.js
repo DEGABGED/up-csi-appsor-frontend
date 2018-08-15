@@ -11,7 +11,7 @@ function View(props) {
   const defaultDate = '1999-01-01';
 
   return (
-    <Container>
+    <Container className="basic-info-container">
     <div className="row">
       <TextField
         label="Last Name"

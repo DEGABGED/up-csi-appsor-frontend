@@ -10,33 +10,35 @@ import '../../../assets/stylesheets/Base.css';
 import '../../../assets/stylesheets/PersonalInfo.css';
 
 const PersonalInfo = props => (
-  <Container textAlign="center" className="page-container personal-info-container">
-    <GlitterPics
-      begin="5"
-      end="10"
-      columns="2"
-      offset="30"
-    />
-    <div className="personal-info-form">
-      <h1 className="page-title">Personal Information</h1>
-      <BasicInfo
-        handleChange={props.handleChangeBasicInfo}
-        basicInfo={props.basicInfo}
-        errors={props.errorsBasicInfo}
+  <div>
+    <Container textAlign="center" className="page-container personal-info-container">
+      <GlitterPics
+        begin="5"
+        end="10"
+        columns="2"
+        offset="30"
       />
-      <SkillsInterests
-        handleChange={props.handleChangeSkillsInterests}
-        skillsInterests={props.skillsInterests}
-        errors={props.errorsSkillsInterests}
+      <div className="personal-info-form">
+        <h1 className="page-title">Personal Information</h1>
+        <BasicInfo
+          handleChange={props.handleChangeBasicInfo}
+          basicInfo={props.basicInfo}
+          errors={props.errorsBasicInfo}
+        />
+        <SkillsInterests
+          handleChange={props.handleChangeSkillsInterests}
+          skillsInterests={props.skillsInterests}
+          errors={props.errorsSkillsInterests}
+        />
+      </div>
+      <GlitterPics
+        begin="0"
+        end="5"
+        columns="2"
+        offset="0"
       />
-    </div>
-    <GlitterPics
-      begin="0"
-      end="5"
-      columns="2"
-      offset="0"
-    />
-  </Container>
+    </Container>
+  </div>
 );
 
 PersonalInfo.propTypes = {
