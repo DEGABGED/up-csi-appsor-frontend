@@ -26,3 +26,29 @@
 .duties-input {
     flex-grow: 1.5;
 }
+
+.section-footer {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: auto;
+}
+
+#affiliations {
+    padding-top: 100px;
+}
+
+@media only screen and (max-width: 900px) {
+    .affiliation-form {
+        flex-wrap: wrap;
+    }
+
+    .org-name-input,
+    .position-input {
+        width: 40%;
+    }
+
+    .section-footer {
+        display: none;
+    }
+}
