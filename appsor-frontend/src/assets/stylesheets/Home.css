@@ -5,6 +5,7 @@
     align-items: center;
     height: 100vh;
     padding-top: 20px;
+    padding-bottom: 60px;
 }
 
 .main-title {
@@ -24,9 +25,19 @@
 }
 
 .chevron-button:hover {
-    color: #747474;
+    color: #000000;
 }
 
-.bottom-space {
-    padding: 20px;
+@media only screen and (max-width: 900px) {
+    .main-title {
+        font-family: 'Nexa Bold';
+        font-size: 45px;
+        margin-bottom: -6px;
+    }
+
+    .sub-title {
+        font-family: 'Nexa Light';
+        font-size: 25px;
+        margin-top: -6px;
+    }
 }

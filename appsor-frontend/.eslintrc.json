@@ -1,6 +1,7 @@
 {
     "extends": "airbnb",
     "rules": {
+        "no-empty": "off",
         "no-plusplus": "off",
         "function-paren-newline": "off",
         "class-methods-use-this": "off",

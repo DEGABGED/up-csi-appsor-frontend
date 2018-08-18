@@ -51,8 +51,10 @@ const MainForm = ({
     />
     <Committee
       handleChangeCommittee={(event, { value }) => {
-        const id = event.currentTarget.parentNode.parentNode.attributes.name.value;
-        setFieldValue(`committees[${parseInt(id, 10)}].committee_id`, value);
+        try {
+          const id = event.currentTarget.parentNode.parentNode.attributes.name.value;
+          setFieldValue(`committees[${parseInt(id, 10)}].committee_id`, value);
+        } catch (error) { }
       }}
       handleChangeReason={(event) => {
         const id = event.target.name;

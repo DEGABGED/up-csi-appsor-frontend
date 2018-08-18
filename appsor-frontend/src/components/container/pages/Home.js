@@ -15,7 +15,6 @@ const Home = () => (
     <Link className="chevron-button" to="/committees">
       <Icon name="chevron circle right" link size="huge" />
     </Link>
-    <div className="bottom-space" />
   </Container>
 );
 
