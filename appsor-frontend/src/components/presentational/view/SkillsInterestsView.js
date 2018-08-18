@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown, Container } from 'semantic-ui-react';
+import { Segment, Label, Dropdown, Container } from 'semantic-ui-react';
 
 function View(props) {
   return (
-    <Container>
+    <Container className="skills-interests">
+    <div className="dropdown-div">
+      <label className="dropdown-label">Skills</label>
       <Dropdown
         placeholder="Skills"
         name="skills"
@@ -14,9 +16,13 @@ function View(props) {
         multiple
         selection
         search
+        fluid
         onChange={props.handleChange}
+        className="dropdown"
       />
-
+    </div>
+    <div className="dropdown-div">
+      <label className="dropdown-label">Interests</label>
       <Dropdown
         placeholder="Interests"
         name="interests"
@@ -26,9 +32,13 @@ function View(props) {
         multiple
         selection
         search
+        fluid
         onChange={props.handleChange}
+        className="dropdown"
       />
-
+    </div>
+    <div className="dropdown-div">
+      <label className="dropdown-label">Experience</label>
       <Dropdown
         placeholder="Experience"
         name="experience"
@@ -38,8 +48,11 @@ function View(props) {
         multiple
         selection
         search
+        fluid
         onChange={props.handleChange}
+        className="dropdown"
       />
+    </div>
     </Container>
   );
 }

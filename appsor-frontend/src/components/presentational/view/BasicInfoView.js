@@ -11,15 +11,8 @@ function View(props) {
   const defaultDate = '1999-01-01';
 
   return (
-    <Container>
-      <TextField
-        label="First Name"
-        name="firstName"
-        value={props.basicInfo.firstName || ''}
-        onChange={props.handleChange}
-        error={typeof (props.errors) !== 'undefined' && !!props.errors.firstName}
-        helperText={typeof (props.errors) !== 'undefined' && props.errors.firstName}
-      />
+    <Container className="basic-info-container">
+    <div className="row">
       <TextField
         label="Last Name"
         name="lastName"
@@ -27,17 +20,28 @@ function View(props) {
         onChange={props.handleChange}
         error={typeof (props.errors) !== 'undefined' && !!props.errors.lastName}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.lastName}
+        className="text-field last-name"
       />
-
       <TextField
-        label="Middle Initial"
+        label="M. I."
         name="middleInitial"
         value={props.basicInfo.middleInitial || ''}
         onChange={props.handleChange}
         error={typeof (props.errors) !== 'undefined' && !!props.errors.middleInitial}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.middleInitial}
+        className="text-field middle-initial"
       />
-
+      <TextField
+        label="First Name"
+        name="firstName"
+        value={props.basicInfo.firstName || ''}
+        onChange={props.handleChange}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.firstName}
+        helperText={typeof (props.errors) !== 'undefined' && props.errors.firstName}
+        className="text-field first-name"
+      />
+    </div>
+    <div className="row">
       <TextField
         label="Nickname"
         name="nickname"
@@ -45,8 +49,8 @@ function View(props) {
         onChange={props.handleChange}
         error={typeof (props.errors) !== 'undefined' && !!props.errors.nickname}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.nickname}
+        className="text-field nickname"
       />
-
       <TextField
         label="Student Number"
         name="studentNumber"
@@ -57,8 +61,8 @@ function View(props) {
         }}
         error={typeof (props.errors) !== 'undefined' && !!props.errors.studentNumber}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.studentNumber}
+        className="text-field student-number"
       />
-
       <TextField
         label="Birthday"
         name="birthday"
@@ -67,8 +71,19 @@ function View(props) {
         onChange={props.handleChange}
         error={typeof (props.errors) !== 'undefined' && !!props.errors.birthday}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.birthday}
+        className="text-field birthday"
       />
-
+    </div>
+    <div className="row">
+      <TextField
+        label="Email"
+        name="email"
+        value={props.basicInfo.email || ''}
+        onChange={props.handleChange}
+        error={typeof (props.errors) !== 'undefined' && !!props.errors.email}
+        helperText={typeof (props.errors) !== 'undefined' && props.errors.email}
+        className="text-field email"
+      />
       <TextField
         label="Contact Number"
         name="contactNumber"
@@ -79,17 +94,10 @@ function View(props) {
         }}
         error={typeof (props.errors) !== 'undefined' && !!props.errors.contactNumber}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.contactNumber}
+        className="text-field contact-number"
       />
-
-      <TextField
-        label="Email"
-        name="email"
-        value={props.basicInfo.email || ''}
-        onChange={props.handleChange}
-        error={typeof (props.errors) !== 'undefined' && !!props.errors.email}
-        helperText={typeof (props.errors) !== 'undefined' && props.errors.email}
-      />
-
+    </div>
+    <div className="row">
       <TextField
         label="Address"
         name="address"
@@ -97,7 +105,9 @@ function View(props) {
         onChange={props.handleChange}
         error={typeof (props.errors) !== 'undefined' && !!props.errors.address}
         helperText={typeof (props.errors) !== 'undefined' && props.errors.address}
+        className="text-field address"
       />
+    </div>
     </Container>
   );
 }
