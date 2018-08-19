@@ -29,6 +29,10 @@ body {
     padding-left: 5%;
     padding-right: 5%;
     height: 100px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    z-index: 1000;
 }
 
 .navbar-item-list {
@@ -40,21 +44,16 @@ body {
     align-items: center;
 }
 
+/* !important tags to overwrite the Semantic UI defaults */
 .navbar-item {
-    float: left;
-    background-color: #0e0e0e;
-    margin-left: 30px;
-}
-
-.navbar-item a {
-    text-transform: uppercase;
+    background-color: #0e0e0e !important;
+    margin: 10px 0 10px 30px;
+    text-transform: uppercase !important;
     font-family: 'Nexa Light';
     font-size: 1.2em;
-    padding: 0.8em 1.2em;
+    padding: 0.8em 0.9em 0.8em 1.2em !important;
     letter-spacing: 0.3em;
-    margin-right: -0.3em;
-    color: #f1f1f1;
-    display: block;
+    color: #f1f1f1 !important;
 }
 
 @media only screen and (max-width: 900px) {

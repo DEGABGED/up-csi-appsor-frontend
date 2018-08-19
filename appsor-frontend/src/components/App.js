@@ -1,17 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Image } from 'semantic-ui-react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
+import NavBar from './NavBar';
 import Home from './container/pages/Home';
 import Result from './container/pages/Result';
 import AppFormik from './AppFormik';
-import upcsi from '../assets/images/upcsi.png';
 import '../assets/stylesheets/App.css';
 
-const NavBar = () => (
+const NavBarOld = () => (
   <div id="navbar">
-    <Image className="navbar-logo" src={upcsi} size="mini" />
     <ul className="navbar-item-list">
       <li className="navbar-item">
         <Link to="/committees">Committees</Link>
