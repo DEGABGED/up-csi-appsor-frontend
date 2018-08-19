@@ -47,7 +47,13 @@
 }
 
 @media only screen and (max-width: 900px) {
+    .column {
+        margin-bottom: 2px;
+    }
     .ui.tiny.committee-logo {
         display: none;
+    }
+    .ui.search.committee-field {
+        margin-bottom: 0px;
     }
 }
