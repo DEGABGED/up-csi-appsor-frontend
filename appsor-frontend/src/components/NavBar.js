@@ -27,10 +27,14 @@ const NavBarMobile = ({
       vertical
       visible={visible}
     >
+      <Menu.Item>
+        <Image className="navbar-logo" src={upcsi} size="mini" centered />
+      </Menu.Item>
       {items.map(item => (
         <Menu.Item
           key={item.key}
           name={item.name}
+          className="navbar-item-text"
           onClick={() => {
             handlePusher();
             handleClick(item.route);
@@ -43,10 +47,11 @@ const NavBarMobile = ({
       onClick={handlePusher}
       style={{ minHeight: '100vh' }}
     >
-      <Menu fixed="top" inverted>
-        <Menu.Item>
-          <Image className="navbar-logo" src={upcsi} size="mini" />
-        </Menu.Item>
+      <Menu
+        fixed="top"
+        inverted
+        style={{ height: '60px' }}
+      >
         <Menu.Item onClick={handleToggle}>
           <Icon name="sidebar" />
         </Menu.Item>
@@ -67,7 +72,7 @@ const NavBarDesktop = ({
         <Menu.Item
           key={item.key}
           name={item.name}
-          className="navbar-item"
+          className="navbar-item navbar-item-text"
           active={activeItem === item.route}
           onClick={() => handleClick(item.route)}
         />
@@ -111,8 +116,8 @@ class NavBar extends Component {
       handleToggle: this.handleToggle,
       handleClick: this.handleClick,
       items: [
-        { name: 'Form', route: '/form', key: 'Form' },
         { name: 'Committees', route: '/committees', key: 'Committees' },
+        { name: 'Apply Now', route: '/form', key: 'Apply Now' },
       ],
     };
 
