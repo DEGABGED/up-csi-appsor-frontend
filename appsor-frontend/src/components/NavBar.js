@@ -35,7 +35,7 @@ const NavBarMobile = ({
     <Sidebar.Pusher
       dimmed={visible}
       onClick={handlePusher}
-      style={{ minHeight: "100vh" }}
+      style={{ minHeight: '100vh' }}
     >
       <Menu fixed="top" inverted>
         <Menu.Item>
@@ -52,22 +52,20 @@ const NavBarMobile = ({
 const NavBarDesktop = ({
   activeItem,
   handleClick,
+  items,
 }) => (
   <Menu id="navbar">
     <Image className="navbar-logo" src={upcsi} size="mini" />
     <Menu.Menu position="right">
-      <Menu.Item
-        name="Committees"
-        className="navbar-item"
-        active={activeItem === '/committees'}
-        onClick={() => handleClick('/committees')}
-      />
-      <Menu.Item
-        name="Form"
-        className="navbar-item"
-        active={activeItem === '/form'}
-        onClick={() => handleClick('/form')}
-      />
+      {items.map(item => (
+        <Menu.Item
+          key={item.key}
+          name={item.name}
+          className="navbar-item"
+          active={activeItem === item.route}
+          onClick={() => handleClick(item.route)}
+        />
+      ))}
     </Menu.Menu>
   </Menu>
 );
@@ -107,10 +105,12 @@ class NavBar extends Component {
       handleToggle: this.handleToggle,
       handleClick: this.handleClick,
       items: [
-        { name: "Form", route: "/form", key: "Form" },
-        { name: "Committees", route: "/committees", key: "Committees" },
+        { name: 'Form', route: '/form', key: 'Form' },
+        { name: 'Committees', route: '/committees', key: 'Committees' },
       ],
-    }
+    };
+
+    if (this.props.location.pathname === '/') return null;
     return (
       <div>
         <Responsive {...Responsive.onlyMobile}>
@@ -123,5 +123,34 @@ class NavBar extends Component {
     );
   }
 }
+
+NavBarMobile.propTypes = {
+  handleClick: PropTypes.func.isRequired,
+  handlePusher: PropTypes.func.isRequired,
+  handleToggle: PropTypes.func.isRequired,
+  visible: PropTypes.bool.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    route: PropTypes.string,
+    key: PropTypes.string,
+  })).isRequired,
+};
+
+NavBarDesktop.propTypes = {
+  activeItem: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    route: PropTypes.string,
+    key: PropTypes.string,
+  })).isRequired,
+};
+
+NavBar.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }).isRequired,
+  history: PropTypes.object.isRequired,
+};
 
 export default withRouter(NavBar);
