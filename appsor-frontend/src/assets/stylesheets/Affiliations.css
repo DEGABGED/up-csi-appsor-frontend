@@ -34,10 +34,6 @@
     margin-top: auto;
 }
 
-#affiliations {
-    padding-top: 100px;
-}
-
 @media only screen and (max-width: 900px) {
     .affiliation-form {
         flex-wrap: wrap;

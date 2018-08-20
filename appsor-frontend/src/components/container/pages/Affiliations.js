@@ -42,7 +42,7 @@ class Affiliations extends Component {
   //    relevant slice of the values is edited
   renderForms(helpers) {
     return (
-      <Container className="page-container" id="affiliations">
+      <Container className="page-container">
         <h1 className="page-title">Affiliations</h1>
         {this.props.affiliations.map((a, i) => (
           <AffiliationsForm

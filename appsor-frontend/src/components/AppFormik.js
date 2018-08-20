@@ -5,7 +5,7 @@ import { object } from 'yup';
 
 import Affiliations from './container/pages/Affiliations';
 import Committee from './container/pages/Committee';
-import PersonalInfo from './presentational/view/PersonalInfo';
+import PersonalInfo from './container/pages/PersonalInfo';
 
 import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
 import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
