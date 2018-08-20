@@ -12,7 +12,13 @@ const NavBarMobile = ({
   visible,
   items,
 }) => (
-  <Sidebar.Pushable>
+  <Sidebar.Pushable
+    style={{
+      position: 'fixed',
+      width: '100%',
+      zIndex: 1000,
+    }}
+  >
     <Sidebar
       as={Menu}
       animation="overlay"
