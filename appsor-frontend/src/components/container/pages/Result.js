@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CommCarousel from '../../presentational/design/CommCarousel'
 
 class Result extends Component {
   constructor(props) {
@@ -10,9 +11,7 @@ class Result extends Component {
   render() {
     return (
       <div>
-        <header>
-          <h1>Welcome to RESULT</h1>
-        </header>
+        <CommCarousel />
       </div>
     );
   }
