@@ -1,0 +1,45 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.carousel-container {
+	display: flex;
+	justify-content: center;
+}
+
+.carousel-main {
+	margin: 0 auto;
+	max-width: 80%;
+	padding: 0px 75px;
+}
+
+.carousel-arrows {
+
+}
+
+.carousel-div {
+	display: inline-flex !important;
+	justify-content: center;
+	overflow: auto;
+}
+
+.carousel-div > img {
+	width: auto;
+	height: 600px;
+	object-fit: contain;
+}
+
+.slick-slider {
+
+}
+
+.slick-next {
+	right: 25px;
+}
+
+.slick-prev {
+	 left: 25px;
+}
+
+.slick-dots {
+	left: -25px;
+}
