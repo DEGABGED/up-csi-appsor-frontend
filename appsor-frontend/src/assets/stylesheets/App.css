@@ -12,10 +12,59 @@
     src: local('Nexa Light'), url('../fonts/Nexa Light.otf') format('opentype');
 }
 
+html,body {
+    margin: 0;
+}
+
 body {
     background-image: url('../images/background.png');
     background-repeat: repeat;
     background-attachment: fixed;
     background-position: bottom right;
     background-size: 75%;
+}
+
+#navbar {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 120px;
+    background: none;
+    border: none;
+    box-shadow: none;
+    z-index: 1000;
+}
+
+.navbar-item-text {
+    text-transform: uppercase !important;
+    font-family: 'Nexa Light';
+}
+
+/* !important tags to overwrite the Semantic UI defaults */
+.navbar-item {
+    background-color: #0e0e0e !important;
+    margin: 10px 0 10px 30px;
+    font-size: 1.2em;
+    padding: 0.8em 0.9em 0.8em 1.2em !important;
+    letter-spacing: 0.3em;
+    color: #f1f1f1 !important;
+}
+
+.navbar-logo-mobile {
+    margin: 20px auto;
+}
+
+.ui.visible.sidebar {
+    width: 50% !important;
+}
+
+@media only screen and (max-width: 900px) {
+    .navbar-item a {
+        font-size: 0.8em;
+        padding: 0.6em 1em;
+    }
 }
