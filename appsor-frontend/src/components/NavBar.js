@@ -11,16 +11,17 @@ const NavBarMobile = ({
   handleToggle,
   visible,
   items,
+  children,
 }) => (
   <Sidebar.Pushable
     style={{
-      position: 'fixed',
       width: '100%',
       zIndex: 1000,
     }}
   >
     <Sidebar
       as={Menu}
+      fixed
       animation="overlay"
       icon="labeled"
       inverted
@@ -42,20 +43,21 @@ const NavBarMobile = ({
         />
       ))}
     </Sidebar>
+    <Menu
+      fixed="top"
+      inverted
+      style={{ height: '60px' }}
+    >
+      <Menu.Item onClick={handleToggle}>
+        <Icon name="sidebar" />
+      </Menu.Item>
+    </Menu>
     <Sidebar.Pusher
       dimmed={visible}
       onClick={handlePusher}
       style={{ minHeight: '100vh' }}
     >
-      <Menu
-        fixed="top"
-        inverted
-        style={{ height: '60px' }}
-      >
-        <Menu.Item onClick={handleToggle}>
-          <Icon name="sidebar" />
-        </Menu.Item>
-      </Menu>
+      {children}
     </Sidebar.Pusher>
   </Sidebar.Pushable>
 );
@@ -121,14 +123,18 @@ class NavBar extends Component {
       ],
     };
 
-    if (this.props.location.pathname === '/') return null;
+    if (this.props.location.pathname === '/') return this.props.children;
+
     return (
       <div>
         <Responsive {...Responsive.onlyMobile}>
-          <NavBarMobile {...props} />
+          <NavBarMobile {...props}>
+            {this.props.children}
+          </NavBarMobile>
         </Responsive>
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
           <NavBarDesktop {...props} />
+          {this.props.children}
         </Responsive>
       </div>
     );
