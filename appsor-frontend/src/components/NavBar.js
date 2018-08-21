@@ -28,7 +28,7 @@ const NavBarMobile = ({
       visible={visible}
     >
       <Menu.Item>
-        <Image className="navbar-logo" src={upcsi} size="mini" centered />
+        <Image className="navbar-logo navbar-logo-mobile" src={upcsi} size="mini" centered />
       </Menu.Item>
       {items.map(item => (
         <Menu.Item
