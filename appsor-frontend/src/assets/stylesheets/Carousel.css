@@ -12,24 +12,38 @@
 	padding: 0px 75px;
 }
 
-.carousel-arrows {
-
-}
-
 .carousel-div {
 	display: inline-flex !important;
 	justify-content: center;
-	overflow: auto;
+	position: relative !important;
 }
 
 .carousel-div > img {
-	width: auto;
-	height: 600px;
-	object-fit: contain;
+	width: inherit;
+	height: 680px;
 }
 
-.slick-slider {
 
+.carousel-div > .slide-title {
+	font-family: 'Nexa Bold';
+	font-variant: small-caps;
+	font-size: 28px;
+	letter-spacing: 10px;
+	color: white;
+	position: absolute;
+	top: 15%;
+	right: 7%;
+}
+
+.carousel-div .slide-title p {
+	margin-bottom: 3px;
+	text-align: right;
+}
+
+.carousel-div > button {
+	position: absolute;
+	top: 30%;
+	right: 10%;
 }
 
 .slick-next {
@@ -40,6 +54,22 @@
 	 left: 25px;
 }
 
-.slick-dots {
-	left: -25px;
+.carousel-dots {
+	display: inline-flex !important;
+	flex-flow: column;
+	position: absolute;
+	z-index: 2;
+	left: 90%;
+	top: 42%;
+	width: 40px;
+}
+
+.carousel-dots li button::before {
+	font-size: 10px !important;
+	opacity: 1;
+}
+
+.carousel-dots li.slick-active button::before {
+	content: '\25ef';
+	border-color: black;
 }

@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from "react-slick";
 import "../../../assets/stylesheets/Carousel.css";
+
+import { Button } from 'semantic-ui-react'
 
 import enggcomm from "../../../assets/images/carousel/enggcomm.png";
 
@@ -20,7 +22,7 @@ function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
 		<div
-			className={className}
+			className={className + " slider-arrows"}
 			style={{ ...style, display: "block", background: "black" }}
 			onClick={onClick}
 		/>
@@ -36,27 +38,48 @@ function CommCarousel(props){
 		slidesToScroll: 1,
 		arrows: true,
 		className: 'carousel-main',
-		nextArrow: <SampleNextArrow className="slider-arrows"/>,
-		prevArrow: <SamplePrevArrow className="slider-arrows"/>,
+		nextArrow: <SampleNextArrow />,
+		prevArrow: <SamplePrevArrow />,
+    dotsClass: 'slick-dots carousel-dots'
 	};
 
   return (
 		<div className="carousel-container">
 			<Slider {...settings}>
         <div className="carousel-div">
-          <img src={enggcomm} />
+          <img src={enggcomm} alt='engg-comm'/>
+          <div className="slide-title">
+            <p>ENGINEERINGG<br/>COMMITTEE</p>
+          </div>
+          <Button>Read more</Button>
         </div>
         <div className="carousel-div">
-          <img src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2" />
+          <img src={enggcomm} alt='engg-comm'/>
+          <div className="slide-title">
+            <p>ENGINEERINGG<br/>COMMITTEE</p>
+          </div>
+          <Button>Read more</Button>
         </div>
         <div className="carousel-div">
-          <img src="https://i.ytimg.com/vi/IF9OaXTzoRs/maxresdefault.jpg" />
+          <img src="https://i.ytimg.com/vi/IF9OaXTzoRs/maxresdefault.jpg" alt='platelets'/>
+          <div className="slide-title">
+            <p>PLATELET<br/>COMMITTEE</p>
+          </div>
+            <Button>Read more</Button>
         </div>
         <div className="carousel-div">
-          <img src="http://placekitten.com/g/400/200" />
+          <img src={enggcomm} alt='engg-comm'/>
+          <div className="slide-title">
+            <p>ENGINEERING<br/>COMMITTEE</p>
+          </div>
+          <Button>Read more</Button>
         </div>
 				<div className="carousel-div">
-					<img src="https://i.ytimg.com/vi/QiVZrzqwyR8/maxresdefault.jpg" />
+					<img src="https://i.ytimg.com/vi/QiVZrzqwyR8/maxresdefault.jpg" alt='nanachi'/>
+          <div className="slide-title">
+            <p>NANACHI<br/>COMMITTEE</p>
+          </div>
+          <Button>Read more</Button>
 				</div>
       </Slider>
 		</div>
