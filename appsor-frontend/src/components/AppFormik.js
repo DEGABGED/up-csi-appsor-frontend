@@ -67,6 +67,9 @@ const MainForm = ({
       errors={errors.committees}
       duplicates={errors.committeeDuplicates}
     />
+    <div className="section-footer">
+      Press <strong>Ctrl+Enter</strong> to scroll
+    </div>
   </form>
 );
 
