@@ -33,7 +33,7 @@ class Committee extends Component {
 
   render() {
     return (
-      <Container textAlign="center" className="page-container committee-container">
+      <Container textAlign="center" className="page-container committee-container" id={this.props.id} >
         <h1 className="page-title">Committee Preference</h1>
         { this.renderForms() }
         <Button primary type="submit">Submit</Button>
@@ -43,6 +43,7 @@ class Committee extends Component {
 }
 
 Committee.propTypes = {
+  id: PropTypes.string,
   errors: PropTypes.array,
   duplicates: PropTypes.array,
   handleChangeCommittee: PropTypes.func.isRequired,
@@ -51,6 +52,7 @@ Committee.propTypes = {
 };
 
 Committee.defaultProps = {
+  id: 'committee',
   errors: undefined,
   duplicates: undefined,
 };

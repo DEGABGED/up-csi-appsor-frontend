@@ -10,16 +10,14 @@ import '../assets/stylesheets/App.css';
 
 const App = ({ values }) => (
   <Router>
-    <div>
-      <NavBar>
-        <Route exact path="/" component={Home} />
-        <Route path="/committees" component={Result} />
-        <Route
-          path="/form"
-          component={() => <Form values={values} />}
-        />
-      </NavBar>
-    </div>
+    <NavBar>
+      <Route exact path="/" component={Home} />
+      <Route path="/committees" component={Result} />
+      <Route
+        path="/form"
+        component={() => <Form values={values} />}
+      />
+    </NavBar>
   </Router>
 );
 

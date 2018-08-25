@@ -24,6 +24,7 @@ const MainForm = ({
 }) => (
   <form onSubmit={handleSubmit}>
     <PersonalInfo
+      id="personal-info"
       handleChangeBasicInfo={(value) => {
         setValues({
           ...values,
@@ -40,6 +41,7 @@ const MainForm = ({
       errorsSkillsInterests={errors.skillsInterests}
     />
     <Affiliations
+      id="affiliations"
       handleChange={(value) => {
         setValues({
           ...values,
@@ -50,6 +52,7 @@ const MainForm = ({
       errors={errors.affiliations}
     />
     <Committee
+      id="committee"
       handleChangeCommittee={(event, { value }) => {
         try {
           const id = event.currentTarget.parentNode.parentNode.attributes.name.value;

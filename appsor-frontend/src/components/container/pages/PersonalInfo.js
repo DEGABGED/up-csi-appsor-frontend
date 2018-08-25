@@ -10,7 +10,7 @@ import '../../../assets/stylesheets/Base.css';
 import '../../../assets/stylesheets/PersonalInfo.css';
 
 const PersonalInfo = props => (
-  <Container textAlign="center" className="page-container personal-info-container">
+  <Container id={props.id} textAlign="center" className="page-container personal-info-container">
     <GlitterPics
       begin="5"
       end="10"
@@ -40,6 +40,7 @@ const PersonalInfo = props => (
 );
 
 PersonalInfo.propTypes = {
+  id: PropTypes.string,
   handleChangeBasicInfo: PropTypes.func.isRequired,
   basicInfo: PropTypes.object.isRequired,
   errorsBasicInfo: PropTypes.object,
@@ -51,6 +52,7 @@ PersonalInfo.propTypes = {
 PersonalInfo.defaultProps = {
   errorsBasicInfo: undefined,
   errorsSkillsInterests: undefined,
+  id: 'personal-info',
 };
 
 export default PersonalInfo;

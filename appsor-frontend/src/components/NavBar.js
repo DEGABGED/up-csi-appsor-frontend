@@ -4,6 +4,7 @@ import { Image, Menu, Responsive, Sidebar, Icon } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 
 import upcsi from '../assets/images/upcsi.png';
+import '../assets/stylesheets/NavBar.css';
 
 const NavBarMobile = ({
   handleClick,
@@ -21,7 +22,6 @@ const NavBarMobile = ({
   >
     <Sidebar
       as={Menu}
-      fixed
       animation="overlay"
       icon="labeled"
       inverted
@@ -151,6 +151,10 @@ NavBarMobile.propTypes = {
     route: PropTypes.string,
     key: PropTypes.string,
   })).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 
 NavBarDesktop.propTypes = {
@@ -168,6 +172,10 @@ NavBar.propTypes = {
     pathname: PropTypes.string,
   }).isRequired,
   history: PropTypes.object.isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };
 
 export default withRouter(NavBar);
