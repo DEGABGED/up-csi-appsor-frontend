@@ -31,7 +31,7 @@
     flex-grow: 1.5;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 768px) {
     .affiliation-form {
         flex-wrap: wrap;
     }

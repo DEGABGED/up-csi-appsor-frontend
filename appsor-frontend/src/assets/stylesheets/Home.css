@@ -28,7 +28,7 @@
     color: #000000;
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 768px) {
     .main-title {
         font-family: 'Nexa Bold';
         font-size: 45px;
