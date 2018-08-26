@@ -1,0 +1,25 @@
+.mobile-container {
+	width: 90%;
+	margin: auto;
+}
+
+.mobile-div {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	position: relative;
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.mobile-div img {
+	object-fit: cover;
+	width: 100%;
+	height: auto;
+}
+
+.mobile-div .mobile-title {
+	position: absolute;
+	top: 10px;
+	color: white;
+}
