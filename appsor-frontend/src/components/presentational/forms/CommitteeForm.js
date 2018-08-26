@@ -5,6 +5,7 @@ import { Dropdown, Label, Image } from 'semantic-ui-react';
 
 import comm0 from '../../../assets/images/committees/comm0.png';
 import comm1 from '../../../assets/images/committees/comm1.png';
+import preventDefaultEnter from '../helper/preventDefaultEnter';
 
 
 function Form(props) {
@@ -53,6 +54,7 @@ function Form(props) {
           onChange={props.handleChangeReason}
           error={typeof (props.errors) !== 'undefined' && !!props.errors.reason}
           helperText={typeof (props.errors) !== 'undefined' ? props.errors.reason : undefined}
+          onKeyPress={preventDefaultEnter}
         />
       </div>
     </div>

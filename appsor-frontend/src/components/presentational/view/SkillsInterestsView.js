@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Segment, Label, Dropdown, Container } from 'semantic-ui-react';
 
+import preventDefaultEnter from '../helper/preventDefaultEnter';
+
 function View(props) {
   return (
     <Container className="skills-interests">
@@ -19,6 +21,7 @@ function View(props) {
         fluid
         onChange={props.handleChange}
         className="dropdown"
+        onKeyPress={preventDefaultEnter}
       />
     </div>
     <div className="dropdown-div">
@@ -35,6 +38,7 @@ function View(props) {
         fluid
         onChange={props.handleChange}
         className="dropdown"
+        onKeyPress={preventDefaultEnter}
       />
     </div>
     <div className="dropdown-div">
@@ -51,6 +55,7 @@ function View(props) {
         fluid
         onChange={props.handleChange}
         className="dropdown"
+        onKeyPress={preventDefaultEnter}
       />
     </div>
     </Container>
