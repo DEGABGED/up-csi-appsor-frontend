@@ -29,11 +29,12 @@ function Glitter(props) {
       marginLeft: `${m}px`,
     };
   }
-  
+
   return (
     <div className="glitter-pics">
       {slicePics().map((pic, i) => (
         <Image
+          key={i}
           src={pic || null}
           size="mini"
           style={getMarginStyle(i)}

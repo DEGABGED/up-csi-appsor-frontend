@@ -42,7 +42,7 @@ class Affiliations extends Component {
   //    relevant slice of the values is edited
   renderForms(helpers) {
     return (
-      <Container className="page-container" id="affiliations">
+      <Container className="page-container" id={this.props.id}>
         <h1 className="page-title">Affiliations</h1>
         {this.props.affiliations.map((a, i) => (
           <AffiliationsForm
@@ -73,10 +73,6 @@ class Affiliations extends Component {
           >+ Add Organization
           </Button>
         </div>
-
-        <div className="section-footer">
-            Press <strong>Ctrl+Enter</strong> to scroll
-        </div>
       </Container>
     );
   }
@@ -93,6 +89,7 @@ class Affiliations extends Component {
 }
 
 Affiliations.propTypes = {
+  id: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   affiliations: PropTypes.array.isRequired,
   errors: PropTypes.oneOfType([
@@ -102,6 +99,7 @@ Affiliations.propTypes = {
 };
 
 Affiliations.defaultProps = {
+  id: 'affiliations',
   errors: undefined,
 };
 

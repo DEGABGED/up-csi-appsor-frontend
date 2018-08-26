@@ -5,7 +5,7 @@ import { object } from 'yup';
 
 import Affiliations from './container/pages/Affiliations';
 import Committee from './container/pages/Committee';
-import PersonalInfo from './presentational/view/PersonalInfo';
+import PersonalInfo from './container/pages/PersonalInfo';
 
 import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
 import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
@@ -24,6 +24,7 @@ const MainForm = ({
 }) => (
   <form onSubmit={handleSubmit}>
     <PersonalInfo
+      id="personal-info"
       handleChangeBasicInfo={(value) => {
         setValues({
           ...values,
@@ -40,6 +41,7 @@ const MainForm = ({
       errorsSkillsInterests={errors.skillsInterests}
     />
     <Affiliations
+      id="affiliations"
       handleChange={(value) => {
         setValues({
           ...values,
@@ -50,6 +52,7 @@ const MainForm = ({
       errors={errors.affiliations}
     />
     <Committee
+      id="committee"
       handleChangeCommittee={(event, { value }) => {
         try {
           const id = event.currentTarget.parentNode.parentNode.attributes.name.value;
@@ -64,6 +67,9 @@ const MainForm = ({
       errors={errors.committees}
       duplicates={errors.committeeDuplicates}
     />
+    <div className="section-footer">
+      Press <strong>Ctrl+Enter</strong> to scroll
+    </div>
   </form>
 );
 
