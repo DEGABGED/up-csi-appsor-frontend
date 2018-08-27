@@ -45,7 +45,7 @@ const NavBarMobile = ({
     </Sidebar>
     <Menu
       fixed="top"
-      inverted
+      secondary
       style={{ height: '60px' }}
     >
       <Menu.Item onClick={handleToggle}>
