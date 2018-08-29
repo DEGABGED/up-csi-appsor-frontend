@@ -6,16 +6,6 @@ import { Button } from 'semantic-ui-react'
 import ReadMeModal from './ReadMeModal';
 import CommArray from './CommitteeData';
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: "block", background: "black" }}
-      onClick={onClick}
-    />
-  );
-}
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
@@ -28,6 +18,16 @@ function SamplePrevArrow(props) {
   );
 }
 
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className + " slider-arrows"}
+      style={{ ...style, display: "block", background: "black" }}
+      onClick={onClick}
+    />
+  );
+}
 
 function CommCarousel(props) {
   const settings = {

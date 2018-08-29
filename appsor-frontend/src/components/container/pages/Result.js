@@ -15,22 +15,22 @@ class Result extends Component {
   render() {
     return (
       <div>
-        <Responsive minWidth={900}>
+        <Responsive minWidth={768}>
           <CommCarousel />
         </Responsive>
-        <Responsive maxWidth={899}>
-          <MobileCarousel windowHeight={this.state.windowHeight}/>
+        <Responsive maxWidth={767}>
+          <MobileCarousel />
         </Responsive>
       </div>
     );
   }
 
    componentDidMount() {
-     window.onresize = () => {
-       this.setState({
-         windowHeight: window.innerHeight
-       })
-     }
+     // window.onresize = () => {
+     //   this.setState({
+     //     windowHeight: window.innerHeight
+     //   })
+     // }
    }
 }
 

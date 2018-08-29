@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import "../../../assets/stylesheets/MobileCarousel.css";
 import { Image } from 'semantic-ui-react'
 
@@ -9,7 +8,6 @@ import CommArray from './CommitteeData';
 
 
 function MobileCarousel(props) {
-  const { length } = CommArray;
 
   return (
 		<div className="mobile-container">
@@ -18,7 +16,7 @@ function MobileCarousel(props) {
               name={comm.name}
               key={index}
               trigger={
-                <div className="mobile-div" style={{height: (props.windowHeight - 50)/length - 10}}>
+                <div className="mobile-div">
                   <Image src={comm.img} alt='engg-comm' rounded/>
                   <div className="mobile-title" >
                     <h1>{comm.name} COMMITTEE</h1>
@@ -31,13 +29,5 @@ function MobileCarousel(props) {
   );
 }
 
-
-MobileCarousel.propTypes = {
-  windowHeight: PropTypes.number
-};
-
-MobileCarousel.defaultProps = {
-  windowHeight: window.innerHeight
-};
 
 export default MobileCarousel;

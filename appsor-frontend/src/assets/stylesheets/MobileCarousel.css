@@ -1,6 +1,6 @@
 .mobile-container {
 	width: 90%;
-	margin: auto;
+	margin: 100px auto;
 }
 
 .mobile-div {
@@ -8,8 +8,12 @@
 	justify-content: center;
 	align-items: flex-start;
 	position: relative;
-	margin-bottom: 10px;
 	overflow: hidden;
+	max-height: 60px;
+}
+
+.mobile-div:active {
+	filter: brightness(50%);
 }
 
 .mobile-div img {
@@ -22,4 +26,10 @@
 	position: absolute;
 	top: 10px;
 	color: white;
+}
+
+@media only screen and (max-width: 400px) {
+	.mobile-div .mobile-title h1{
+		font-size: 20px !important;
+	}
 }

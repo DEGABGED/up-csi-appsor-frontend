@@ -4,6 +4,7 @@
 .carousel-container {
 	display: flex;
 	justify-content: center;
+	transform: translateY(150px);
 }
 
 .carousel-main {
@@ -45,7 +46,6 @@
 
 .carousel-div .slide-title button {
 	margin-top: 10px;
-
 }
 
 .carousel-dots {
@@ -68,4 +68,16 @@
 .carousel-dots li.slick-active button::before {
 	content: '\25ef';
 	border-color: black;
+}
+
+.slider-arrows {
+	min-width: 42px;
+	width: auto;
+	height: auto;
+	text-align: center;
+	padding: 6px;
+}
+
+.slider-arrows::before{
+	font-size: 40px;
 }
