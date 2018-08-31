@@ -34,7 +34,12 @@ const MainForm = ({
       basicInfo={values.basicInfo}
       errorsBasicInfo={errors.basicInfo}
       handleChangeSkillsInterests={(event, { value }) => {
-        const field = event.currentTarget.parentNode.parentNode.attributes.name.value;
+        let field;
+        if (event.keyCode === 13) {
+          field = event.target.parentNode.attributes.name.value;
+        } else {
+          field = event.currentTarget.parentNode.parentNode.attributes.name.value;
+        }
         setFieldValue(`skillsInterests[${field}]`, value);
       }}
       skillsInterests={values.skillsInterests}
