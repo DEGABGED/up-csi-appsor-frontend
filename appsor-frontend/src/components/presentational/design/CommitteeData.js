@@ -1,5 +1,5 @@
 import enggcomm from "../../../assets/images/carousel/enggcomm.png";
-
+import platelet from "../../../assets/images/carousel/platelet.jpg"
 const commArray = [
     {
       name: 'ENGINEERING',
@@ -15,7 +15,7 @@ const commArray = [
     },
     {
       name: 'PLATELET',
-      img: "https://i.ytimg.com/vi/IF9OaXTzoRs/maxresdefault.jpg"
+      img: platelet
     },
     {
       name: 'ENGINEERING',

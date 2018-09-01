@@ -26,11 +26,6 @@ class Result extends Component {
   }
 
    componentDidMount() {
-     // window.onresize = () => {
-     //   this.setState({
-     //     windowHeight: window.innerHeight
-     //   })
-     // }
    }
 }
 

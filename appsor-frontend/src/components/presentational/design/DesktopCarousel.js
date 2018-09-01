@@ -29,7 +29,7 @@ function SampleNextArrow(props) {
   );
 }
 
-class CommCarousel extends Component {
+class DesktopCarousel extends Component {
   constructor(props) {
     super(props)
     this.settings = {
@@ -48,11 +48,13 @@ class CommCarousel extends Component {
   }
 
   slideScroll(y) {
-    y < 0? (
-      this.slider.slickNext()
-    ) : (
-      this.slider.slickPrev()
-    )
+    if(this.slider != null) {
+      y < 0? (
+        this.slider.slickNext()
+      ) : (
+        this.slider.slickPrev()
+      )
+    }
   }
 
   componentWillMount() {
@@ -63,7 +65,7 @@ class CommCarousel extends Component {
 
   render() {
     return (
-    <div onScroll={slickNext} className="carousel-container">
+    <div className="carousel-container">
       <Slider
         ref={slider => this.slider = slider}
         {...this.settings}
@@ -87,4 +89,4 @@ class CommCarousel extends Component {
   }
 }
 
-export default CommCarousel;
+export default DesktopCarousel;

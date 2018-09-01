@@ -1,15 +1,20 @@
 .mobile-container {
 	width: 100%;
-	margin: 100px auto;
+	margin-top: 10vh;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
+	height: 90vh;
 }
 
 .mobile-div {
 	display: flex;
 	justify-content: center;
-	align-items: flex-start;
+	background-color: black;
+	background-position: center top;
 	position: relative;
 	overflow: hidden;
-	max-height: 60px;
+	flex: 1 1;
 }
 
 .mobile-div:active {
@@ -17,14 +22,12 @@
 }
 
 .mobile-div img {
-	object-fit: cover;
-	width: 100%;
+	object-fit: contain;
 	height: auto;
 }
 
 .mobile-div .mobile-title {
-	position: absolute;
-	top: 10px;
+	margin-top: 15px;
 	color: white;
 }
 
