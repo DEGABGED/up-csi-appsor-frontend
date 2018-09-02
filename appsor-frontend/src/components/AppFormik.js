@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withFormik } from 'formik';
 import { object } from 'yup';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 import Affiliations from './container/pages/Affiliations';
 import Committee from './container/pages/Committee';
@@ -46,55 +47,61 @@ class MainForm extends Component {
     } = this.props;
     return (
       <form onSubmit={handleSubmit}>
-        <PersonalInfo
-          id="personal-info"
-          handleChangeBasicInfo={(value) => {
-            setValues({
-              ...values,
-              basicInfo: value,
-            });
-          }}
-          basicInfo={values.basicInfo}
-          errorsBasicInfo={errors.basicInfo}
-          handleChangeSkillsInterests={(event, { value }) => {
-            let field;
-            if ([13, 8, 46].includes(event.keyCode)) { /* Enter, Backspace, Delete */
-              field = event.target.parentNode.attributes.name.value;
-            } else {
-              field = event.currentTarget.parentNode.parentNode.attributes.name.value;
-            }
-            setFieldValue(`skillsInterests[${field}]`, value);
-          }}
-          skillsInterests={values.skillsInterests}
-          errorsSkillsInterests={errors.skillsInterests}
-        />
-        <Affiliations
-          id="affiliations"
-          handleChange={(value) => {
-            setValues({
-              ...values,
-              affiliations: value,
-            });
-          }}
-          affiliations={values.affiliations}
-          errors={errors.affiliations}
-        />
-        <Committee
-          id="committee"
-          handleChangeCommittee={(event, { value }) => {
-            try {
-              const id = event.currentTarget.parentNode.parentNode.attributes.name.value;
-              setFieldValue(`committees[${parseInt(id, 10)}].committee_id`, value);
-            } catch (error) { }
-          }}
-          handleChangeReason={(event) => {
-            const id = event.target.name;
-            setFieldValue(`committees[${parseInt(id, 10)}].reason`, event.target.value);
-          }}
-          committees={values.committees}
-          errors={errors.committees}
-          duplicates={errors.committeeDuplicates}
-        />
+        <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
+          <PersonalInfo
+            id="personal-info"
+            handleChangeBasicInfo={(value) => {
+              setValues({
+                ...values,
+                basicInfo: value,
+              });
+            }}
+            basicInfo={values.basicInfo}
+            errorsBasicInfo={errors.basicInfo}
+            handleChangeSkillsInterests={(event, { value }) => {
+              let field;
+              if ([13, 8, 46].includes(event.keyCode)) { /* Enter, Backspace, Delete */
+                field = event.target.parentNode.attributes.name.value;
+              } else {
+                field = event.currentTarget.parentNode.parentNode.attributes.name.value;
+              }
+              setFieldValue(`skillsInterests[${field}]`, value);
+            }}
+            skillsInterests={values.skillsInterests}
+            errorsSkillsInterests={errors.skillsInterests}
+          />
+        </ScrollAnimation>
+        <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
+          <Affiliations
+            id="affiliations"
+            handleChange={(value) => {
+              setValues({
+                ...values,
+                affiliations: value,
+              });
+            }}
+            affiliations={values.affiliations}
+            errors={errors.affiliations}
+          />
+        </ScrollAnimation>
+        <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
+          <Committee
+            id="committee"
+            handleChangeCommittee={(event, { value }) => {
+              try {
+                const id = event.currentTarget.parentNode.parentNode.attributes.name.value;
+                setFieldValue(`committees[${parseInt(id, 10)}].committee_id`, value);
+              } catch (error) { }
+            }}
+            handleChangeReason={(event) => {
+              const id = event.target.name;
+              setFieldValue(`committees[${parseInt(id, 10)}].reason`, event.target.value);
+            }}
+            committees={values.committees}
+            errors={errors.committees}
+            duplicates={errors.committeeDuplicates}
+          />
+        </ScrollAnimation>
         <div className="section-footer">
           Press <strong>Ctrl+Enter</strong> to scroll
         </div>
