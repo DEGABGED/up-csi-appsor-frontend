@@ -35,7 +35,7 @@ const MainForm = ({
       errorsBasicInfo={errors.basicInfo}
       handleChangeSkillsInterests={(event, { value }) => {
         let field;
-        if (event.keyCode === 13) {
+        if ([13, 8, 46].includes(event.keyCode)) { /* Enter, Backspace, Delete */
           field = event.target.parentNode.attributes.name.value;
         } else {
           field = event.currentTarget.parentNode.parentNode.attributes.name.value;
