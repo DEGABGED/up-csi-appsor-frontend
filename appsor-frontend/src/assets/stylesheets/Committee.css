@@ -56,4 +56,7 @@
     .ui.search.committee-field {
         margin-bottom: 0px;
     }
+    .ui.circular.label {
+        margin-left: 0px;
+    }
 }
