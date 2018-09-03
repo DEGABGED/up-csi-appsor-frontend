@@ -1,33 +1,11 @@
 import React, { Component } from 'react';
-import Slider, {slickNext} from "react-slick";
+import Slider from "react-slick";
 import "../../../assets/stylesheets/DesktopCarousel.css";
 import { Button } from 'semantic-ui-react'
 
 import ReadMeModal from './ReadMeModal';
 import CommArray from './CommitteeData';
 
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className + " slider-arrows"}
-      style={{ ...style, display: "block", background: "black" }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className + " slider-arrows"}
-      style={{ ...style, display: "block", background: "black" }}
-      onClick={onClick}
-    />
-  );
-}
 
 class DesktopCarousel extends Component {
   constructor(props) {
@@ -77,6 +55,7 @@ class DesktopCarousel extends Component {
                <p>{comm.name}<br/>COMMITTEE</p>
                <ReadMeModal
                  name={comm.name}
+                 description={comm.description}
                  key={index}
                  trigger={<Button>Read More</Button>}
                />

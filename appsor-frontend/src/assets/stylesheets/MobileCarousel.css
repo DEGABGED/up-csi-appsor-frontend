@@ -15,6 +15,7 @@
 	position: relative;
 	overflow: hidden;
 	flex: 1 1;
+	border-radius: 2px;
 }
 
 .mobile-div:active {
@@ -29,6 +30,7 @@
 .mobile-div .mobile-title {
 	margin-top: 15px;
 	color: white;
+	text-shadow: 1px 1px 1px black;
 }
 
 @media only screen and (max-width: 400px) {
