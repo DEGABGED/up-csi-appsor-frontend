@@ -9,6 +9,7 @@ h1.page-title {
 }
 
 .ui.container.page-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +17,7 @@ h1.page-title {
 }
 
 .section-footer {
-    position: fixed;
+    position: absolute;
     bottom: 0px;
     width: 100%;
     text-align: center;

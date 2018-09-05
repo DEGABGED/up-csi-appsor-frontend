@@ -36,6 +36,9 @@ const PersonalInfo = props => (
       columns="2"
       offset="0"
     />
+    <div className="section-footer">
+      Press <strong>Ctrl+Enter</strong> to scroll
+    </div>
   </Container>
 );
 

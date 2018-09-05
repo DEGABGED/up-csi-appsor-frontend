@@ -121,9 +121,6 @@ class MainForm extends Component {
             duplicates={errors.committeeDuplicates}
           />
         </ScrollAnimation>
-        <div className="section-footer">
-          Press <strong>Ctrl+Enter</strong> to scroll
-        </div>
       </form>
     );
   }
