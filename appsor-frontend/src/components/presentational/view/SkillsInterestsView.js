@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Segment, Label, Dropdown, Container } from 'semantic-ui-react';
+import { Dropdown, Container } from 'semantic-ui-react';
 
 import preventDefaultEnter from '../helper/preventDefaultEnter';
 

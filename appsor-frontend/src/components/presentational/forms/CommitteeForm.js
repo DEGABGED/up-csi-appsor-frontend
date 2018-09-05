@@ -17,14 +17,6 @@ function Form(props) {
     return error;
   }
 
-  function getDropdownHelperText() {
-    let errorMessage = typeof (props.errors) !== 'undefined' ? props.errors.committee_id : undefined;
-    if (errorMessage === undefined) {
-      errorMessage = props.duplicates != null ? props.duplicates : undefined;
-    }
-    return errorMessage;
-  }
-
   return (
     <div className="column">
       <Image

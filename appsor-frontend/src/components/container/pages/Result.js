@@ -1,21 +1,32 @@
 import React, { Component } from 'react';
+import CommCarousel from '../../presentational/design/DesktopCarousel'
+import MobileCarousel from '../../presentational/design/MobileCarousel';
+
+import { Responsive } from 'semantic-ui-react'
 
 class Result extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      windowHeight: window.innerHeight
     };
   }
+
   render() {
     return (
       <div>
-        <header>
-          <h1>Welcome to RESULT</h1>
-        </header>
+        <Responsive minWidth={768}>
+          <CommCarousel />
+        </Responsive>
+        <Responsive maxWidth={767}>
+          <MobileCarousel />
+        </Responsive>
       </div>
     );
   }
+
+   componentDidMount() {
+   }
 }
 
 export default Result;

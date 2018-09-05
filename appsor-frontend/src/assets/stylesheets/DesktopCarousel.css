@@ -1,0 +1,81 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.carousel-container {
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+.carousel-main {
+	margin: 0px;
+	padding: 0px;
+	max-width: 100%;
+	object-fit: cover;
+	overflow: hidden;
+}
+
+.carousel-div {
+	position: relative !important;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.carousel-div > img {
+	width: 100%;
+	margin: auto;
+	height: 100vh;
+	object-fit: cover;
+}
+
+
+.carousel-div .slide-title {
+	font-family: 'Nexa Bold';
+	font-variant: small-caps;
+	font-size: 28px;
+	letter-spacing: 10px;
+	color: white;
+	text-shadow: 0.5px 0.5px 1px black;
+	position: absolute;
+	top: 20%;
+	right: 7%;
+
+	display: flex;
+	flex-flow: column;
+	align-items: flex-end;
+}
+
+.carousel-div .slide-title p {
+	margin-bottom: 3px;
+	text-align: right;
+}
+
+.carousel-div .slide-title button {
+	margin-top: 10px;
+}
+
+.carousel-dots {
+	display: flex !important;
+	flex-flow: column;
+	position: absolute;
+	width: 40px;
+	height: auto;
+	max-height: 120px;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 10px;
+}
+
+.carousel-dots li button::before {
+	font-size: 10px !important;
+	opacity: 1;
+}
+
+.carousel-dots li.slick-active button::before {
+	content: '\25ef';
+	border-color: black;
+}
+
+.slick-track {
+	height: 100vh !important;
+}
