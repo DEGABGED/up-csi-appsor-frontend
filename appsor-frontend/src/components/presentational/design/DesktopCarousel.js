@@ -56,6 +56,7 @@ class DesktopCarousel extends Component {
                <ReadMeModal
                  name={comm.name}
                  description={comm.description}
+                 img={comm.img}
                  key={index}
                  trigger={<Button>Read More</Button>}
                />

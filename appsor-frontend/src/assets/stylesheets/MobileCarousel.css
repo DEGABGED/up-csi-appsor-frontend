@@ -1,10 +1,10 @@
 .mobile-container {
 	width: 100%;
-	margin-top: 10vh;
+	margin-top: 8vh;
 	display: flex;
 	flex-flow: column;
 	justify-content: space-between;
-	height: 90vh;
+	height: 92vh;
 }
 
 .mobile-div {
@@ -30,7 +30,7 @@
 .mobile-div .mobile-title {
 	margin-top: 15px;
 	color: white;
-	text-shadow: 1px 1px 1px black;
+	text-shadow: 0.5px 0.5px 1px black;
 }
 
 @media only screen and (max-width: 400px) {

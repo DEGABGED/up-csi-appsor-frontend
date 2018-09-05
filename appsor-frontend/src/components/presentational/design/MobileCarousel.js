@@ -15,6 +15,7 @@ function MobileCarousel(props) {
               name={comm.name}
               description={comm.description}
               key={index}
+              img={comm.img}
               trigger={
                 <div className="mobile-div" style={{backgroundImage: "url(" + comm.img + ")"}}>
                   <div className="mobile-title" >
