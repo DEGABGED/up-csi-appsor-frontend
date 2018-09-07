@@ -10,11 +10,10 @@ function ContactNoMask(props) {
       {...other}
       ref={inputRef}
       mask={[
-        '(', /\+/, /6/, /3/, ')', ' ',
-        /9/, /\d/, /\d/, ' ', /\d/, /\d/,
+        '(', '+', '6', '3', ')', ' ',
+        '9', /\d/, /\d/, ' ', /\d/, /\d/,
         /\d/, ' ', /\d/, /\d/, /\d/, /\d/,
       ]}
-      placeholderChar={'\u2000'}
       keepCharPositions
       showMask
     />
@@ -33,10 +32,9 @@ function StudentNoMask(props) {
       {...other}
       ref={inputRef}
       mask={[
-        /2/, /0/, /\d/, /\d/, '-',
+        '2', '0', /\d/, /\d/, '-',
         /\d/, /\d/, /\d/, /\d/, /\d/,
       ]}
-      placeholderChar={'\u2000'}
       keepCharPositions
       showMask
     />

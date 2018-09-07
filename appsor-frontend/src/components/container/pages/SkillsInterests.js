@@ -10,21 +10,14 @@ class SkillsInterests extends Component {
 
   updateOptions() {
     const { skills, interests, experience } = this.props.skillsInterests;
+    const skillsOptions = [...new Set([...skills, ...skillsInterestsOptions.skills])];
+    const interestsOptions = [...new Set([...interests, ...skillsInterestsOptions.interests])];
+    const experienceOptions = [...new Set([...experience, ...skillsInterestsOptions.experience])];
+
     return {
-      skills: !skills.length
-        || skillsInterestsOptions.skills.includes(skills[skills.length - 1])
-        ? this.createOptions(skillsInterestsOptions.skills)
-        : this.createOptions([...skillsInterestsOptions.skills, skills[skills.length - 1]]),
-      interests: !interests.length
-        || skillsInterestsOptions.interests.includes(interests[interests.length - 1])
-        ? this.createOptions(skillsInterestsOptions.interests)
-        : this.createOptions([...skillsInterestsOptions.interests,
-          interests[interests.length - 1]]),
-      experience: !experience.length
-        || skillsInterestsOptions.experience.includes(experience[experience.length - 1])
-        ? this.createOptions(skillsInterestsOptions.experience)
-        : this.createOptions([...skillsInterestsOptions.experience,
-          experience[experience.length - 1]]),
+      skills: this.createOptions(skillsOptions),
+      interests: this.createOptions(interestsOptions),
+      experience: this.createOptions(experienceOptions),
     };
   }
 

@@ -32,7 +32,6 @@ function Form(props) {
           placeholder="Select a Committee"
           options={props.options}
           name={`${props.formID}`}
-          value={props.committees.committee_id}
           selection
           search
           onChange={props.handleChangeCommittee}

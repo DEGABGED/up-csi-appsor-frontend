@@ -20,7 +20,6 @@ class MainForm extends Component {
   componentDidMount() {
     window.addEventListener('keydown', (event) => {
       if (event.ctrlKey && event.keyCode === 13) {
-        console.log("CTRL+ENTER");
         const currentPage = document.getElementsByClassName('animated fadeIn')[0];
         const pageList = document.getElementsByClassName('animated');
         const currentIndex = [...pageList].indexOf(currentPage);
@@ -107,10 +106,17 @@ class MainForm extends Component {
           <Committee
             id="committee"
             handleChangeCommittee={(event, { value }) => {
-              try {
-                const id = event.currentTarget.parentNode.parentNode.attributes.name.value;
-                setFieldValue(`committees[${parseInt(id, 10)}].committee_id`, value);
-              } catch (error) { }
+              let id;
+              if (event.keyCode === 13) { /* Enter */
+                id = event.target.parentNode.attributes.name.value;
+              } else {
+                try {
+                  id = event.currentTarget.parentNode.parentNode.attributes.name.value;
+                } catch (error) {
+                  id = event.target.parentNode.attributes.name.value;
+                }
+              }
+              setFieldValue(`committees[${parseInt(id, 10)}].committee_id`, value);
             }}
             handleChangeReason={(event) => {
               const id = event.target.name;
