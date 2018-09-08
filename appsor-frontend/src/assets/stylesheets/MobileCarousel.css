@@ -1,15 +1,14 @@
 .mobile-container {
 	width: 100%;
-	margin-top: 8vh;
 	display: flex;
 	flex-flow: column;
 	justify-content: space-between;
-	height: 92vh;
+	height: 100vh;
 }
 
 .mobile-div {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-end;
 	background-color: black;
 	background-position: center top;
 	position: relative;
@@ -28,7 +27,8 @@
 }
 
 .mobile-div .mobile-title {
-	margin-top: 15px;
+	align-self: flex-end;
+	margin: 0px 15px 10px 0px;
 	color: white;
 	text-shadow: 0.5px 0.5px 1px black;
 }
