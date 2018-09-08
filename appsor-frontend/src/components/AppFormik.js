@@ -7,6 +7,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import Affiliations from './container/pages/Affiliations';
 import Committee from './container/pages/Committee';
 import PersonalInfo from './container/pages/PersonalInfo';
+import SubmitModal from './presentational/design/SubmitModal';
 
 import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
 import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
@@ -57,6 +58,7 @@ class MainForm extends Component {
 
   render() {
     const {
+      status,
       values,
       errors,
       handleSubmit,
@@ -127,6 +129,16 @@ class MainForm extends Component {
             duplicates={errors.committeeDuplicates}
           />
         </ScrollAnimation>
+        <SubmitModal
+          isOpen={status && status.display}
+          type={
+            (status && status.success)
+              ? 'success'
+              : 'error'
+          }
+          message={(status && status.message)}
+          onClose={(status && status.onClose)}
+        />
       </form>
     );
   }
@@ -153,6 +165,16 @@ MainForm.propTypes = {
 MainForm.defaultProps = {
   errors: undefined,
 };
+
+const modalValues = (setStatus, success, message) => ({
+  display: true,
+  success,
+  message,
+  onClose: () => {
+    console.log("closing???");
+    setStatus({ display: false });
+  },
+});
 
 // add items here as necessary (validation, etc)
 const ConnectedForm = withFormik({
@@ -182,7 +204,7 @@ const ConnectedForm = withFormik({
     }
     return committeeErrors.length ? { committeeDuplicates: committeeErrors } : {};
   },
-  handleSubmit: (values) => {
+  handleSubmit: (values, { resetForm, setStatus }) => {
     console.log(values);
     fetch('/applicants', {
       headers: {
@@ -191,8 +213,23 @@ const ConnectedForm = withFormik({
       method: 'POST',
       body: JSON.stringify(values),
     })
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+      .then((res) => {
+        console.log("SENT");
+        console.log(res.json());
+        if (res.status === 200 || res.status === 201) {
+          console.log("SUCCESS");
+          setStatus(modalValues(setStatus, true, res.statusText));
+          resetForm();
+        } else {
+          console.log(`FAILURE (${res.status})`);
+          setStatus(modalValues(setStatus, false, res.statusText));
+        }
+      })
+      .catch((err) => {
+        console.log("ERROR");
+        console.log(err);
+        setStatus(modalValues(setStatus, false, err.statusText));
+      });
   },
   validateOnChange: false,
   validateOnBlur: false,
