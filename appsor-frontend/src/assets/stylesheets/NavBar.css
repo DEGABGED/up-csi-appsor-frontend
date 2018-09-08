@@ -19,16 +19,18 @@
 .navbar-item-text {
     text-transform: uppercase !important;
     font-family: 'Nexa Light';
+    letter-spacing: 0.1em;
 }
 
 /* !important tags to overwrite the Semantic UI defaults */
 .navbar-item {
     background-color: #0e0e0e !important;
     margin: 10px 0 10px 30px;
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 0.8em 0.9em 0.8em 1.2em !important;
     letter-spacing: 0.3em;
     color: #f1f1f1 !important;
+    height: 3em;
 }
 
 .navbar-logo-mobile {
