@@ -18,13 +18,13 @@ function Glitter(props) {
   const pics = [pi1, pi2, pi3, pi4, pi5, pi6, pi7, pi8, pi9, pi10];
 
   function slicePics() {
-    return pics.slice(parseInt(props.begin, 10), parseInt(props.end, 10));
+    return pics.slice(props.begin, props.end);
   }
 
   function getMarginStyle(i) {
     const columns = props.columns || 0;
     const offset = props.offset || 0;
-    const m = (120 / parseInt(columns, 10) * i) % 120 + parseInt(offset, 10);
+    const m = (120 / columns * i) % 120 + offset;
     return {
       marginLeft: `${m}px`,
     };
@@ -45,16 +45,16 @@ function Glitter(props) {
 }
 
 Glitter.propTypes = {
-  begin: PropTypes.string.isRequired,
-  end: PropTypes.string.isRequired,
-  columns: PropTypes.string,
-  offset: PropTypes.string,
+  begin: PropTypes.number.isRequired,
+  end: PropTypes.number.isRequired,
+  columns: PropTypes.number,
+  offset: PropTypes.number,
 };
 
 
 Glitter.defaultProps = {
-  columns: '5',
-  offset: '30',
+  columns: 5,
+  offset: 30,
 };
 
 export default Glitter;
