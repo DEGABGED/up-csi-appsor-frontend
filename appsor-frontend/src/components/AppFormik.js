@@ -200,7 +200,7 @@ const ConnectedForm = withFormik({
     }
     return committeeErrors.length ? { committeeDuplicates: committeeErrors } : {};
   },
-  handleSubmit: (values, { resetForm, setStatus }) => {
+  handleSubmit: (values, { setStatus }) => {
     console.log(values);
     fetch('/applicants', {
       headers: {

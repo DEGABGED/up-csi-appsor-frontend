@@ -3,6 +3,33 @@ import PropTypes from 'prop-types';
 import { Modal, Header } from 'semantic-ui-react'
 import "../../../assets/stylesheets/ReadMeModal.css";
 
+function ErrorModalMessage(props) {
+  const {
+    title,
+    content,
+  } = props;
+  return (
+    <div>
+      <h3>{title}</h3>
+      <ul>
+        {content.map(data => <li key={data}>{data}</li>)}
+      </ul>
+    </div>
+  );
+}
+
+function generateErrorMessage(message) {
+  return Object.keys(message).map((key) => {
+    return (
+      <ErrorModalMessage
+        key={key}
+        title={key}
+        content={message[key]}
+      />
+    );
+  });
+}
+
 function SubmitModal(props) {
   const {
     display,
@@ -23,12 +50,18 @@ function SubmitModal(props) {
         <Header className="modal-header">
           {
             success
-            ? 'Congratulations!'
+            ? 'Thank you for registering!'
             : 'Sorry, an error has occurred.'
           }
         </Header>
         <Modal.Description>
-          { JSON.stringify(message) }
+          {
+            success
+            ? `We appreciate your interest in joining our organization, ${message.basicInfo.nickname}!\n` +
+              'Please wait for further instructions.\n' +
+              'Thank you, and welcome to UP CSI!'
+            : message && generateErrorMessage(message)
+          }
         </Modal.Description>
       </Modal.Content>
     </Modal>
