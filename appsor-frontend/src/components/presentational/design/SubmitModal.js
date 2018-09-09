@@ -10,7 +10,7 @@ function ErrorModalMessage(props) {
   } = props;
   return (
     <div>
-      <h3>{title}</h3>
+      <h3>{title.toUpperCase()}</h3>
       <ul>
         {content.map(data => <li key={data}>{data}</li>)}
       </ul>
@@ -19,6 +19,9 @@ function ErrorModalMessage(props) {
 }
 
 function generateErrorMessage(message) {
+  if (typeof message === 'string') {
+    return message;
+  }
   return Object.keys(message).map((key) => {
     return (
       <ErrorModalMessage
@@ -57,7 +60,7 @@ function SubmitModal(props) {
         <Modal.Description>
           {
             success
-            ? `We appreciate your interest in joining our organization, ${message.basicInfo.nickname}!\n` +
+            ? `We appreciate your interest in joining our organization, ${message.nickname}!\n` +
               'Please wait for further instructions.\n' +
               'Thank you, and welcome to UP CSI!'
             : message && generateErrorMessage(message)

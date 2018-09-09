@@ -157,16 +157,14 @@ MainForm.defaultProps = {
   errors: undefined,
 };
 
-const modalValues = (setStatus, success, message) => ({
+const modalValues = (setStatus, success, message = '') => ({
   display: true,
   success,
   message,
   onClose: () => {
-    console.log("closing???");
     setStatus({ display: false });
   },
   onFinish: () => {
-    console.log("finished???");
     setStatus({ display: false });
     window.location.reload();
   },
@@ -201,7 +199,6 @@ const ConnectedForm = withFormik({
     return committeeErrors.length ? { committeeDuplicates: committeeErrors } : {};
   },
   handleSubmit: (values, { setStatus }) => {
-    console.log(values);
     fetch('/applicants', {
       headers: {
         'Content-Type': 'application/json',
@@ -210,20 +207,24 @@ const ConnectedForm = withFormik({
       body: JSON.stringify(values),
     })
       .then((res) => {
-        console.log("SENT");
         const wasSuccessful = res.ok;
         res.json()
           .then((data) => {
             setStatus(modalValues(setStatus, wasSuccessful, data));
           })
           .catch((err) => {
-            console.log(`ERROR: ${err}`);
+            setStatus(modalValues(
+              setStatus,
+              false,
+              'Please try submitting the form again. If the problem persists, please tell us. Thank you!'
+            ));
           });
       })
       .catch((err) => {
-        console.log("ERROR");
-        console.log(err);
-        setStatus(modalValues(setStatus, false, err.statusText));
+        setStatus(modalValues(setStatus,
+          false,
+          'Please try submitting the form again. If the problem persists, please tell us. Thank you!'
+        ));
       });
   },
   validateOnChange: false,

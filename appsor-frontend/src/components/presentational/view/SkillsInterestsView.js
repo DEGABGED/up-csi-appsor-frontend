@@ -5,7 +5,6 @@ import { Dropdown, Container } from 'semantic-ui-react';
 import preventDefaultEnter from '../helper/preventDefaultEnter';
 
 function View(props) {
-  // console.log(props.options)
   return (
     <Container className="skills-interests">
     <div className="dropdown-div">
