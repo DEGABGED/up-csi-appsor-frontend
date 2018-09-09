@@ -4,18 +4,31 @@ import { Modal, Header } from 'semantic-ui-react'
 import "../../../assets/stylesheets/ReadMeModal.css";
 
 function SubmitModal(props) {
+  const {
+    display,
+    success,
+    message,
+    onClose,
+    onFinish,
+  } = props;
   return (
     <Modal
       closeIcon
-      open={props.isOpen}
+      open={display}
       dimmer="blurring"
       className="submit-modal"
-      onClose={props.onClose}
+      onClose={success ? onFinish : onClose}
     >
       <Modal.Content className="modal-content">
-        <Header className="modal-header">CONGRATULATIONS!</Header>
+        <Header className="modal-header">
+          {
+            success
+            ? 'Congratulations!'
+            : 'Sorry, an error has occurred.'
+          }
+        </Header>
         <Modal.Description>
-          afsdfasdfasdfadsfasdfsdaf
+          { JSON.stringify(message) }
         </Modal.Description>
       </Modal.Content>
     </Modal>

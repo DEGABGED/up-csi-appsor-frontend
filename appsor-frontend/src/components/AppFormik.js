@@ -129,16 +129,7 @@ class MainForm extends Component {
             duplicates={errors.committeeDuplicates}
           />
         </ScrollAnimation>
-        <SubmitModal
-          isOpen={status && status.display}
-          type={
-            (status && status.success)
-              ? 'success'
-              : 'error'
-          }
-          message={(status && status.message)}
-          onClose={(status && status.onClose)}
-        />
+        <SubmitModal {...status} />
       </form>
     );
   }
@@ -173,6 +164,11 @@ const modalValues = (setStatus, success, message) => ({
   onClose: () => {
     console.log("closing???");
     setStatus({ display: false });
+  },
+  onFinish: () => {
+    console.log("finished???");
+    setStatus({ display: false });
+    window.location.reload();
   },
 });
 
@@ -215,15 +211,14 @@ const ConnectedForm = withFormik({
     })
       .then((res) => {
         console.log("SENT");
-        console.log(res.json());
-        if (res.status === 200 || res.status === 201) {
-          console.log("SUCCESS");
-          setStatus(modalValues(setStatus, true, res.statusText));
-          resetForm();
-        } else {
-          console.log(`FAILURE (${res.status})`);
-          setStatus(modalValues(setStatus, false, res.statusText));
-        }
+        const wasSuccessful = res.ok;
+        res.json()
+          .then((data) => {
+            setStatus(modalValues(setStatus, wasSuccessful, data));
+          })
+          .catch((err) => {
+            console.log(`ERROR: ${err}`);
+          });
       })
       .catch((err) => {
         console.log("ERROR");
