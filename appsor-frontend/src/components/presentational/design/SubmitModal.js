@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Header } from 'semantic-ui-react'
-import "../../../assets/stylesheets/ReadMeModal.css";
+import { Image, Modal, Header } from 'semantic-ui-react';
+import '../../../assets/stylesheets/SubmitModal.css';
+
+import successImg from '../../../assets/images/people/fin.png';
 
 function ErrorModalMessage(props) {
   const {
@@ -33,12 +35,37 @@ function generateErrorMessage(message) {
   });
 }
 
-function SubmitModal(props) {
+function ErrorModal(props) {
   const {
     display,
-    success,
     message,
     onClose,
+  } = props;
+  return (
+    <Modal
+      closeIcon
+      open={display}
+      dimmer="blurring"
+      className="error-modal"
+      onClose={onClose}
+      size="mini"
+    >
+      <Modal.Content className="modal-content">
+        <Header className="modal-header">
+          {'Sorry, an error has occurred.'}
+        </Header>
+        <Modal.Description>
+          {message && generateErrorMessage(message)}
+        </Modal.Description>
+      </Modal.Content>
+    </Modal>
+  );
+}
+
+function SuccessModal(props) {
+  const {
+    display,
+    message,
     onFinish,
   } = props;
   return (
@@ -47,28 +74,33 @@ function SubmitModal(props) {
       open={display}
       dimmer="blurring"
       className="submit-modal"
-      onClose={success ? onFinish : onClose}
+      onClose={onFinish}
+      size="tiny"
     >
-      <Modal.Content className="modal-content">
-        <Header className="modal-header">
-          {
-            success
-            ? 'Thank you for registering!'
-            : 'Sorry, an error has occurred.'
-          }
-        </Header>
-        <Modal.Description>
-          {
-            success
-            ? `We appreciate your interest in joining our organization, ${message.nickname}!\n` +
+      <Modal.Content image className="modal-content">
+        <Image wrapped className="modal-img" size="medium" src={successImg || null} />
+        <div className="modal-subcontent">
+          <Header className="modal-header">
+            {'Thanks for applying!'}
+          </Header>
+          <Modal.Description>
+            {
+              `We appreciate your interest in joining our organization, ${message.nickname}!\n` +
               'Please wait for further instructions.\n' +
               'Thank you, and welcome to UP CSI!'
-            : message && generateErrorMessage(message)
-          }
-        </Modal.Description>
+            }
+          </Modal.Description>
+        </div>
       </Modal.Content>
     </Modal>
   );
+}
+
+function SubmitModal(props) {
+  const {
+    success,
+  } = props;
+  return success ? <SuccessModal {...props} /> : <ErrorModal {...props} />;
 }
 
 export default SubmitModal;
