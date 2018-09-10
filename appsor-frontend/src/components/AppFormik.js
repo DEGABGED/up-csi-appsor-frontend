@@ -7,6 +7,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import Affiliations from './container/pages/Affiliations';
 import Committee from './container/pages/Committee';
 import PersonalInfo from './container/pages/PersonalInfo';
+import SubmitModal from './presentational/design/SubmitModal';
 
 import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
 import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
@@ -57,6 +58,7 @@ class MainForm extends Component {
 
   render() {
     const {
+      status,
       values,
       errors,
       handleSubmit,
@@ -127,6 +129,7 @@ class MainForm extends Component {
             duplicates={errors.committeeDuplicates}
           />
         </ScrollAnimation>
+        <SubmitModal {...status} />
       </form>
     );
   }
@@ -153,6 +156,19 @@ MainForm.propTypes = {
 MainForm.defaultProps = {
   errors: undefined,
 };
+
+const modalValues = (setStatus, success, message = '') => ({
+  display: true,
+  success,
+  message,
+  onClose: () => {
+    setStatus({ display: false });
+  },
+  onFinish: () => {
+    setStatus({ display: false });
+    window.location.reload();
+  },
+});
 
 // add items here as necessary (validation, etc)
 const ConnectedForm = withFormik({
@@ -182,8 +198,7 @@ const ConnectedForm = withFormik({
     }
     return committeeErrors.length ? { committeeDuplicates: committeeErrors } : {};
   },
-  handleSubmit: (values) => {
-    console.log(values);
+  handleSubmit: (values, { setStatus }) => {
     fetch('/applicants', {
       headers: {
         'Content-Type': 'application/json',
@@ -191,8 +206,26 @@ const ConnectedForm = withFormik({
       method: 'POST',
       body: JSON.stringify(values),
     })
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+      .then((res) => {
+        const wasSuccessful = res.ok;
+        res.json()
+          .then((data) => {
+            setStatus(modalValues(setStatus, wasSuccessful, data));
+          })
+          .catch((err) => {
+            setStatus(modalValues(
+              setStatus,
+              false,
+              'Please try submitting the form again. If the problem persists, please tell us. Thank you!'
+            ));
+          });
+      })
+      .catch((err) => {
+        setStatus(modalValues(setStatus,
+          false,
+          'Please try submitting the form again. If the problem persists, please tell us. Thank you!'
+        ));
+      });
   },
   validateOnChange: false,
   validateOnBlur: false,

@@ -1,0 +1,81 @@
+.submit-modal .modal-img {
+    align-self: center;
+}
+
+.submit-modal .modal-header,
+.error-modal .modal-header {
+    text-align: left;
+    font-size: 3em !important;
+    font-family: 'Nexa Bold' !important;
+}
+
+.submit-modal .modal-subcontent,
+.error-modal .modal-subcontent {
+    padding: 20px;
+}
+
+.submit-modal .modal-subcontent {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    justify-content: center;
+}
+
+.submit-modal .description {
+    font-size: 1.5em;
+    text-align: justify;
+}
+
+/* Separate styles for the error modal */
+
+.error-modal .content {
+    display: flex !important;
+}
+
+.error-modal .modal-img {
+    display: flex !important;
+}
+
+.error-modal .modal-img img {
+    align-self: center;
+}
+
+.error-modal .modal-header {
+    font-size: 1.5em !important;
+}
+
+.error-modal .description {
+    font-size: 1em;
+}
+
+.error-modal .description h3 {
+    font-family: 'Nexa Bold';
+    font-size: 1.2em;
+    margin-bottom: 0px;
+}
+
+.error-modal .description ul {
+    margin: 0px;
+}
+
+@media only screen and (max-width: 768px) {
+    .submit-modal {
+        height: 75vh;
+    }
+
+    .submit-modal .modal-content {
+        height: 100% !important;
+    }
+
+    .submit-modal .modal-header {
+        font-size: 2em !important;
+    }
+
+    .submit-modal .modal-img {
+        display: none !important;
+    }
+
+    .submit-modal .description {
+        font-size: 1em;
+    }
+}
