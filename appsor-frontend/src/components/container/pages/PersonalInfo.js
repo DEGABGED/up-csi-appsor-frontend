@@ -12,10 +12,10 @@ import '../../../assets/stylesheets/PersonalInfo.css';
 const PersonalInfo = props => (
   <Container id={props.id} textAlign="center" className="page-container personal-info-container">
     <GlitterPics
-      begin="5"
-      end="10"
-      columns="2"
-      offset="30"
+      begin={5}
+      end={10}
+      columns={2}
+      offset={30}
     />
     <div className="personal-info-form">
       <h1 className="page-title">Personal Information</h1>
@@ -31,10 +31,10 @@ const PersonalInfo = props => (
       />
     </div>
     <GlitterPics
-      begin="0"
-      end="5"
-      columns="2"
-      offset="0"
+      begin={0}
+      end={5}
+      columns={2}
+      offset={0}
     />
     <div className="section-footer">
       Press <strong>Ctrl+Enter</strong> to scroll
