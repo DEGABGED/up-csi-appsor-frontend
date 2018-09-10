@@ -4,6 +4,7 @@ import { Image, Modal, Header } from 'semantic-ui-react';
 import '../../../assets/stylesheets/SubmitModal.css';
 
 import successImg from '../../../assets/images/people/fin.png';
+import errorImg from '../../../assets/images/people/error.png';
 
 function ErrorModalMessage(props) {
   const {
@@ -51,12 +52,15 @@ function ErrorModal(props) {
       size="mini"
     >
       <Modal.Content className="modal-content">
-        <Header className="modal-header">
-          {'Sorry, an error has occurred.'}
-        </Header>
-        <Modal.Description>
-          {message && generateErrorMessage(message)}
-        </Modal.Description>
+        <Image wrapped className="modal-img" size="small" src={errorImg || null} />
+        <div className="modal-subcontent">
+          <Header className="modal-header">
+            {'Sorry, an error has occurred.'}
+          </Header>
+          <Modal.Description>
+            {message && generateErrorMessage(message)}
+          </Modal.Description>
+        </div>
       </Modal.Content>
     </Modal>
   );
