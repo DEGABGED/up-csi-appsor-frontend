@@ -199,7 +199,8 @@ const ConnectedForm = withFormik({
     return committeeErrors.length ? { committeeDuplicates: committeeErrors } : {};
   },
   handleSubmit: (values, { setStatus }) => {
-    fetch('/applicants', {
+    const url = 'https://up-csi-appsor-backend.herokuapp.com/api/applicants';
+    fetch(url, {
       headers: {
         'Content-Type': 'application/json',
       },
