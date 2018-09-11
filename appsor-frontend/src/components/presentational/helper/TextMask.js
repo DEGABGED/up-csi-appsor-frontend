@@ -14,6 +14,7 @@ function ContactNoMask(props) {
         '9', /\d/, /\d/, ' ', /\d/, /\d/,
         /\d/, ' ', /\d/, /\d/, /\d/, /\d/,
       ]}
+      guide={false}
       keepCharPositions
       showMask
     />
@@ -35,6 +36,7 @@ function StudentNoMask(props) {
         '2', '0', /\d/, /\d/, '-',
         /\d/, /\d/, /\d/, /\d/, /\d/,
       ]}
+      guide={false}
       keepCharPositions
       showMask
     />
