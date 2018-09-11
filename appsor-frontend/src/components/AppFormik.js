@@ -166,7 +166,7 @@ const modalValues = (setStatus, success, message = '') => ({
   },
   onFinish: () => {
     setStatus({ display: false });
-    window.location.reload();
+    window.location.href = "/";
   },
 });
 
