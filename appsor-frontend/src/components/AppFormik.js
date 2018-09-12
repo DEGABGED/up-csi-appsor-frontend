@@ -64,6 +64,7 @@ class MainForm extends Component {
       handleSubmit,
       setValues,
       setFieldValue,
+      setSubmitting,
       isSubmitting,
     } = this.props;
     return (
@@ -131,7 +132,7 @@ class MainForm extends Component {
             isSubmitting={isSubmitting}
           />
         </ScrollAnimation>
-        <SubmitModal {...status} />
+        <SubmitModal {...status} setSubmitting={setSubmitting} />
       </form>
     );
   }
@@ -202,6 +203,7 @@ const ConnectedForm = withFormik({
   },
   handleSubmit: (values, { setStatus }) => {
     const url = 'https://up-csi-appsor-backend.herokuapp.com/api/applicants';
+    //const url = '/applicants';
     fetch(url, {
       headers: {
         'Content-Type': 'application/json',

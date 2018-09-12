@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Image, Modal, Header } from 'semantic-ui-react';
 import '../../../assets/stylesheets/SubmitModal.css';
 
-import successImg from '../../../assets/images/people/fin.png';
+import successImg from '../../../assets/images/fin.jpg';
 import errorImg from '../../../assets/images/people/error.png';
 
 function ErrorModalMessage(props) {
@@ -41,6 +41,7 @@ function ErrorModal(props) {
     display,
     message,
     onClose,
+    setSubmitting,
   } = props;
   return (
     <Modal
@@ -48,7 +49,10 @@ function ErrorModal(props) {
       open={display}
       dimmer="blurring"
       className="error-modal"
-      onClose={onClose}
+      onClose={() => {
+        setSubmitting(false);
+        onClose();
+      }}
       size="mini"
     >
       <Modal.Content className="modal-content">
@@ -71,6 +75,7 @@ function SuccessModal(props) {
     display,
     message,
     onFinish,
+    setSubmitting,
   } = props;
   return (
     <Modal
@@ -78,8 +83,11 @@ function SuccessModal(props) {
       open={display}
       dimmer="blurring"
       className="submit-modal"
-      onClose={onFinish}
-      size="tiny"
+      onClose={() => {
+        setSubmitting(false);
+        onFinish();
+      }}
+      size="small"
     >
       <Modal.Content image className="modal-content">
         <Image wrapped className="modal-img" size="medium" src={successImg || null} />

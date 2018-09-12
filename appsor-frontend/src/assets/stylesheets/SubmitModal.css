@@ -1,17 +1,13 @@
-.submit-modal .modal-img {
-    align-self: center;
-}
-
 .submit-modal .modal-header,
 .error-modal .modal-header {
     text-align: left;
-    font-size: 3em !important;
+    font-size: 2em !important;
     font-family: 'Nexa Bold' !important;
 }
 
 .submit-modal .modal-subcontent,
 .error-modal .modal-subcontent {
-    padding: 20px;
+    padding: 20px 2px 18px 20px;
 }
 
 .submit-modal .modal-subcontent {
@@ -22,7 +18,7 @@
 }
 
 .submit-modal .description {
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-align: justify;
 }
 
@@ -32,10 +28,12 @@
     display: flex !important;
 }
 
+.submit-modal .modal-img,
 .error-modal .modal-img {
     display: flex !important;
 }
 
+.submit-modal .modal-img img,
 .error-modal .modal-img img {
     align-self: center;
 }
