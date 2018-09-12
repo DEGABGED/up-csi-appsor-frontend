@@ -36,7 +36,7 @@ class Committee extends Component {
       <Container textAlign="center" className="page-container committee-container" id={this.props.id} >
         <h1 className="page-title">Committee Preference</h1>
         { this.renderForms() }
-        <Button primary type="submit">Submit</Button>
+        <Button primary type="submit" disabled={this.props.isSubmitting} >Submit</Button>
       </Container>
     );
   }

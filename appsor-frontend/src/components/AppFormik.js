@@ -64,6 +64,7 @@ class MainForm extends Component {
       handleSubmit,
       setValues,
       setFieldValue,
+      isSubmitting,
     } = this.props;
     return (
       <form onSubmit={handleSubmit}>
@@ -127,6 +128,7 @@ class MainForm extends Component {
             committees={values.committees}
             errors={errors.committees}
             duplicates={errors.committeeDuplicates}
+            isSubmitting={isSubmitting}
           />
         </ScrollAnimation>
         <SubmitModal {...status} />
