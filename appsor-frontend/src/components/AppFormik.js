@@ -64,6 +64,7 @@ class MainForm extends Component {
       handleSubmit,
       setValues,
       setFieldValue,
+      isSubmitting,
     } = this.props;
     return (
       <form onSubmit={handleSubmit}>
@@ -127,6 +128,7 @@ class MainForm extends Component {
             committees={values.committees}
             errors={errors.committees}
             duplicates={errors.committeeDuplicates}
+            isSubmitting={isSubmitting}
           />
         </ScrollAnimation>
         <SubmitModal {...status} />
@@ -166,7 +168,7 @@ const modalValues = (setStatus, success, message = '') => ({
   },
   onFinish: () => {
     setStatus({ display: false });
-    window.location.reload();
+    window.location.href = "/";
   },
 });
 
@@ -199,7 +201,7 @@ const ConnectedForm = withFormik({
     return committeeErrors.length ? { committeeDuplicates: committeeErrors } : {};
   },
   handleSubmit: (values, { setStatus }) => {
-    const url = 'https://up-csi-appsor-backend.herokuapp.com/applicants';
+    const url = 'https://up-csi-appsor-backend.herokuapp.com/api/applicants';
     fetch(url, {
       headers: {
         'Content-Type': 'application/json',
