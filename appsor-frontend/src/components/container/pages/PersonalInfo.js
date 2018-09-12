@@ -15,7 +15,7 @@ const PersonalInfo = props => (
       begin={5}
       end={10}
       columns={2}
-      offset={30}
+      offset={0}
     />
     <div className="personal-info-form">
       <h1 className="page-title">Personal Information</h1>
@@ -34,7 +34,7 @@ const PersonalInfo = props => (
       begin={0}
       end={5}
       columns={2}
-      offset={0}
+      offset={1}
     />
     <div className="section-footer">
       Press <strong>Ctrl+Enter</strong> to scroll

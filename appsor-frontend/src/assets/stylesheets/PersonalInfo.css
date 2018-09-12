@@ -1,9 +1,57 @@
-/* generic stuff and for mobile screens*/
+/* generic stuff and for desktop screens*/
 .row {
 	display: flex;
-	flex-direction: column !important;
 	justify-content: space-between;
 	margin: 10px 5px;
+	flex-direction: row !important;
+}
+
+.text-field:first-child {
+	margin-left: 0px !important;
+}
+
+.text-field {
+	margin: 0px 10px !important;
+}
+
+.text-field:last-child {
+	margin-right: 0px !important;
+}
+
+.last-name {
+	flex: 5;
+}
+
+.middle-initial {
+	flex: 1;
+}
+
+.first-name {
+	flex: 7;
+}
+
+.nickname {
+	flex: 5;
+}
+
+.student-number {
+	flex: 3;
+}
+
+.birthday {
+	flex: 3;
+}
+
+.email {
+	flex: 6;
+}
+
+.contact-number {
+	flex: 6;
+}
+
+.address {
+	flex: 12;
 }
 
 .dropdown-div {
@@ -33,96 +81,60 @@
 	display: flex;
 	justify-content: space-around;
 	margin-bottom: 30px;
-	width: 100%;
+	width: 85% !important;
 }
 
 .personal-info-form {
 	max-width: 80%;
-	margin: 0px 50px;
+	margin: 0px 40px;
 }
 
 .glitter-pics {
-	display: none;
+	height: 60vh;
+	display: flex;
+	min-width: 120px;
+	flex-flow: column;
+	justify-content: space-between;
 }
 
 .glitter-pics > img {
-	margin: 5px;
+	min-width: 60px !important;
+	margin: 5px 5px 30px 5px;
 }
 
 .basic-info-container {
 	margin-bottom: 10px;
 }
 
+/* for small desktop screens */
+@media only screen and (max-width: 900px) {
+	.glitter-pics {
+		display: none;
+	}
+}
+
 /* for mobile phone screens */
 @media only screen and (max-width: 768px) {
+	.row {
+		flex-direction: column !important;
+		align-items: stretch;
+		margin: 0px;
+	}
+
 	.ui.container.personal-info-container {
 		margin-top: 50px;
 	}
-}
-
-
-/* for big desktop screens */
-@media only screen and (min-width: 768px) {
-	.row {
-		flex-direction: row !important;
-	}
 
 	.text-field:first-child {
-		margin-left: 0px !important;
+		margin-left: 10px !important;
 	}
 
 	.text-field {
-		margin: 0px 10px !important;
+		margin-bottom: 5px !important;
 	}
 
 	.text-field:last-child {
-		margin-right: 0px !important;
+		margin-right: 10px !important;
 	}
 
-	.last-name {
-		flex: 5;
-	}
-
-	.middle-initial {
-		flex: 1;
-	}
-
-	.first-name {
-		flex: 7;
-	}
-
-	.nickname {
-		flex: 5;
-	}
-
-	.student-number {
-		flex: 3;
-	}
-
-	.birthday {
-		flex: 3;
-	}
-
-	.email {
-		flex: 6;
-	}
-
-	.contact-number {
-		flex: 6;
-	}
-
-	.address {
-		flex: 12;
-	}
-
-}
-
-@media only screen and (min-width: 900px)
-{
-	.glitter-pics {
-		display: flex;
-		flex-flow: column;
-		justify-content: space-between;
-		flex-shrink: 0;
-	}
 }
