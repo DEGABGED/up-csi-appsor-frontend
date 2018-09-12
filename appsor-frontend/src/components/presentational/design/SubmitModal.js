@@ -53,7 +53,7 @@ function ErrorModal(props) {
         setSubmitting(false);
         onClose();
       }}
-      size="mini"
+      size="tiny"
     >
       <Modal.Content className="modal-content">
         <Image wrapped className="modal-img" size="small" src={errorImg || null} />

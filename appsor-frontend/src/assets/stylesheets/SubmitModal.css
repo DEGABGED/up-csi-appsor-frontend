@@ -8,13 +8,13 @@
 .submit-modal .modal-subcontent,
 .error-modal .modal-subcontent {
     padding: 20px 2px 18px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .submit-modal .modal-subcontent {
-    display: flex;
-    flex-direction: column;
     width: 75%;
-    justify-content: center;
 }
 
 .submit-modal .description {
@@ -57,20 +57,25 @@
 }
 
 @media only screen and (max-width: 768px) {
-    .submit-modal {
-        height: 75vh;
-    }
-
     .submit-modal .modal-content {
         height: 100% !important;
+    }
+
+    .submit-modal .modal-subcontent {
+        width: 100%;
+        padding: 20px;
     }
 
     .submit-modal .modal-header {
         font-size: 2em !important;
     }
 
-    .submit-modal .modal-img {
-        display: none !important;
+    .submit-modal .modal-img img {
+        position: relative;
+        height: 20vh;
+        width: auto;
+        margin: 0 auto;
+        bottom: -20px;
     }
 
     .submit-modal .description {
