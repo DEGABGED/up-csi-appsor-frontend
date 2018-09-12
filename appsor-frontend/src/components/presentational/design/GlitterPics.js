@@ -15,7 +15,7 @@ import wineSet from '../../../assets/images/drinks/wine.png';
 
 function Glitter(props) {
 
-  const pics = [bubble, wineGla, soda, tea, lemonade, wineSet, milk, drink, energy, wineGla];
+  const pics = [bubble, wineBot, soda, tea, lemonade, wineSet, milk, drink, energy, wineGla];
 
   function slicePics() {
     return pics.slice(props.begin, props.end);
