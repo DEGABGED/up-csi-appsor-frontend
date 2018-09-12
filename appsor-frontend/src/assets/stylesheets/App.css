@@ -12,6 +12,13 @@
     src: local('Nexa Light'), url('../fonts/Nexa Light.otf') format('opentype');
 }
 
+@font-face {
+    font-family: 'Handletterink';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Handletterink'), url('../fonts/Handletterink.otf') format('opentype');
+}
+
 html,body {
     margin: 0;
 }

@@ -22,7 +22,7 @@ class ReadMeModal extends Component {
 			>
         <Modal.Header className="modal-img" style={{ backgroundImage: `url(${props.img})` }} />
         <Modal.Content className="modal-content">
-          <Header className="modal-header">CHECKOUT THE {props.name} COMMITTEE</Header>
+          <Header className="modal-header">{props.name} COMMITTEE</Header>
           <Modal.Description>
             <p>{props.description}</p>
           </Modal.Description>

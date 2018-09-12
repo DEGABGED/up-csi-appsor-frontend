@@ -1,44 +1,37 @@
-import enggcomm from "../../../assets/images/carousel/enggcomm.png";
-import platelet from "../../../assets/images/carousel/platelet.jpg";
-import neckTilt from "../../../assets/images/carousel/neckTilt.jpg";
+import enggcomm from '../../../assets/images/carousel/enggcomm.png';
+import platelet from '../../../assets/images/carousel/platelet.jpg';
+import neckTilt from '../../../assets/images/carousel/neckTilt.jpg';
 
-const loremIpsum = `
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ut ante ex. Donec interdum, urna eu consectetur hendrerit, sem ipsum tincidunt ante, ac feugiat odio nulla in turpis. Quisque malesuada tincidunt nulla, vel condimentum diam bibendum eget. Donec elementum arcu vel nisl lobortis rutrum. In et lorem sit amet urna posuere pharetra. Suspendisse potenti. Duis rutrum libero vitae blandit volutpat. Integer dolor risus, dapibus ut ante quis, fermentum aliquet lectus. Fusce tempus a ex eu laoreet.
-
-Aliquam fringilla lacus ex, eget pellentesque tellus pretium ut. Vestibulum scelerisque, nisl eu pretium cursus, est massa vehicula lectus, ornare vestibulum urna mi ac magna. Nulla ac purus ac elit consequat egestas. Vivamus hendrerit, libero quis convallis gravida, ante enim ultricies diam, nec pellentesque sem turpis id tellus. Nam nisl justo, efficitur in ex sed, dapibus tempus dolor. Quisque fringilla eros felis, ornare molestie purus vestibulum in. Aliquam id eros turpis. Morbi rhoncus felis ac dui aliquam consectetur. Quisque volutpat dolor eget enim tempor egestas. Nam nec rutrum nunc, eget gravida nibh. Phasellus ut elit ornare, sodales lectus eu, ornare orci. Nunc quis mauris feugiat lacus maximus interdum. Aenean gravida enim vel efficitur luctus.
-`
-
-const commArray = [
-    {
-      name: 'ENGINEERING',
-      img: enggcomm,
-      description: loremIpsum
-    },
-    {
-      name: 'PLATELET',
-      img: platelet,
-      description: loremIpsum
-    },
-    {
-      name: 'ENGINEERING',
-      img: enggcomm,
-      description: loremIpsum
-    },
-    {
-      name: 'SMUGUMIN',
-      img: "https://i.redd.it/nmoly9x5ge8y.png",
-      description: loremIpsum
-    },
-    {
-      name: 'ENGINEERING',
-      img: enggcomm,
-      description: loremIpsum
-    },
-    {
-      name: 'NECK TILT',
-      img: neckTilt,
-      description: loremIpsum
-    },
+const commArray = [{
+    name: 'INNOVATION',
+    img: enggcomm,
+    description: 'The Innovation Committee is in charge of spreading the innovative culture in two ways: by hosting events that equip students with skills for project development and by acting as consultants to young developers with innovative project ideas to help turn it into a reality.',
+  },
+  {
+    name: 'SERVICE',
+    img: platelet,
+    description: 'The Service Committee is in charge of overseeing all service projects being developed by the organization. They are also in charge of searching for new projects and communicating with potential clients.',
+  },
+  {
+    name: 'ENGINEERING',
+    img: enggcomm,
+    description: 'The Engineering Committee manages the technical side of innovation and service projects. Members act as Scrum Masters for the projects, as well as mentors and technical consultants for the developers.',
+  },
+  {
+    name: 'EXTERNAL RELATIONS',
+    img: "https://i.redd.it/nmoly9x5ge8y.png",
+    description: 'The External Relations Committee oversees the external and financial concerns of the organization by communicating with other entities and gathering ideas for income generating projects.',
+  },
+  {
+    name: 'MEMBERSHIPS AND INTERNALS',
+    img: enggcomm,
+    description: 'The Membership and Internals Committee is responsible for the welfare of the organization\'s members and internal affairs such as logistics, records, and academics. They also spearhead the application process of the organization.',
+  },
+  {
+    name: 'PUBLICITY',
+    img: neckTilt,
+    description: 'The Publicity Committee create the promotional materials and handle the advertising and announcements of the organization. They also spearhead the branding for the organization and its projects and events.',
+  },
 ]
 
 export default commArray;

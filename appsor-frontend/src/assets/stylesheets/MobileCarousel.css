@@ -27,6 +27,7 @@
 }
 
 .mobile-div .mobile-title {
+	text-align: right;
 	align-self: flex-end;
 	margin: 0px 15px 10px 0px;
 	color: white;

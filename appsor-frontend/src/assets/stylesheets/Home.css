@@ -9,15 +9,17 @@
 }
 
 .main-title {
-    font-family: 'Nexa Bold';
-    font-size: 60px;
-    margin-bottom: -6px;
+    font-family: 'Handletterink';
+    font-size: 130px;
+    margin-top: -10px;
 }
 
 .sub-title {
-    font-family: 'Nexa Light';
+    font-family: Nexa Bold;
     font-size: 35px;
-    margin-top: -6px;
+    margin-bottom: -30px;
+    letter-spacing: 3px;
+    color: #555555;
 }
 
 .chevron-button {
