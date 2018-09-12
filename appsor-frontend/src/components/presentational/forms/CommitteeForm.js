@@ -3,13 +3,18 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { Dropdown, Label, Image } from 'semantic-ui-react';
 
-import comm0 from '../../../assets/images/committees/comm0.png';
-import comm1 from '../../../assets/images/committees/comm1.png';
+import none from '../../../assets/images/committees/default.png';
+import engg from '../../../assets/images/committees/engg.png';
+import innov from '../../../assets/images/committees/innov.png';
+import pub from '../../../assets/images/committees/pub.png';
+import mni from '../../../assets/images/committees/mni.png';
+import exte from '../../../assets/images/committees/exte.png';
+import service from '../../../assets/images/committees/service.png';
 import preventDefaultEnter from '../helper/preventDefaultEnter';
 
 
 function Form(props) {
-  const logos = [comm0, comm1, comm1, comm1, comm1, comm1, comm1];
+  const logos = [none, engg, innov, pub, mni, exte, service];
 
   function getDropdownError() {
     let error = typeof (props.errors) !== 'undefined' && !!props.errors.committee_id;
