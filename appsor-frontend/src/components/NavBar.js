@@ -4,6 +4,7 @@ import { Image, Menu, Responsive, Sidebar, Icon } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 
 import upcsi from '../assets/images/upcsi.png';
+import upcsiwhite from '../assets/images/upcsi_white.png';
 import '../assets/stylesheets/NavBar.css';
 
 const NavBarMobile = ({
@@ -66,9 +67,10 @@ const NavBarDesktop = ({
   activeItem,
   handleClick,
   items,
+  pathname,
 }) => (
   <Menu id="navbar">
-    <Image className="navbar-logo" src={upcsi} size="mini" />
+    <Image className="navbar-logo" src={pathname === '/committees' ? upcsiwhite : upcsi} size="mini" />
     <Menu.Menu position="right">
       {items.map(item => (
         <Menu.Item
@@ -124,7 +126,6 @@ class NavBar extends Component {
     };
 
     if (this.props.location.pathname === '/') return this.props.children;
-
     return (
       <div>
         <Responsive {...Responsive.onlyMobile}>
@@ -133,7 +134,7 @@ class NavBar extends Component {
           </NavBarMobile>
         </Responsive>
         <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-          <NavBarDesktop {...props} />
+          <NavBarDesktop {...props} pathname={this.props.location.pathname} />
           {this.props.children}
         </Responsive>
       </div>
@@ -165,6 +166,7 @@ NavBarDesktop.propTypes = {
     route: PropTypes.string,
     key: PropTypes.string,
   })).isRequired,
+  pathname: PropTypes.string.isRequired,
 };
 
 NavBar.propTypes = {
