@@ -1,0 +1,15 @@
+.drinks-display-case {
+    display: flex;
+    justify-content: center;
+}
+
+.ui.mini.image.drinks-display-drink {
+    width: 45px;
+    align-self: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .drinks-display-case {
+        margin-top: 50px;
+    }
+}

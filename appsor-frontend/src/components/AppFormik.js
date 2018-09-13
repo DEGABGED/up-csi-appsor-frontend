@@ -8,6 +8,7 @@ import Affiliations from './container/pages/Affiliations';
 import Committee from './container/pages/Committee';
 import PersonalInfo from './container/pages/PersonalInfo';
 import SubmitModal from './presentational/design/SubmitModal';
+import DrinksDisplay from './presentational/design/DrinksDisplay';
 
 import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
 import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
@@ -70,6 +71,7 @@ class MainForm extends Component {
     return (
       <form onSubmit={handleSubmit}>
         <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
+          <DrinksDisplay />
           <PersonalInfo
             id="personal-info"
             handleChangeBasicInfo={(value) => {
