@@ -1,0 +1,13 @@
+Prioritize errors scrolling
+	- scroll to div
+
+Carousel
+	- Works; margins and spacing nalang
+	- Scroll to traverse
+		- event: onScroll
+	- Aesthetic fixes
+		- Picture moves on modal click
+		- Gaussian blur ?
+
+Varying viewports bug
+Fix bug fixes

@@ -1,0 +1,27 @@
+(Francis) fix navbar being too big on certain widths
+(Francis) mobile navbar (spacing of lettering)
+(Jandel) fix scrolling scrolls past the slides
+(Jandel) mobile carousel
+	- remove top padding
+	- lower right ng divisions yung committee name
+(Adel) dropdown bug
+	- wont display all the input shit
+	- dropdown wont collapse on blur
+(Adel) committee bug
+	- wont select on enter
+(Adel) mobile number mask
+(Adel) date isnt initialized at first
+
+NEW FEATURES
+(Francis) enter modal
+(Jandel) add automatic scrolling
+
+(Francis) deployment
+	- idea: barebones express
+	- idea: AWS if kaya
+	- ask adel for react deployment help
+asset swap
+
+ICEBOX
+header of assets
+empty affiliations

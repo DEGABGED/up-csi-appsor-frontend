@@ -1,0 +1,8 @@
+Mobile
+- Weird black border on bottom
+- Modal should be full screen
+- Increase header font in divs
+- Image should stick to top
+
+Desktop
+- Modal should contain image
