@@ -9,7 +9,8 @@
         "react/no-did-mount-set-state": "off",
         "react/forbid-prop-types": "off",
         "react/no-array-index-key": "off",
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "linebreak-style": "off"
     },
     "env": {
         "browser": true,
