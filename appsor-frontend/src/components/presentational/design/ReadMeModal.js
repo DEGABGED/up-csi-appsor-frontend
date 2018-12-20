@@ -4,46 +4,39 @@ import { Modal, Header } from 'semantic-ui-react';
 import '../../../assets/stylesheets/ReadMeModal.css';
 
 class ReadMeModal extends Component {
-
   camelizeCase(string) {
     return string.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
   }
 
   render() {
-    const props = this.props;
     return (
       <Modal
-        trigger={props.trigger}
+        trigger={this.props.trigger}
         dimmer="blurring"
-				className="main-modal"
-				closeIcon
-        onOpen={props.pauseCarousel}
-        onClose={props.playCarousel}
-			>
-        <Modal.Header className="modal-img" style={{ backgroundImage: `url(${props.img})` }} />
+        className="main-modal"
+        closeIcon
+        onOpen={this.props.pauseCarousel}
+        onClose={this.props.playCarousel}
+      >
+        <Modal.Header className="modal-img" style={{ backgroundImage: `url(${this.props.img})` }} />
         <Modal.Content className="modal-content">
-          <Header className="modal-header">{props.name} COMMITTEE</Header>
+          <Header className="modal-header">{this.props.name} COMMITTEE</Header>
           <Modal.Description>
-            <p>{props.description}</p>
+            <p>{this.props.description}</p>
           </Modal.Description>
         </Modal.Content>
       </Modal>
     );
   }
-
 }
 
 ReadMeModal.propTypes = {
-  name: PropTypes.string,
-  description: PropTypes.string,
-  img: PropTypes.string,
-  pauseCarousel: PropTypes.func,
-  playCarousel: PropTypes.func,
-};
-
-ReadMeModal.defaultProps = {
-  name: 'UNKNOWN',
-  description: 'No description found',
+  trigger: PropTypes.bool.isRequired,
+  name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  pauseCarousel: PropTypes.func.isRequired,
+  playCarousel: PropTypes.func.isRequired,
 };
 
 export default ReadMeModal;

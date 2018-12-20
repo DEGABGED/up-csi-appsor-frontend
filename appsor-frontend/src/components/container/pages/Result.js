@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import CommCarousel from '../../presentational/design/DesktopCarousel'
-import MobileCarousel from '../../presentational/design/MobileCarousel';
+import { Responsive } from 'semantic-ui-react';
 
-import { Responsive } from 'semantic-ui-react'
+import CommCarousel from '../../presentational/design/DesktopCarousel';
+import MobileCarousel from '../../presentational/design/MobileCarousel';
 
 class Result extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      windowHeight: window.innerHeight
+
     };
   }
 
@@ -24,9 +24,6 @@ class Result extends Component {
       </div>
     );
   }
-
-   componentDidMount() {
-   }
 }
 
 export default Result;

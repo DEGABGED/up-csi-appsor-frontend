@@ -52,7 +52,7 @@ class MainForm extends Component {
       && Object.keys(this.props.errors).length > 0
     ) {
       document.getElementById(
-        errorTags[Object.keys(this.props.errors)[0]]
+        errorTags[Object.keys(this.props.errors)[0]],
       ).scrollIntoView();
     }
   }
@@ -142,6 +142,7 @@ class MainForm extends Component {
 
 
 MainForm.propTypes = {
+  status: PropTypes.bool.isRequired,
   values: PropTypes.object.isRequired,
   errors: PropTypes.shape({
     basicInfo: PropTypes.object,
@@ -154,6 +155,7 @@ MainForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   setValues: PropTypes.func.isRequired,
   setFieldValue: PropTypes.func.isRequired,
+  setSubmitting: PropTypes.func.isRequired,
   isSubmitting: PropTypes.bool.isRequired,
   isValid: PropTypes.bool.isRequired,
 };
@@ -171,7 +173,7 @@ const modalValues = (setStatus, success, message = '') => ({
   },
   onFinish: () => {
     setStatus({ display: false });
-    window.location.href = "/";
+    window.location.href = '/';
   },
 });
 
@@ -205,7 +207,7 @@ const ConnectedForm = withFormik({
   },
   handleSubmit: (values, { setStatus }) => {
     const url = 'https://up-csi-appsor-backend.herokuapp.com/api/applicants';
-    //const url = '/applicants';
+
     fetch(url, {
       headers: {
         'Content-Type': 'application/json',
@@ -219,18 +221,18 @@ const ConnectedForm = withFormik({
           .then((data) => {
             setStatus(modalValues(setStatus, wasSuccessful, data));
           })
-          .catch((err) => {
+          .catch(() => {
             setStatus(modalValues(
               setStatus,
               false,
-              'Please try submitting the form again. If the problem persists, please tell us. Thank you!'
+              'Please try submitting the form again. If the problem persists, please tell us. Thank you!',
             ));
           });
       })
-      .catch((err) => {
+      .catch(() => {
         setStatus(modalValues(setStatus,
           false,
-          'Please try submitting the form again. If the problem persists, please tell us. Thank you!'
+          'Please try submitting the form again. If the problem persists, please tell us. Thank you!',
         ));
       });
   },

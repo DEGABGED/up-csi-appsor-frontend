@@ -25,6 +25,7 @@ function generateErrorMessage(message) {
   if (typeof message === 'string') {
     return message;
   }
+  // eslint-disable-next-line arrow-body-style
   return Object.keys(message).map((key) => {
     return (
       <ErrorModalMessage
@@ -114,5 +115,29 @@ function SubmitModal(props) {
   } = props;
   return success ? <SuccessModal {...props} /> : <ErrorModal {...props} />;
 }
+
+ErrorModalMessage.propTypes = {
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
+};
+
+ErrorModal.propTypes = {
+  display: PropTypes.bool.isRequired,
+  message: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+  setSubmitting: PropTypes.func.isRequired,
+};
+
+SuccessModal.propTypes = {
+  display: PropTypes.bool.isRequired,
+  message: PropTypes.string.isRequired,
+  onFinish: PropTypes.func.isRequired,
+  setSubmitting: PropTypes.func.isRequired,
+};
+
+SubmitModal.propTypes = {
+  success: PropTypes.bool.isRequired,
+};
+
 
 export default SubmitModal;

@@ -49,6 +49,7 @@ Committee.propTypes = {
   handleChangeCommittee: PropTypes.func.isRequired,
   handleChangeReason: PropTypes.func.isRequired,
   committees: PropTypes.array.isRequired,
+  isSubmitting: PropTypes.func.isRequired,
 };
 
 Committee.defaultProps = {

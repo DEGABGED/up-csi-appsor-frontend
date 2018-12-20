@@ -14,18 +14,17 @@ import wineGla from '../../../assets/images/drinks/wine-glass.png';
 import wineSet from '../../../assets/images/drinks/wine.png';
 
 function Glitter(props) {
-
   const pics = [bubble, wineBot, soda, tea, lemonade, wineSet, milk, drink, energy, wineGla];
 
   function slicePics() {
     return pics.slice(props.begin, props.end);
   }
 
-  //alternates between left and right
+  // salternates between left and right
   function getAlignStyle(i) {
     return {
-      alignSelf:  (i + props.offset) % 2 == 0? "flex-start" : "flex-end"
-    }
+      alignSelf: (i + props.offset) % 2 === 0 ? 'flex-start' : 'flex-end',
+    };
   }
 
   return (
@@ -45,13 +44,11 @@ function Glitter(props) {
 Glitter.propTypes = {
   begin: PropTypes.number.isRequired,
   end: PropTypes.number.isRequired,
-  columns: PropTypes.number,
   offset: PropTypes.number,
 };
 
 
 Glitter.defaultProps = {
-  columns: 5,
   offset: 30,
 };
 

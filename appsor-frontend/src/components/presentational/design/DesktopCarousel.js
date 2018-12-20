@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
-import '../../../assets/stylesheets/DesktopCarousel.css';
 import { Button } from 'semantic-ui-react';
+
+import '../../../assets/stylesheets/DesktopCarousel.css';
+
 
 import ReadMeModal from './ReadMeModal';
 import CommArray from './CommitteeData';
@@ -18,18 +20,12 @@ class DesktopCarousel extends Component {
 
   slideScroll(y) {
     if (this.slider != null) {
-      y < 0 ? (
-        this.slider.slickNext()
-      ) : (
-        this.slider.slickPrev()
-      );
+      if (y < 0) {
+        this.slider.slickNext();
+      } else {
+        this.slider.slickPrev();
+      }
     }
-  }
-
-  componentWillMount() {
-    // window.addEventListener('wheel', (e) => {
-    //   this.slideScroll(e.wheelDelta);
-    // });
   }
 
   playCarousel() {
@@ -44,7 +40,7 @@ class DesktopCarousel extends Component {
     return (
       <div className="carousel-container">
         <Slider
-          ref={slider => this.slider = slider}
+          ref={(slider) => { this.slider = slider; }}
           dots
           infinite
           speed={500}
@@ -69,7 +65,7 @@ class DesktopCarousel extends Component {
                   pauseCarousel={this.pauseCarousel}
                   playCarousel={this.playCarousel}
                   trigger={<Button>Read More</Button>}
-               />
+                />
               </div>
             </div>
          ))}
