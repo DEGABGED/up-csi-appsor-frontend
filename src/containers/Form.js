@@ -142,7 +142,7 @@ class MainForm extends Component {
 
 
 MainForm.propTypes = {
-  status: PropTypes.bool.isRequired,
+  status: PropTypes.bool,
   values: PropTypes.object.isRequired,
   errors: PropTypes.shape({
     basicInfo: PropTypes.object,
@@ -161,6 +161,7 @@ MainForm.propTypes = {
 };
 
 MainForm.defaultProps = {
+  status: undefined,
   errors: undefined,
 };
 
