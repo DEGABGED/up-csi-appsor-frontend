@@ -31,12 +31,17 @@ class ReadMeModal extends Component {
 }
 
 ReadMeModal.propTypes = {
-  trigger: PropTypes.bool.isRequired,
+  trigger: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
-  pauseCarousel: PropTypes.func.isRequired,
-  playCarousel: PropTypes.func.isRequired,
+  pauseCarousel: PropTypes.func,
+  playCarousel: PropTypes.func,
+};
+
+ReadMeModal.defaultProps = {
+  pauseCarousel: undefined,
+  playCarousel: undefined,
 };
 
 export default ReadMeModal;

@@ -122,9 +122,9 @@ ErrorModalMessage.propTypes = {
 };
 
 ErrorModal.propTypes = {
-  display: PropTypes.bool.isRequired,
-  message: PropTypes.string.isRequired,
-  onClose: PropTypes.func.isRequired,
+  display: PropTypes.bool,
+  message: PropTypes.string,
+  onClose: PropTypes.func,
   setSubmitting: PropTypes.func.isRequired,
 };
 
@@ -135,8 +135,18 @@ SuccessModal.propTypes = {
   setSubmitting: PropTypes.func.isRequired,
 };
 
+ErrorModal.defaultProps = {
+  display: undefined,
+  message: undefined,
+  onClose: undefined,
+};
+
 SubmitModal.propTypes = {
-  success: PropTypes.bool.isRequired,
+  success: PropTypes.bool,
+};
+
+SubmitModal.defaultProps = {
+  success: undefined,
 };
 
 
