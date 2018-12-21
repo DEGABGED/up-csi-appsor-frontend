@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { Button } from 'semantic-ui-react';
 
-import '../../../assets/stylesheets/DesktopCarousel.css';
+import '../../assets/stylesheets/DesktopCarousel.css';
 
 
-import ReadMeModal from './ReadMeModal';
-import CommArray from './CommitteeData';
+import ReadMeModal from '../design/ReadMeModal';
+import CommArray from '../../helpers/committeeData';
 
 
 class DesktopCarousel extends Component {

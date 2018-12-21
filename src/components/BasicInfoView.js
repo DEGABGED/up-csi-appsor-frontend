@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { Container } from 'semantic-ui-react';
 
-import { ContactNoMask, StudentNoMask } from '../helper/TextMask';
-import preventDefaultEnter from '../helper/preventDefaultEnter';
+import { ContactNoMask, StudentNoMask } from '../helpers/textMask';
+import preventDefaultEnter from '../helpers/preventDefaultEnter';
 
 function View(props) {
   const contactNoFormat = '(+63) 9';

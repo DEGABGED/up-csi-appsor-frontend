@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import BasicInfoView from '../../presentational/view/BasicInfoView';
+import BasicInfoView from '../components/BasicInfoView';
 
 class BasicInfo extends Component {
   constructor(props) {

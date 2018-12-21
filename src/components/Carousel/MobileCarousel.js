@@ -1,8 +1,8 @@
 import React from 'react';
-import '../../../assets/stylesheets/MobileCarousel.css';
+import '../../assets/stylesheets/MobileCarousel.css';
 
-import ReadMeModal from './ReadMeModal';
-import CommArray from './CommitteeData';
+import ReadMeModal from '../design/ReadMeModal';
+import CommArray from '../../helpers/committeeData';
 
 
 function MobileCarousel() {

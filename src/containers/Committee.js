@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Button } from 'semantic-ui-react';
 
-import CommitteeForm from '../../presentational/forms/CommitteeForm';
-import { committeeOptions } from '../../presentational/helper/defaultOptions';
-import '../../../assets/stylesheets/Base.css';
-import '../../../assets/stylesheets/Committee.css';
+import CommitteeForm from '../components/CommitteeForm';
+import { committeeOptions } from '../helpers/defaultOptions';
+import '../assets/stylesheets/Base.css';
+import '../assets/stylesheets/Committee.css';
 
 class Committee extends Component {
   constructor(props) {

@@ -5,9 +5,9 @@ import { Container } from 'semantic-ui-react';
 import Button from '@material-ui/core/Button';
 
 
-import AffiliationsForm from '../../presentational/forms/AffiliationsForm';
-import '../../../assets/stylesheets/Base.css';
-import '../../../assets/stylesheets/Affiliations.css';
+import AffiliationsForm from '../components/AffiliationsForm';
+import '../assets/stylesheets/Base.css';
+import '../assets/stylesheets/Affiliations.css';
 
 class Affiliations extends Component {
   constructor(props) {

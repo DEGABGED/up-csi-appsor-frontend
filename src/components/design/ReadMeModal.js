@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Modal, Header } from 'semantic-ui-react';
-import '../../../assets/stylesheets/ReadMeModal.css';
+import '../../assets/stylesheets/ReadMeModal.css';
 
 class ReadMeModal extends Component {
   camelizeCase(string) {

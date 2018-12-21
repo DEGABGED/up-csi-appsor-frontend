@@ -4,10 +4,10 @@ import { Container } from 'semantic-ui-react';
 
 import BasicInfo from './BasicInfo';
 import SkillsInterests from './SkillsInterests';
-import GlitterPics from '../../presentational/design/GlitterPics';
+import GlitterPics from '../components/design/GlitterPics';
 
-import '../../../assets/stylesheets/Base.css';
-import '../../../assets/stylesheets/PersonalInfo.css';
+import '../assets/stylesheets/Base.css';
+import '../assets/stylesheets/PersonalInfo.css';
 
 const PersonalInfo = props => (
   <Container id={props.id} textAlign="center" className="page-container personal-info-container">

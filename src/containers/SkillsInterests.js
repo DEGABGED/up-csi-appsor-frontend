@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import SkillsInterestsView from '../../presentational/view/SkillsInterestsView';
-import { skillsInterestsOptions } from '../../presentational/helper/defaultOptions';
+import SkillsInterestsView from '../components/SkillsInterestsView';
+import { skillsInterestsOptions } from '../helpers/defaultOptions';
 
 class SkillsInterests extends Component {
   createOptions(list) {

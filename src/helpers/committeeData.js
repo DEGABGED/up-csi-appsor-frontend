@@ -1,9 +1,9 @@
-import enggComm from '../../../assets/images/carousel/BG_Engg.png';
-import exteComm from '../../../assets/images/carousel/BG_exte.png';
-import pubComm from '../../../assets/images/carousel/Pub_BG.png';
-import servComm from '../../../assets/images/carousel/Service_BG.png';
-import inteComm from '../../../assets/images/carousel/BG_Inte.png';
-import innoComm from '../../../assets/images/carousel/BG_Innov.png';
+import enggComm from '../assets/images/carousel/BG_Engg.png';
+import exteComm from '../assets/images/carousel/BG_exte.png';
+import pubComm from '../assets/images/carousel/Pub_BG.png';
+import servComm from '../assets/images/carousel/Service_BG.png';
+import inteComm from '../assets/images/carousel/BG_Inte.png';
+import innoComm from '../assets/images/carousel/BG_Innov.png';
 
 const commArray = [{
   name: 'INNOVATION',

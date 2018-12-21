@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Image, Modal, Header } from 'semantic-ui-react';
-import '../../../assets/stylesheets/SubmitModal.css';
+import '../../assets/stylesheets/SubmitModal.css';
 
-import successImg from '../../../assets/images/fin.jpg';
-import errorImg from '../../../assets/images/people/error.png';
+import successImg from '../../assets/images/fin.jpg';
+import errorImg from '../../assets/images/people/error.png';
 
 function ErrorModalMessage(props) {
   const {
