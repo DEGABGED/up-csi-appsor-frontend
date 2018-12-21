@@ -54,6 +54,19 @@ The form uses React and Formik to create its main form.
 * `ScrollAnimation from 'react-animate-on-scroll'`
 * `SubmitModal`
 
+### Structure of the Form
+
+**Root Form Component**
+The root component is `Form.js`, which serves as the main, Formik-connected Form component. It's main purpose should be to construct the handlers and interface with the Formik API. These handlers are then passed down as props to the Containers.
+
+Submission handling and modals are also handled here, but may be refactored into their own helpers and components later on.
+
+**Containers**
+Containers like `PersonalInfo.js`, `Affiliations.js`, and `Committee.js` serve as boxes which contain the input, design, and layout components. They should be responsible **only** for the layout of the components. As a result, they would usually have most, if not all, of the design components, like `ScrollAnimation`.
+
+**Input Component**
+These components are the input components that compose the form. They can have subcomponents, but generally their purpose is to be a form input.
+
 ### Building components compatible with Formik
 
 Formik works by taking a Form component (the inner form) and passing it values and handlers in the form of props. In our case, we use the Formik function that takes in the form and returns the Formik form that handles the values and value handling (Yes, it handles the handling as well.) 
