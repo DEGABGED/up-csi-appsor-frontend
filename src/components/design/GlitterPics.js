@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'semantic-ui-react';
 
-import bubble from '../../../assets/images/drinks/bubble-tea.png';
-import drink from '../../../assets/images/drinks/drink.png';
-import energy from '../../../assets/images/drinks/energy-drink.png';
-import lemonade from '../../../assets/images/drinks/lemonade.png';
-import milk from '../../../assets/images/drinks/milk.png';
-import soda from '../../../assets/images/drinks/soda.png';
-import tea from '../../../assets/images/drinks/tea.png';
-import wineBot from '../../../assets/images/drinks/wine-bottle.png';
-import wineGla from '../../../assets/images/drinks/wine-glass.png';
-import wineSet from '../../../assets/images/drinks/wine.png';
+import bubble from '../../assets/images/drinks/bubble-tea.png';
+import drink from '../../assets/images/drinks/drink.png';
+import energy from '../../assets/images/drinks/energy-drink.png';
+import lemonade from '../../assets/images/drinks/lemonade.png';
+import milk from '../../assets/images/drinks/milk.png';
+import soda from '../../assets/images/drinks/soda.png';
+import tea from '../../assets/images/drinks/tea.png';
+import wineBot from '../../assets/images/drinks/wine-bottle.png';
+import wineGla from '../../assets/images/drinks/wine-glass.png';
+import wineSet from '../../assets/images/drinks/wine.png';
 
 function Glitter(props) {
   const pics = [bubble, wineBot, soda, tea, lemonade, wineSet, milk, drink, energy, wineGla];

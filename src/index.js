@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
-import initialState from './components/container/helper/appstate';
+import App from './App';
+import initialState from './helpers/appstate';
 import registerServiceWorker from './registerServiceWorker';
 
 // For now, the AppFormik component will be used just to keep the old reference

@@ -2,8 +2,8 @@ import React from 'react';
 import { Container, Image, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
-import upcsi from '../../../assets/images/upcsi.png';
-import '../../../assets/stylesheets/Home.css';
+import upcsi from '../assets/images/upcsi.png';
+import '../assets/stylesheets/Home.css';
 
 const Home = () => (
   <Container className="home-container" textAlign="center">

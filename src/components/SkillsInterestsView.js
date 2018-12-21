@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown, Container } from 'semantic-ui-react';
 
-import preventDefaultEnter from '../helper/preventDefaultEnter';
+import preventDefaultEnter from '../helpers/preventDefaultEnter';
 
 function View(props) {
   return (

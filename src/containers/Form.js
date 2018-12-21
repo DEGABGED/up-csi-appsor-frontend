@@ -4,16 +4,16 @@ import { withFormik } from 'formik';
 import { object } from 'yup';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import Affiliations from './container/pages/Affiliations';
-import Committee from './container/pages/Committee';
-import PersonalInfo from './container/pages/PersonalInfo';
-import SubmitModal from './presentational/design/SubmitModal';
-import DrinksDisplay from './presentational/design/DrinksDisplay';
+import Affiliations from './Affiliations';
+import Committee from './Committee';
+import PersonalInfo from './PersonalInfo';
+import SubmitModal from '../components/design/SubmitModal';
+import DrinksDisplay from '../components/design/DrinksDisplay';
 
-import basicInfoSchema from './container/validationSchemas/BasicInfoSchema';
-import skillsInterestsSchema from './container/validationSchemas/SkillsInterestsSchema';
-import affiliationsSchema from './container/validationSchemas/AffiliationsSchema';
-import committeesSchema from './container/validationSchemas/CommitteesSchema';
+import basicInfoSchema from '../schemas/BasicInfoSchema';
+import skillsInterestsSchema from '../schemas/SkillsInterestsSchema';
+import affiliationsSchema from '../schemas/AffiliationsSchema';
+import committeesSchema from '../schemas/CommitteesSchema';
 
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations

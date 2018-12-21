@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import NavBar from './NavBar';
-import Home from './container/pages/Home';
-import Result from './container/pages/Result';
-import Form from './AppFormik';
-import '../assets/stylesheets/App.css';
+import NavBar from './components/NavBar';
+import Home from './containers/Home';
+import Result from './containers/Result';
+import Form from './containers/Form';
+import './assets/stylesheets/App.css';
 
 const App = ({ values }) => (
   <Router>

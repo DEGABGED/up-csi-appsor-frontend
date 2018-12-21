@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Responsive } from 'semantic-ui-react';
 
-import CommCarousel from '../../presentational/design/DesktopCarousel';
-import MobileCarousel from '../../presentational/design/MobileCarousel';
+import CommCarousel from '../components/Carousel/DesktopCarousel';
+import MobileCarousel from '../components/Carousel/MobileCarousel';
 
 class Result extends Component {
   constructor(props) {

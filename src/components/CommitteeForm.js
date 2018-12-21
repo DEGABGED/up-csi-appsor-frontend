@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import { Dropdown, Label, Image } from 'semantic-ui-react';
 
-import none from '../../../assets/images/committees/default.png';
-import engg from '../../../assets/images/committees/engg.png';
-import innov from '../../../assets/images/committees/innov.png';
-import pub from '../../../assets/images/committees/pub.png';
-import mni from '../../../assets/images/committees/mni.png';
-import exte from '../../../assets/images/committees/exte.png';
-import service from '../../../assets/images/committees/service.png';
-import preventDefaultEnter from '../helper/preventDefaultEnter';
+import none from '../assets/images/committees/default.png';
+import engg from '../assets/images/committees/engg.png';
+import innov from '../assets/images/committees/innov.png';
+import pub from '../assets/images/committees/pub.png';
+import mni from '../assets/images/committees/mni.png';
+import exte from '../assets/images/committees/exte.png';
+import service from '../assets/images/committees/service.png';
+import preventDefaultEnter from '../helpers/preventDefaultEnter';
 
 
 function Form(props) {
