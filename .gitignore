@@ -19,3 +19,6 @@
 .byebug_history
 
 *.*.swp
+
+# Ignore buildfiles
+**/build/*
