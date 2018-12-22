@@ -73,9 +73,6 @@ class Affiliations extends Component {
           >+ Add Organization
           </Button>
         </div>
-        <div className="section-footer">
-          Press <strong>Ctrl+Enter</strong> to scroll
-        </div>
       </Container>
     );
   }

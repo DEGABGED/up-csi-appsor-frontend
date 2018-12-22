@@ -19,23 +19,6 @@ import committeesSchema from '../schemas/CommitteesSchema';
 // if you plan to use a custom input handler, follow the format for Affiliations
 //    and implement your custom handler in the component itself
 class MainForm extends Component {
-  componentDidMount() {
-    window.addEventListener('keydown', (event) => {
-      if (event.ctrlKey && event.keyCode === 13) {
-        const currentPage = document.getElementsByClassName('animated fadeIn')[0];
-        const pageList = document.getElementsByClassName('animated');
-        const currentIndex = [...pageList].indexOf(currentPage);
-        if (currentIndex >= 0 && currentIndex + 1 < pageList.length) {
-          pageList[currentIndex].classList.remove('fadeIn');
-          pageList[currentIndex].classList.remove('fadeOutLeft');
-          pageList[currentIndex].classList.add('fadeOutLeft');
-          setTimeout(() => {
-            pageList[currentIndex + 1].scrollIntoView();
-          }, 300);
-        }
-      }
-    });
-  }
 
   componentDidUpdate(prevProps) {
     const errorTags = {
