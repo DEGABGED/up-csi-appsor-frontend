@@ -1,61 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Dropdown, Container } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 
-import preventDefaultEnter from '../helpers/preventDefaultEnter';
+import CustomDropdown from './CustomDropdown';
 
 function View(props) {
   return (
     <Container className="skills-interests">
       <div className="dropdown-div">
         <label className="dropdown-label">Skills</label>
-        <Dropdown
+        <CustomDropdown
           placeholder="Skills"
           name="skills"
           options={props.options.skills}
-          closeOnBlur
-          allowAdditions
-          multiple
-          selection
-          search
-          fluid
           onChange={props.handleChange}
-          className="dropdown"
-          onKeyPress={preventDefaultEnter}
         />
       </div>
       <div className="dropdown-div">
         <label className="dropdown-label">Interests</label>
-        <Dropdown
+        <CustomDropdown
           placeholder="Interests"
           name="interests"
           options={props.options.interests}
-          closeOnBlur
-          allowAdditions
-          multiple
-          selection
-          search
-          fluid
           onChange={props.handleChange}
-          className="dropdown"
-          onKeyPress={preventDefaultEnter}
         />
       </div>
       <div className="dropdown-div">
         <label className="dropdown-label">Experience</label>
-        <Dropdown
+        <CustomDropdown
           placeholder="Experience"
           name="experience"
           options={props.options.experience}
-          closeOnBlur
-          allowAdditions
-          multiple
-          selection
-          search
-          fluid
           onChange={props.handleChange}
-          className="dropdown"
-          onKeyPress={preventDefaultEnter}
         />
       </div>
     </Container>

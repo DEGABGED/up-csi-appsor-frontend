@@ -65,13 +65,7 @@ class MainForm extends Component {
             }}
             basicInfo={values.basicInfo}
             errorsBasicInfo={errors.basicInfo}
-            handleChangeSkillsInterests={(event, { value }) => {
-              let field;
-              if ([13, 8, 46].includes(event.keyCode)) { /* Enter, Backspace, Delete */
-                field = event.target.parentNode.attributes.name.value;
-              } else {
-                field = event.currentTarget.parentNode.parentNode.attributes.name.value;
-              }
+            handleChangeSkillsInterests={(event, { field, value }) => {
               setFieldValue(`skillsInterests[${field}]`, value);
             }}
             skillsInterests={values.skillsInterests}
