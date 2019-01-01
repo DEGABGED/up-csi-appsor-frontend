@@ -7,9 +7,9 @@ import energy from '../../assets/images/drinks/energy-drink.png';
 import wineGla from '../../assets/images/drinks/wine-glass.png';
 import tea from '../../assets/images/drinks/tea.png';
 import bubble from '../../assets/images/drinks/bubble-tea.png';
-import '../../assets/stylesheets/DrinksDisplay.css';
+import '../../assets/stylesheets/MobileGlitter.css';
 
-function DrinksDisplay() {
+function MobileGlitter() {
   const pics = [soda, milk, energy, wineGla, tea, bubble];
 
   return (
@@ -26,4 +26,4 @@ function DrinksDisplay() {
   );
 }
 
-export default DrinksDisplay;
+export default MobileGlitter;

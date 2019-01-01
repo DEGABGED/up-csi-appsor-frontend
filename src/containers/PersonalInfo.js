@@ -5,9 +5,9 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 import BasicInfo from './BasicInfo';
 import SkillsInterests from './SkillsInterests';
-import GlitterPics from '../components/design/GlitterPics';
+import GlitterPics from '../components/design/DesktopGlitter';
 import { updateSkillsInterestsOptions } from '../helpers/defaultOptions';
-import DrinksDisplay from '../components/design/DrinksDisplay';
+import MobileGlitter from '../components/design/MobileGlitter';
 
 import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/PersonalInfo.css';
@@ -15,7 +15,7 @@ import '../assets/stylesheets/PersonalInfo.css';
 function PersonalInfo(props) {
   return (
     <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
-      <DrinksDisplay />
+      <MobileGlitter />
       <Container id={props.id} textAlign="center" className="page-container personal-info-container">
         <GlitterPics
           begin={5}

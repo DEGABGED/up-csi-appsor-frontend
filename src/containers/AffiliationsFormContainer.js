@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react';
 import Button from '@material-ui/core/Button';
 
 
-import AffiliationsForm from '../components/AffiliationsForm';
+import AffiliationsFormView from '../components/AffiliationsFormView';
 import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/Affiliations.css';
 
@@ -45,7 +45,7 @@ class Affiliations extends Component {
       <Container className="page-container" id={this.props.id}>
         <h1 className="page-title">Affiliations</h1>
         {this.props.affiliations.map((a, i) => (
-          <AffiliationsForm
+          <AffiliationsFormView
             key={i}
             formID={i}
             affiliations={a}

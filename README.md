@@ -19,9 +19,9 @@ src/
 
 * The `assets/` directory contains the CSS stylesheets and images that a lot of components would use. There are also specialized assets here for specific components, which may be refactored to stay just in the component itself.
 
-* The `components/` directory contains all form, design, and layout components with a sole purpose (aside from simply being a container of other components). 
+* The `components/` directory contains all form, design, and layout components with a sole purpose (aside from simply being a container of other components).
 
-   Components solely for design (eg. `GlitterPics`) are stored in the `design/` folder. These components make heavy use of the images in `assets/`.
+   Components solely for design (eg. `DesktopGlitter`) are stored in the `design/` folder. These components make heavy use of the images in `assets/`.
 
    Components with subcomponents like `NavBar` and `Carousel` are stored in their own folders, which may contain component-specific files like mobile and desktop versions.
 
@@ -69,7 +69,7 @@ These components are the input components that compose the form. They can have s
 
 ### Building components compatible with Formik
 
-Formik works by taking a Form component (the inner form) and passing it values and handlers in the form of props. In our case, we use the Formik function that takes in the form and returns the Formik form that handles the values and value handling (Yes, it handles the handling as well.) 
+Formik works by taking a Form component (the inner form) and passing it values and handlers in the form of props. In our case, we use the Formik function that takes in the form and returns the Formik form that handles the values and value handling (Yes, it handles the handling as well.)
 
 In the function we can define rules, such as `mapPropsToValues`, which maps the Formik props into the values the inner form will take, `validate`, which defines a validation function, and `handleSubmit`, which would handle the API call when the user submits.
 
