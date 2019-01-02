@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
 import { Container } from 'semantic-ui-react';
 
-import { ContactNoMask, StudentNoMask } from '../helpers/textMask';
-import preventDefaultEnter from '../helpers/preventDefaultEnter';
+import FormTextField from './FormTextField';
+import FormMaskedField from './FormMaskedField';
 
 function View(props) {
   const contactNoFormat = '(+63) 9';
@@ -14,108 +13,87 @@ function View(props) {
   return (
     <Container className="basic-info-container">
       <div className="row">
-        <TextField
+        <FormTextField
           label="Last Name"
           name="lastName"
-          value={props.basicInfo.lastName || ''}
+          values={props.basicInfo}
           onChange={props.handleChange}
-          error={typeof (props.errors) !== 'undefined' && !!props.errors.lastName}
-          helperText={typeof (props.errors) !== 'undefined' && props.errors.lastName}
-          className="text-field last-name"
-          onKeyPress={preventDefaultEnter}
+          errors={props.errors}
+          className="last-name"
         />
-        <TextField
+        <FormTextField
           label="M. I."
           name="middleInitial"
-          value={props.basicInfo.middleInitial || ''}
+          values={props.basicInfo}
           onChange={props.handleChange}
-          error={typeof (props.errors) !== 'undefined' && !!props.errors.middleInitial}
-          helperText={typeof (props.errors) !== 'undefined' && props.errors.middleInitial}
-          className="text-field middle-initial"
-          onKeyPress={preventDefaultEnter}
+          errors={props.errors}
+          className="middle-initial"
         />
-        <TextField
+        <FormTextField
           label="First Name"
           name="firstName"
-          value={props.basicInfo.firstName || ''}
+          values={props.basicInfo}
           onChange={props.handleChange}
-          error={typeof (props.errors) !== 'undefined' && !!props.errors.firstName}
-          helperText={typeof (props.errors) !== 'undefined' && props.errors.firstName}
-          className="text-field first-name"
-          onKeyPress={preventDefaultEnter}
+          errors={props.errors}
+          className="first-name"
         />
       </div>
       <div className="row">
-        <TextField
+        <FormTextField
           label="Nickname"
           name="nickname"
-          value={props.basicInfo.nickname || ''}
+          values={props.basicInfo}
           onChange={props.handleChange}
-          error={typeof (props.errors) !== 'undefined' && !!props.errors.nickname}
-          helperText={typeof (props.errors) !== 'undefined' && props.errors.nickname}
-          className="text-field nickname"
-          onKeyPress={preventDefaultEnter}
+          errors={props.errors}
+          className="nickname"
         />
-        <TextField
+        <FormMaskedField
           label="Student Number"
           name="studentNumber"
-          value={props.basicInfo.studentNumber || studentNoFormat}
+          values={props.basicInfo}
+          defaultValue={studentNoFormat}
           onChange={props.handleChange}
-          InputProps={{
-            inputComponent: StudentNoMask,
-          }}
-          error={typeof (props.errors) !== 'undefined' && !!props.errors.studentNumber}
-          helperText={typeof (props.errors) !== 'undefined' && props.errors.studentNumber}
-          className="text-field student-number"
-          onKeyPress={preventDefaultEnter}
+          errors={props.errors}
+          className="student-number"
         />
-        <TextField
+        <FormTextField
           label="Birthday"
           name="birthday"
           type="date"
-          value={props.basicInfo.birthday || defaultDate}
+          values={props.basicInfo}
+          defaultValue={defaultDate}
           onChange={props.handleChange}
-          error={typeof (props.errors) !== 'undefined' && !!props.errors.birthday}
-          helperText={typeof (props.errors) !== 'undefined' && props.errors.birthday}
-          className="text-field birthday"
-          onKeyPress={preventDefaultEnter}
+          errors={props.errors}
+          className="birthday"
         />
       </div>
       <div className="row">
-        <TextField
+        <FormTextField
           label="Email"
           name="email"
-          value={props.basicInfo.email || ''}
+          values={props.basicInfo}
           onChange={props.handleChange}
-          error={typeof (props.errors) !== 'undefined' && !!props.errors.email}
-          helperText={typeof (props.errors) !== 'undefined' && props.errors.email}
-          className="text-field email"
-          onKeyPress={preventDefaultEnter}
+          errors={props.errors}
+          className="email"
         />
-        <TextField
+        <FormMaskedField
           label="Contact Number"
           name="contactNumber"
-          value={props.basicInfo.contactNumber || contactNoFormat}
+          values={props.basicInfo}
+          defaultValue={contactNoFormat}
           onChange={props.handleChange}
-          InputProps={{
-            inputComponent: ContactNoMask,
-          }}
-          error={typeof (props.errors) !== 'undefined' && !!props.errors.contactNumber}
-          helperText={typeof (props.errors) !== 'undefined' && props.errors.contactNumber}
-          className="text-field contact-number"
-          onKeyPress={preventDefaultEnter}
+          errors={props.errors}
+          className="contact-number"
         />
       </div>
       <div className="row">
-        <TextField
+        <FormTextField
           label="Address"
           name="address"
-          value={props.basicInfo.address || ''}
+          values={props.basicInfo}
           onChange={props.handleChange}
-          error={typeof (props.errors) !== 'undefined' && !!props.errors.address}
-          helperText={typeof (props.errors) !== 'undefined' && props.errors.address}
-          className="text-field address"
-          onKeyPress={preventDefaultEnter}
+          errors={props.errors}
+          className="address"
         />
       </div>
     </Container>
