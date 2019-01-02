@@ -68,6 +68,21 @@ const skillsInterestsOptions = {
   ],
 };
 
+const updateSkillsInterestsOptions = (skillsInterests) => {
+  const mapToOptions = list => list.map(item => ({ text: item, value: item }));
+
+  const { skills, interests, experience } = skillsInterests;
+  const skillsOptions = [...new Set([...skills, ...skillsInterestsOptions.skills])];
+  const interestsOptions = [...new Set([...interests, ...skillsInterestsOptions.interests])];
+  const experienceOptions = [...new Set([...experience, ...skillsInterestsOptions.experience])];
+
+  return {
+    skills: mapToOptions(skillsOptions),
+    interests: mapToOptions(interestsOptions),
+    experience: mapToOptions(experienceOptions),
+  };
+}
+
 const committeeOptions = [
   { text: 'Engineering', value: 1, disabled: false },
   { text: 'Innovation', value: 2, disabled: false },
@@ -77,4 +92,8 @@ const committeeOptions = [
   { text: 'Service', value: 6, disabled: false },
 ];
 
-export { skillsInterestsOptions, committeeOptions };
+export {
+  skillsInterestsOptions,
+  updateSkillsInterestsOptions,
+  committeeOptions,
+};
