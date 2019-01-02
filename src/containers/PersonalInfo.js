@@ -5,6 +5,7 @@ import { Container } from 'semantic-ui-react';
 import BasicInfo from './BasicInfo';
 import SkillsInterests from './SkillsInterests';
 import GlitterPics from '../components/design/GlitterPics';
+import { skillsInterestsOptions } from '../helpers/defaultOptions';
 
 import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/PersonalInfo.css';
@@ -20,6 +21,23 @@ class PersonalInfo extends Component {
     const newBasicInfo = { ...this.props.basicInfo, [name]: value };
     newBasicInfo[name] = value;
     this.props.handleChangeBasicInfo(newBasicInfo);
+  }
+
+  mapToOptions(list) {
+    return list.map(item => ({ text: item, value: item }));
+  }
+
+  updateSkillsInterestsOptions() {
+    const { skills, interests, experience } = this.props.skillsInterests;
+    const skillsOptions = [...new Set([...skills, ...skillsInterestsOptions.skills])];
+    const interestsOptions = [...new Set([...interests, ...skillsInterestsOptions.interests])];
+    const experienceOptions = [...new Set([...experience, ...skillsInterestsOptions.experience])];
+
+    return {
+      skills: this.mapToOptions(skillsOptions),
+      interests: this.mapToOptions(interestsOptions),
+      experience: this.mapToOptions(experienceOptions),
+    };
   }
 
   render() {
@@ -39,8 +57,8 @@ class PersonalInfo extends Component {
             errors={this.props.errorsBasicInfo}
           />
           <SkillsInterests
+            options={this.updateSkillsInterestsOptions()}
             handleChange={this.props.handleChangeSkillsInterests}
-            skillsInterests={this.props.skillsInterests}
             errors={this.props.errorsSkillsInterests}
           />
         </div>
