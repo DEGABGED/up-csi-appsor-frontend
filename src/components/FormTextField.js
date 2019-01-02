@@ -40,13 +40,14 @@ FormTextField.propTypes = {
   values: PropTypes.object.isRequired,
   defaultValue: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
+  errors: PropTypes.object,
   className: PropTypes.string.isRequired,
 };
 
 FormTextField.defaultProps = {
   type: '',
   defaultValue: '',
+  errors: undefined,
 };
 
 export default FormTextField;
