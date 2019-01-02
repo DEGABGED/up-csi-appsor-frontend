@@ -8,7 +8,6 @@ import Affiliations from './Affiliations';
 import Committee from './Committee';
 import PersonalInfo from './PersonalInfo';
 import SubmitModal from '../components/design/SubmitModal';
-import DrinksDisplay from '../components/design/DrinksDisplay';
 
 import basicInfoSchema from '../schemas/BasicInfoSchema';
 import skillsInterestsSchema from '../schemas/SkillsInterestsSchema';
@@ -53,25 +52,22 @@ class MainForm extends Component {
     } = this.props;
     return (
       <form onSubmit={handleSubmit}>
-        <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
-          <DrinksDisplay />
-          <PersonalInfo
-            id="personal-info"
-            handleChangeBasicInfo={(value) => {
-              setValues({
-                ...values,
-                basicInfo: value,
-              });
-            }}
-            basicInfo={values.basicInfo}
-            errorsBasicInfo={errors.basicInfo}
-            handleChangeSkillsInterests={(field, value) => {
-              setFieldValue(`skillsInterests[${field}]`, value);
-            }}
-            skillsInterests={values.skillsInterests}
-            errorsSkillsInterests={errors.skillsInterests}
-          />
-        </ScrollAnimation>
+        <PersonalInfo
+          id="personal-info"
+          handleChangeBasicInfo={(value) => {
+            setValues({
+              ...values,
+              basicInfo: value,
+            });
+          }}
+          basicInfo={values.basicInfo}
+          errorsBasicInfo={errors.basicInfo}
+          handleChangeSkillsInterests={(field, value) => {
+            setFieldValue(`skillsInterests[${field}]`, value);
+          }}
+          skillsInterests={values.skillsInterests}
+          errorsSkillsInterests={errors.skillsInterests}
+        />
         <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
           <Affiliations
             id="affiliations"
