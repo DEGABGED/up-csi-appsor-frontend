@@ -65,7 +65,7 @@ class MainForm extends Component {
             }}
             basicInfo={values.basicInfo}
             errorsBasicInfo={errors.basicInfo}
-            handleChangeSkillsInterests={(event, { field, value }) => {
+            handleChangeSkillsInterests={(field, value) => {
               setFieldValue(`skillsInterests[${field}]`, value);
             }}
             skillsInterests={values.skillsInterests}
