@@ -5,8 +5,21 @@ import TextField from '@material-ui/core/TextField';
 import preventDefaultEnter from '../helpers/preventDefaultEnter';
 
 function FormTextField(props) {
+  const {
+    label,
+    name,
+    type,
+    values,
+    defaultValue,
+    onChange,
+    errors,
+    className,
+    ...other
+  } = props;
+
   return (
     <TextField
+      {...other}
       label={props.label}
       name={props.name}
       type={props.type}

@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
 import { Container } from 'semantic-ui-react';
 
 import FormTextField from './FormTextField';
-import { ContactNoMask, StudentNoMask } from '../helpers/textMask';
-import preventDefaultEnter from '../helpers/preventDefaultEnter';
+import FormMaskedField from './FormMaskedField';
 
 function View(props) {
   const contactNoFormat = '(+63) 9';
@@ -49,18 +47,14 @@ function View(props) {
           errors={props.errors}
           className="nickname"
         />
-        <TextField
+        <FormMaskedField
           label="Student Number"
           name="studentNumber"
-          value={props.basicInfo.studentNumber || studentNoFormat}
+          values={props.basicInfo}
+          defaultValue={studentNoFormat}
           onChange={props.handleChange}
-          InputProps={{
-            inputComponent: StudentNoMask,
-          }}
-          error={typeof (props.errors) !== 'undefined' && !!props.errors.studentNumber}
-          helperText={typeof (props.errors) !== 'undefined' && props.errors.studentNumber}
-          className="text-field student-number"
-          onKeyPress={preventDefaultEnter}
+          errors={props.errors}
+          className="student-number"
         />
         <FormTextField
           label="Birthday"
@@ -82,18 +76,14 @@ function View(props) {
           errors={props.errors}
           className="email"
         />
-        <TextField
+        <FormMaskedField
           label="Contact Number"
           name="contactNumber"
-          value={props.basicInfo.contactNumber || contactNoFormat}
+          values={props.basicInfo}
+          defaultValue={contactNoFormat}
           onChange={props.handleChange}
-          InputProps={{
-            inputComponent: ContactNoMask,
-          }}
-          error={typeof (props.errors) !== 'undefined' && !!props.errors.contactNumber}
-          helperText={typeof (props.errors) !== 'undefined' && props.errors.contactNumber}
-          className="text-field contact-number"
-          onKeyPress={preventDefaultEnter}
+          errors={props.errors}
+          className="contact-number"
         />
       </div>
       <div className="row">
