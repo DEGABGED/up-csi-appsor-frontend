@@ -11,18 +11,6 @@ import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/PersonalInfo.css';
 
 class PersonalInfo extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChangeBasicInfo = this.handleChangeBasicInfo.bind(this);
-  }
-
-  handleChangeBasicInfo(event) {
-    const { name, value } = event.currentTarget;
-    const newBasicInfo = { ...this.props.basicInfo, [name]: value };
-    newBasicInfo[name] = value;
-    this.props.handleChangeBasicInfo(newBasicInfo);
-  }
-
   mapToOptions(list) {
     return list.map(item => ({ text: item, value: item }));
   }
@@ -52,7 +40,7 @@ class PersonalInfo extends Component {
         <div className="personal-info-form">
           <h1 className="page-title">Personal Information</h1>
           <BasicInfo
-            handleChange={this.handleChangeBasicInfo}
+            handleChange={this.props.handleChangeBasicInfo}
             basicInfo={this.props.basicInfo}
             errors={this.props.errorsBasicInfo}
           />
