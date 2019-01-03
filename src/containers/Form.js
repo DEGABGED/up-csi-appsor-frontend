@@ -4,8 +4,8 @@ import { withFormik } from 'formik';
 import { object } from 'yup';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import Affiliations from './Affiliations';
-import Committee from './Committee';
+import AffiliationsFormContainer from './AffiliationsFormContainer';
+import CommitteeFormContainer from './CommitteeFormContainer';
 import PersonalInfo from './PersonalInfo';
 import SubmitModal from '../components/design/SubmitModal';
 
@@ -18,7 +18,6 @@ import committeesSchema from '../schemas/CommitteesSchema';
 // if you plan to use a custom input handler, follow the format for Affiliations
 //    and implement your custom handler in the component itself
 class MainForm extends Component {
-
   componentDidUpdate(prevProps) {
     const errorTags = {
       basicInfo: 'personal-info',
@@ -69,7 +68,7 @@ class MainForm extends Component {
           errorsSkillsInterests={errors.skillsInterests}
         />
         <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
-          <Affiliations
+          <AffiliationsFormContainer
             id="affiliations"
             handleChange={(value) => {
               setValues({
@@ -82,7 +81,7 @@ class MainForm extends Component {
           />
         </ScrollAnimation>
         <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
-          <Committee
+          <CommitteeFormContainer
             id="committee"
             handleChangeCommittee={(event, { value }) => {
               let id;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Button } from 'semantic-ui-react';
 
-import CommitteeForm from '../components/CommitteeForm';
+import CommitteeFormView from '../components/CommitteeFormView';
 import { committeeOptions } from '../helpers/defaultOptions';
 import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/Committee.css';
@@ -17,7 +17,7 @@ class Committee extends Component {
   renderForms() {
     const forms = [];
     for (let id = 0; id < 3; id++) {
-      forms.push(<CommitteeForm
+      forms.push(<CommitteeFormView
         key={id}
         formID={id}
         options={committeeOptions}
