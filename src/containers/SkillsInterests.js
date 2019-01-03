@@ -1,40 +1,46 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import SkillsInterestsView from '../components/SkillsInterestsView';
-import { skillsInterestsOptions } from '../helpers/defaultOptions';
+import { Container } from 'semantic-ui-react';
 
-class SkillsInterests extends Component {
-  createOptions(list) {
-    return list.map(item => ({ text: item, value: item }));
-  }
+import CustomDropdown from '../components/CustomDropdown';
 
-  updateOptions() {
-    const { skills, interests, experience } = this.props.skillsInterests;
-    const skillsOptions = [...new Set([...skills, ...skillsInterestsOptions.skills])];
-    const interestsOptions = [...new Set([...interests, ...skillsInterestsOptions.interests])];
-    const experienceOptions = [...new Set([...experience, ...skillsInterestsOptions.experience])];
-
-    return {
-      skills: this.createOptions(skillsOptions),
-      interests: this.createOptions(interestsOptions),
-      experience: this.createOptions(experienceOptions),
-    };
-  }
-
-  render() {
-    return (
-      <SkillsInterestsView
-        options={this.updateOptions()}
-        skillsInterests={this.props.skillsInterests}
-        handleChange={this.props.handleChange}
-      />
-    );
-  }
+function SkillsInterests(props) {
+  return (
+    <Container className="skills-interests">
+      <div className="dropdown-div">
+        <label className="dropdown-label">Skills</label>
+        <CustomDropdown
+          placeholder="Skills"
+          name="skills"
+          options={props.options.skills}
+          onChange={props.handleChange}
+        />
+      </div>
+      <div className="dropdown-div">
+        <label className="dropdown-label">Interests</label>
+        <CustomDropdown
+          placeholder="Interests"
+          name="interests"
+          options={props.options.interests}
+          onChange={props.handleChange}
+        />
+      </div>
+      <div className="dropdown-div">
+        <label className="dropdown-label">Experience</label>
+        <CustomDropdown
+          placeholder="Experience"
+          name="experience"
+          options={props.options.experience}
+          onChange={props.handleChange}
+        />
+      </div>
+    </Container>
+  );
 }
 
 SkillsInterests.propTypes = {
+  options: PropTypes.object.isRequired,
   handleChange: PropTypes.func.isRequired,
-  skillsInterests: PropTypes.object.isRequired,
 };
 
 export default SkillsInterests;

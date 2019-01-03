@@ -23,7 +23,7 @@ function CustomDropdown(props) {
         } else {
           field = event.currentTarget.parentNode.parentNode.attributes.name.value;
         }
-        props.onChange(event, { field, value });
+        props.onChange(field, value);
       }}
       className="dropdown"
       onKeyPress={preventDefaultEnter}
