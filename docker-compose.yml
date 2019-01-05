@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+
+  up-csi-appsor-frontend:
+    container_name: up-csi-appsor-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+    ports:
+      - '3000:3000'
+      - '35729:35729'
+    environment:
+      - NODE_ENV=development
