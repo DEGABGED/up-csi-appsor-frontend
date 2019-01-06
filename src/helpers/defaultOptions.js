@@ -81,7 +81,7 @@ const updateSkillsInterestsOptions = (skillsInterests) => {
     interests: mapToOptions(interestsOptions),
     experience: mapToOptions(experienceOptions),
   };
-}
+};
 
 const committeeOptions = [
   { text: 'Engineering', value: 1, disabled: false },
