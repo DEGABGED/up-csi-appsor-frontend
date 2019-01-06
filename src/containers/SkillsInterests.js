@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container } from 'semantic-ui-react';
 
-import CustomDropdown from '../components/CustomDropdown';
+import FormCustomDropdown from '../components/FormCustomDropdown';
 
 function SkillsInterests(props) {
   return (
     <Container className="skills-interests">
       <div className="dropdown-div">
         <label className="dropdown-label">Skills</label>
-        <CustomDropdown
+        <FormCustomDropdown
           placeholder="Skills"
           name="skills"
           options={props.options.skills}
@@ -18,7 +18,7 @@ function SkillsInterests(props) {
       </div>
       <div className="dropdown-div">
         <label className="dropdown-label">Interests</label>
-        <CustomDropdown
+        <FormCustomDropdown
           placeholder="Interests"
           name="interests"
           options={props.options.interests}
@@ -27,7 +27,7 @@ function SkillsInterests(props) {
       </div>
       <div className="dropdown-div">
         <label className="dropdown-label">Experience</label>
-        <CustomDropdown
+        <FormCustomDropdown
           placeholder="Experience"
           name="experience"
           options={props.options.experience}

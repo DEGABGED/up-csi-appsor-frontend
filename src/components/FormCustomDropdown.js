@@ -4,7 +4,7 @@ import { Dropdown } from 'semantic-ui-react';
 
 import preventDefaultEnter from '../helpers/preventDefaultEnter';
 
-function CustomDropdown(props) {
+function FormCustomDropdown(props) {
   return (
     <Dropdown
       placeholder={props.placeholder}
@@ -31,11 +31,11 @@ function CustomDropdown(props) {
   );
 }
 
-CustomDropdown.propTypes = {
+FormCustomDropdown.propTypes = {
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default CustomDropdown;
+export default FormCustomDropdown;

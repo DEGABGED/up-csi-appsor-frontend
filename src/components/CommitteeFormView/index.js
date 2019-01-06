@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
-import { Dropdown, Label } from 'semantic-ui-react';
+import { Label } from 'semantic-ui-react';
 
 import preventDefaultEnter from '../../helpers/preventDefaultEnter';
 import CommitteeChoiceIcon from './CommitteeChoiceIcon';
+import FormDropdown from '../FormDropdown';
 
 
 function Form(props) {
@@ -20,26 +21,12 @@ function Form(props) {
       <Label circular size="big" color="black">{props.formID + 1}</Label>
       <div className="committee-fields">
         <p>Committee</p>
-        <Dropdown
+        <FormDropdown
           className="committee-field"
           placeholder="Select a Committee"
           options={props.options}
           name={`${props.formID}`}
-          selection
-          search
-          onChange={(event, { value }) => {
-            let id;
-            if (event.keyCode === 13) { /* Enter */
-              id = event.target.parentNode.attributes.name.value;
-            } else {
-              try {
-                id = event.currentTarget.parentNode.parentNode.attributes.name.value;
-              } catch (error) {
-                id = event.target.parentNode.attributes.name.value;
-              }
-            }
-            props.handleChangeCommittee(parseInt(id, 10), value);
-          }}
+          onChange={props.handleChangeCommittee}
           error={getDropdownError()}
         />
         <TextField

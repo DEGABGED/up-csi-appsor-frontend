@@ -83,11 +83,11 @@ class MainForm extends Component {
         <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
           <CommitteeFormContainer
             id="committee"
-            handleChangeCommittee={(id, value) => {
-              setFieldValue(`committees[${id}].committee_id`, value);
+            handleChangeCommittee={(field, value) => {
+              setFieldValue(`committees[${parseInt(field, 10)}].committee_id`, value);
             }}
-            handleChangeReason={(id, value) => {
-              setFieldValue(`committees[${id}].reason`, value);
+            handleChangeReason={(field, value) => {
+              setFieldValue(`committees[${parseInt(field, 10)}].reason`, value);
             }}
             committees={values.committees}
             errors={errors.committees}
