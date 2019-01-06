@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { Container } from 'semantic-ui-react';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import BasicInfo from './BasicInfo';
-import SkillsInterests from './SkillsInterests';
+import BasicInfo from './BasicInfoFormContainer';
+import SkillsInterests from './SkillsInterestsFormContainer';
 import GlitterPics from '../components/design/DesktopGlitter';
 import { updateSkillsInterestsOptions } from '../helpers/defaultOptions';
 import MobileGlitter from '../components/design/MobileGlitter';

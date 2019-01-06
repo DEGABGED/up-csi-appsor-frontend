@@ -6,7 +6,7 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 import AffiliationsFormContainer from './AffiliationsFormContainer';
 import CommitteeFormContainer from './CommitteeFormContainer';
-import PersonalInfo from './PersonalInfo';
+import PersonalInfo from './PersonalInfoFormContainer';
 import SubmitModal from '../components/design/SubmitModal';
 
 import basicInfoSchema from '../schemas/BasicInfoSchema';
