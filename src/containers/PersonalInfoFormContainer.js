@@ -6,7 +6,6 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import BasicInfo from './BasicInfoFormContainer';
 import SkillsInterests from './SkillsInterestsFormContainer';
 import GlitterPics from '../components/design/DesktopGlitter';
-import { updateSkillsInterestsOptions } from '../helpers/defaultOptions';
 import MobileGlitter from '../components/design/MobileGlitter';
 
 import '../assets/stylesheets/Base.css';
@@ -31,7 +30,7 @@ function PersonalInfo(props) {
             errors={props.errorsBasicInfo}
           />
           <SkillsInterests
-            options={updateSkillsInterestsOptions(props.skillsInterests)}
+            options={props.optionsSkillsInterests}
             onChange={props.onChangeSkillsInterests}
             errors={props.errorsSkillsInterests}
           />
@@ -53,8 +52,8 @@ PersonalInfo.propTypes = {
   basicInfo: PropTypes.object.isRequired,
   errorsBasicInfo: PropTypes.object,
   onChangeSkillsInterests: PropTypes.func.isRequired,
-  skillsInterests: PropTypes.object.isRequired,
   errorsSkillsInterests: PropTypes.object,
+  optionsSkillsInterests: PropTypes.object.isRequired,
 };
 
 PersonalInfo.defaultProps = {

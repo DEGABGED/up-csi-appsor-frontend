@@ -14,6 +14,8 @@ import skillsInterestsSchema from '../schemas/SkillsInterestsSchema';
 import affiliationsSchema from '../schemas/AffiliationsSchema';
 import committeesSchema from '../schemas/CommitteesSchema';
 
+import { updateSkillsInterestsOptions } from '../helpers/defaultOptions';
+
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
 //    and implement your custom handler in the component itself
@@ -64,8 +66,8 @@ class MainForm extends Component {
           onChangeSkillsInterests={(field, value) => {
             setFieldValue(`skillsInterests[${field}]`, value);
           }}
-          skillsInterests={values.skillsInterests}
           errorsSkillsInterests={errors.skillsInterests}
+          optionsSkillsInterests={updateSkillsInterestsOptions(values.skillsInterests)}
         />
         <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
           <AffiliationsFormContainer
