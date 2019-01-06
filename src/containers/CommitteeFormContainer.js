@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Button } from 'semantic-ui-react';
 
@@ -7,39 +7,30 @@ import { committeeOptions } from '../helpers/defaultOptions';
 import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/Committee.css';
 
-class Committee extends Component {
-  constructor(props) {
-    super(props);
-    this.renderForms = this.renderForms.bind(this);
-  }
-
+function Committee(props) {
   // To avoid repeating code, this iterates through all the Froms
-  renderForms() {
-    const forms = [];
-    for (let id = 0; id < 3; id++) {
-      forms.push(<CommitteeFormView
-        key={id}
-        formID={id}
-        options={committeeOptions}
-        committees={this.props.committees[id]}
-        handleChangeCommittee={this.props.handleChangeCommittee}
-        handleChangeReason={this.props.handleChangeReason}
-        errors={this.props.errors !== undefined ? this.props.errors[id] : undefined}
-        duplicates={this.props.duplicates !== undefined ? this.props.duplicates[id] : undefined}
-      />);
-    }
-    return forms;
+  const forms = [];
+
+  for (let id = 0; id < 3; id++) {
+    forms.push(<CommitteeFormView
+      key={id}
+      formID={id}
+      options={committeeOptions}
+      committees={props.committees[id]}
+      handleChangeCommittee={props.handleChangeCommittee}
+      handleChangeReason={props.handleChangeReason}
+      errors={props.errors !== undefined ? props.errors[id] : undefined}
+      duplicates={props.duplicates !== undefined ? props.duplicates[id] : undefined}
+    />);
   }
 
-  render() {
-    return (
-      <Container textAlign="center" className="page-container committee-container" id={this.props.id} >
-        <h1 className="page-title">Committee Preference</h1>
-        { this.renderForms() }
-        <Button primary type="submit" disabled={this.props.isSubmitting} >Submit</Button>
-      </Container>
-    );
-  }
+  return (
+    <Container textAlign="center" className="page-container committee-container" id={props.id} >
+      <h1 className="page-title">Committee Preference</h1>
+      { forms }
+      <Button primary type="submit" disabled={props.isSubmitting} >Submit</Button>
+    </Container>
+  );
 }
 
 Committee.propTypes = {
