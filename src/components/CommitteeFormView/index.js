@@ -1,21 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from '@material-ui/core/TextField';
-import { Dropdown, Label, Image } from 'semantic-ui-react';
+import { Dropdown, Label } from 'semantic-ui-react';
 
-import none from '../assets/images/committees/default.png';
-import engg from '../assets/images/committees/engg.png';
-import innov from '../assets/images/committees/innov.png';
-import pub from '../assets/images/committees/pub.png';
-import mni from '../assets/images/committees/mni.png';
-import exte from '../assets/images/committees/exte.png';
-import service from '../assets/images/committees/service.png';
-import preventDefaultEnter from '../helpers/preventDefaultEnter';
+import preventDefaultEnter from '../../helpers/preventDefaultEnter';
+import CommitteeChoiceIcon from './CommitteeChoiceIcon';
 
 
 function Form(props) {
-  const logos = [none, engg, innov, pub, mni, exte, service];
-
   function getDropdownError() {
     let error = typeof (props.errors) !== 'undefined' && !!props.errors.committee_id;
     error = error || (typeof (props.duplicates) !== 'undefined' && !!props.duplicates);
@@ -24,11 +16,7 @@ function Form(props) {
 
   return (
     <div className="column">
-      <Image
-        className="committee-logo"
-        src={logos[props.committees.committee_id || 0]}
-        size="tiny"
-      />
+      <CommitteeChoiceIcon committee_id={props.committees.committee_id} />
       <Label circular size="big" color="black">{props.formID + 1}</Label>
       <div className="committee-fields">
         <p>Committee</p>
