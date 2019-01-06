@@ -27,7 +27,19 @@ function Form(props) {
           name={`${props.formID}`}
           selection
           search
-          onChange={props.handleChangeCommittee}
+          onChange={(event, { value }) => {
+            let id;
+            if (event.keyCode === 13) { /* Enter */
+              id = event.target.parentNode.attributes.name.value;
+            } else {
+              try {
+                id = event.currentTarget.parentNode.parentNode.attributes.name.value;
+              } catch (error) {
+                id = event.target.parentNode.attributes.name.value;
+              }
+            }
+            props.handleChangeCommittee(parseInt(id, 10), value);
+          }}
           error={getDropdownError()}
         />
         <TextField
@@ -35,7 +47,10 @@ function Form(props) {
           label="Reason"
           name={`${props.formID}`}
           value={props.committees.reason || ''}
-          onChange={props.handleChangeReason}
+          onChange={(event) => {
+            const id = event.target.name;
+            props.handleChangeReason(parseInt(id, 10), event.target.value);
+          }}
           error={typeof (props.errors) !== 'undefined' && !!props.errors.reason}
           helperText={typeof (props.errors) !== 'undefined' ? props.errors.reason : undefined}
           onKeyPress={preventDefaultEnter}
