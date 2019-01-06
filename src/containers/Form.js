@@ -53,7 +53,7 @@ class MainForm extends Component {
       <form onSubmit={handleSubmit}>
         <PersonalInfo
           id="personal-info"
-          handleChangeBasicInfo={(value) => {
+          onChangeBasicInfo={(value) => {
             setValues({
               ...values,
               basicInfo: value,
@@ -61,7 +61,7 @@ class MainForm extends Component {
           }}
           basicInfo={values.basicInfo}
           errorsBasicInfo={errors.basicInfo}
-          handleChangeSkillsInterests={(field, value) => {
+          onChangeSkillsInterests={(field, value) => {
             setFieldValue(`skillsInterests[${field}]`, value);
           }}
           skillsInterests={values.skillsInterests}

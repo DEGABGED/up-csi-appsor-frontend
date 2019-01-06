@@ -17,7 +17,7 @@ function BasicInfo(props) {
           label="Last Name"
           name="lastName"
           values={props.basicInfo}
-          onChange={props.handleChange}
+          onChange={props.onChange}
           errors={props.errors}
           className="last-name"
         />
@@ -25,7 +25,7 @@ function BasicInfo(props) {
           label="M. I."
           name="middleInitial"
           values={props.basicInfo}
-          onChange={props.handleChange}
+          onChange={props.onChange}
           errors={props.errors}
           className="middle-initial"
         />
@@ -33,7 +33,7 @@ function BasicInfo(props) {
           label="First Name"
           name="firstName"
           values={props.basicInfo}
-          onChange={props.handleChange}
+          onChange={props.onChange}
           errors={props.errors}
           className="first-name"
         />
@@ -43,7 +43,7 @@ function BasicInfo(props) {
           label="Nickname"
           name="nickname"
           values={props.basicInfo}
-          onChange={props.handleChange}
+          onChange={props.onChange}
           errors={props.errors}
           className="nickname"
         />
@@ -51,8 +51,8 @@ function BasicInfo(props) {
           label="Student Number"
           name="studentNumber"
           values={props.basicInfo}
-          defaultValue={studentNoFormat}
-          onChange={props.handleChange}
+          defaultvalues={studentNoFormat}
+          onChange={props.onChange}
           errors={props.errors}
           className="student-number"
         />
@@ -61,8 +61,8 @@ function BasicInfo(props) {
           name="birthday"
           type="date"
           values={props.basicInfo}
-          defaultValue={defaultDate}
-          onChange={props.handleChange}
+          defaultvalues={defaultDate}
+          onChange={props.onChange}
           errors={props.errors}
           className="birthday"
         />
@@ -72,7 +72,7 @@ function BasicInfo(props) {
           label="Email"
           name="email"
           values={props.basicInfo}
-          onChange={props.handleChange}
+          onChange={props.onChange}
           errors={props.errors}
           className="email"
         />
@@ -80,8 +80,8 @@ function BasicInfo(props) {
           label="Contact Number"
           name="contactNumber"
           values={props.basicInfo}
-          defaultValue={contactNoFormat}
-          onChange={props.handleChange}
+          defaultvalues={contactNoFormat}
+          onChange={props.onChange}
           errors={props.errors}
           className="contact-number"
         />
@@ -91,19 +91,18 @@ function BasicInfo(props) {
           label="Address"
           name="address"
           values={props.basicInfo}
-          onChange={props.handleChange}
+          onChange={props.onChange}
           errors={props.errors}
           className="address"
         />
       </div>
     </Container>
   );
-};
-
+}
 
 BasicInfo.propTypes = {
   basicInfo: PropTypes.object.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   errors: PropTypes.object,
 };
 

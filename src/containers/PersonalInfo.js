@@ -26,13 +26,13 @@ function PersonalInfo(props) {
         <div className="personal-info-form">
           <h1 className="page-title">Personal Information</h1>
           <BasicInfo
-            handleChange={props.handleChangeBasicInfo}
+            onChange={props.onChangeBasicInfo}
             basicInfo={props.basicInfo}
             errors={props.errorsBasicInfo}
           />
           <SkillsInterests
             options={updateSkillsInterestsOptions(props.skillsInterests)}
-            handleChange={props.handleChangeSkillsInterests}
+            onChange={props.onChangeSkillsInterests}
             errors={props.errorsSkillsInterests}
           />
         </div>
@@ -49,10 +49,10 @@ function PersonalInfo(props) {
 
 PersonalInfo.propTypes = {
   id: PropTypes.string,
-  handleChangeBasicInfo: PropTypes.func.isRequired,
+  onChangeBasicInfo: PropTypes.func.isRequired,
   basicInfo: PropTypes.object.isRequired,
   errorsBasicInfo: PropTypes.object,
-  handleChangeSkillsInterests: PropTypes.func.isRequired,
+  onChangeSkillsInterests: PropTypes.func.isRequired,
   skillsInterests: PropTypes.object.isRequired,
   errorsSkillsInterests: PropTypes.object,
 };
