@@ -35,8 +35,7 @@ function Form(props) {
           name={`${props.formID}`}
           value={props.committees.reason || ''}
           onChange={(event) => {
-            const id = event.target.name;
-            props.handleChangeReason(parseInt(id, 10), event.target.value);
+            props.handleChangeReason(event.target.name, event.target.value);
           }}
           error={typeof (props.errors) !== 'undefined' && !!props.errors.reason}
           helperText={typeof (props.errors) !== 'undefined' ? props.errors.reason : undefined}

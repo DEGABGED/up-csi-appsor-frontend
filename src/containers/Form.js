@@ -80,21 +80,19 @@ class MainForm extends Component {
             errors={errors.affiliations}
           />
         </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
-          <CommitteeFormContainer
-            id="committee"
-            handleChangeCommittee={(field, value) => {
-              setFieldValue(`committees[${parseInt(field, 10)}].committee_id`, value);
-            }}
-            handleChangeReason={(field, value) => {
-              setFieldValue(`committees[${parseInt(field, 10)}].reason`, value);
-            }}
-            committees={values.committees}
-            errors={errors.committees}
-            duplicates={errors.committeeDuplicates}
-            isSubmitting={isSubmitting}
-          />
-        </ScrollAnimation>
+        <CommitteeFormContainer
+          id="committee"
+          handleChangeCommittee={(field, value) => {
+            setFieldValue(`committees[${parseInt(field, 10)}].committee_id`, value);
+          }}
+          handleChangeReason={(field, value) => {
+            setFieldValue(`committees[${parseInt(field, 10)}].reason`, value);
+          }}
+          committees={values.committees}
+          errors={errors.committees}
+          duplicates={errors.committeeDuplicates}
+          isSubmitting={isSubmitting}
+        />
         <SubmitModal {...status} setSubmitting={setSubmitting} />
       </form>
     );

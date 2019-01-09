@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ScrollAnimation from 'react-animate-on-scroll';
 import { Container, Button } from 'semantic-ui-react';
 
 import CommitteeFormView from '../components/CommitteeFormView';
@@ -25,11 +26,13 @@ function Committee(props) {
   }
 
   return (
-    <Container textAlign="center" className="page-container committee-container" id={props.id} >
-      <h1 className="page-title">Committee Preference</h1>
-      { forms }
-      <Button primary type="submit" disabled={props.isSubmitting} >Submit</Button>
-    </Container>
+    <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
+      <Container textAlign="center" className="page-container committee-container" id={props.id} >
+        <h1 className="page-title">Committee Preference</h1>
+        { forms }
+        <Button primary type="submit" disabled={props.isSubmitting} >Submit</Button>
+      </Container>
+    </ScrollAnimation>
   );
 }
 
