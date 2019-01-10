@@ -6,13 +6,15 @@ import ScrollAnimation from 'react-animate-on-scroll';
 
 import AffiliationsFormContainer from './AffiliationsFormContainer';
 import CommitteeFormContainer from './CommitteeFormContainer';
-import PersonalInfo from './PersonalInfo';
+import PersonalInfo from './PersonalInfoFormContainer';
 import SubmitModal from '../components/design/SubmitModal';
 
 import basicInfoSchema from '../schemas/BasicInfoSchema';
 import skillsInterestsSchema from '../schemas/SkillsInterestsSchema';
 import affiliationsSchema from '../schemas/AffiliationsSchema';
 import committeesSchema from '../schemas/CommitteesSchema';
+
+import { updateSkillsInterestsOptions } from '../helpers/defaultOptions';
 
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
@@ -53,7 +55,7 @@ class MainForm extends Component {
       <form onSubmit={handleSubmit}>
         <PersonalInfo
           id="personal-info"
-          handleChangeBasicInfo={(value) => {
+          onChangeBasicInfo={(value) => {
             setValues({
               ...values,
               basicInfo: value,
@@ -61,11 +63,11 @@ class MainForm extends Component {
           }}
           basicInfo={values.basicInfo}
           errorsBasicInfo={errors.basicInfo}
-          handleChangeSkillsInterests={(field, value) => {
+          onChangeSkillsInterests={(field, value) => {
             setFieldValue(`skillsInterests[${field}]`, value);
           }}
-          skillsInterests={values.skillsInterests}
           errorsSkillsInterests={errors.skillsInterests}
+          optionsSkillsInterests={updateSkillsInterestsOptions(values.skillsInterests)}
         />
         <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
           <AffiliationsFormContainer

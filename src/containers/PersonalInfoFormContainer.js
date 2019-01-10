@@ -3,10 +3,9 @@ import PropTypes from 'prop-types';
 import { Container } from 'semantic-ui-react';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import BasicInfo from './BasicInfo';
-import SkillsInterests from './SkillsInterests';
+import BasicInfo from './BasicInfoFormContainer';
+import SkillsInterests from './SkillsInterestsFormContainer';
 import GlitterPics from '../components/design/DesktopGlitter';
-import { updateSkillsInterestsOptions } from '../helpers/defaultOptions';
 import MobileGlitter from '../components/design/MobileGlitter';
 
 import '../assets/stylesheets/Base.css';
@@ -26,13 +25,13 @@ function PersonalInfo(props) {
         <div className="personal-info-form">
           <h1 className="page-title">Personal Information</h1>
           <BasicInfo
-            handleChange={props.handleChangeBasicInfo}
+            onChange={props.onChangeBasicInfo}
             basicInfo={props.basicInfo}
             errors={props.errorsBasicInfo}
           />
           <SkillsInterests
-            options={updateSkillsInterestsOptions(props.skillsInterests)}
-            handleChange={props.handleChangeSkillsInterests}
+            options={props.optionsSkillsInterests}
+            onChange={props.onChangeSkillsInterests}
             errors={props.errorsSkillsInterests}
           />
         </div>
@@ -49,12 +48,12 @@ function PersonalInfo(props) {
 
 PersonalInfo.propTypes = {
   id: PropTypes.string,
-  handleChangeBasicInfo: PropTypes.func.isRequired,
+  onChangeBasicInfo: PropTypes.func.isRequired,
   basicInfo: PropTypes.object.isRequired,
   errorsBasicInfo: PropTypes.object,
-  handleChangeSkillsInterests: PropTypes.func.isRequired,
-  skillsInterests: PropTypes.object.isRequired,
+  onChangeSkillsInterests: PropTypes.func.isRequired,
   errorsSkillsInterests: PropTypes.object,
+  optionsSkillsInterests: PropTypes.object.isRequired,
 };
 
 PersonalInfo.defaultProps = {

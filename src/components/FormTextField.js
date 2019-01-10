@@ -11,7 +11,7 @@ function FormTextField(props) {
       label={props.label}
       name={props.name}
       type={props.type}
-      value={props.values[props.name] || props.defaultValue}
+      value={props.values[props.name] || props.defaultvalues}
       onChange={(event) => {
         const { name, value } = event.currentTarget;
         const newValues = { ...props.values, [name]: value };
@@ -31,7 +31,7 @@ FormTextField.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
   values: PropTypes.object.isRequired,
-  defaultValue: PropTypes.string,
+  defaultvalues: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object,
   className: PropTypes.string.isRequired,
@@ -39,7 +39,7 @@ FormTextField.propTypes = {
 
 FormTextField.defaultProps = {
   type: '',
-  defaultValue: '',
+  defaultvalues: '',
   errors: undefined,
 };
 

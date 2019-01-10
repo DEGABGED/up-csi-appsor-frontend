@@ -68,4 +68,8 @@ function FormMaskedField(props) {
   );
 }
 
+FormMaskedField.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
 export default FormMaskedField;

@@ -13,7 +13,7 @@ function SkillsInterests(props) {
           placeholder="Skills"
           name="skills"
           options={props.options.skills}
-          onChange={props.handleChange}
+          onChange={props.onChange}
         />
       </div>
       <div className="dropdown-div">
@@ -22,7 +22,7 @@ function SkillsInterests(props) {
           placeholder="Interests"
           name="interests"
           options={props.options.interests}
-          onChange={props.handleChange}
+          onChange={props.onChange}
         />
       </div>
       <div className="dropdown-div">
@@ -31,7 +31,7 @@ function SkillsInterests(props) {
           placeholder="Experience"
           name="experience"
           options={props.options.experience}
-          onChange={props.handleChange}
+          onChange={props.onChange}
         />
       </div>
     </Container>
@@ -40,7 +40,7 @@ function SkillsInterests(props) {
 
 SkillsInterests.propTypes = {
   options: PropTypes.object.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default SkillsInterests;
