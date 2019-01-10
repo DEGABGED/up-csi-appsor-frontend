@@ -15,7 +15,7 @@ import affiliationsSchema from '../schemas/AffiliationsSchema';
 import committeesSchema from '../schemas/CommitteesSchema';
 
 import { updateSkillsInterestsOptions } from '../helpers/defaultOptions';
-import handleSubmitFunction from '../helpers/formSubmit';
+import formSubmit from '../helpers/formSubmit';
 
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
@@ -158,7 +158,7 @@ const ConnectedForm = withFormik({
     }
     return committeeErrors.length ? { committeeDuplicates: committeeErrors } : {};
   },
-  handleSubmit: handleSubmitFunction,
+  handleSubmit: formSubmit,
   validateOnChange: false,
   validateOnBlur: false,
 })(MainForm);
