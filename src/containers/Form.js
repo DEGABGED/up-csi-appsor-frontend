@@ -15,6 +15,7 @@ import affiliationsSchema from '../schemas/AffiliationsSchema';
 import committeesSchema from '../schemas/CommitteesSchema';
 
 import { updateSkillsInterestsOptions } from '../helpers/defaultOptions';
+import formSubmit from '../helpers/formSubmit';
 
 // add the rest of the pages here
 // if you plan to use a custom input handler, follow the format for Affiliations
@@ -128,18 +129,6 @@ MainForm.defaultProps = {
   errors: undefined,
 };
 
-const modalValues = (setStatus, success, message = '') => ({
-  display: true,
-  success,
-  message,
-  onClose: () => {
-    setStatus({ display: false });
-  },
-  onFinish: () => {
-    setStatus({ display: false });
-    window.location.href = '/';
-  },
-});
 
 // add items here as necessary (validation, etc)
 const ConnectedForm = withFormik({
@@ -169,37 +158,7 @@ const ConnectedForm = withFormik({
     }
     return committeeErrors.length ? { committeeDuplicates: committeeErrors } : {};
   },
-  handleSubmit: (values, { setStatus }) => {
-    const url = 'https://up-csi-appsor-backend.herokuapp.com/api/applicants';
-
-    fetch(url, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      method: 'POST',
-      body: JSON.stringify(values),
-    })
-      .then((res) => {
-        const wasSuccessful = res.ok;
-        res.json()
-          .then((data) => {
-            setStatus(modalValues(setStatus, wasSuccessful, data));
-          })
-          .catch(() => {
-            setStatus(modalValues(
-              setStatus,
-              false,
-              'Please try submitting the form again. If the problem persists, please tell us. Thank you!',
-            ));
-          });
-      })
-      .catch(() => {
-        setStatus(modalValues(setStatus,
-          false,
-          'Please try submitting the form again. If the problem persists, please tell us. Thank you!',
-        ));
-      });
-  },
+  handleSubmit: formSubmit,
   validateOnChange: false,
   validateOnBlur: false,
 })(MainForm);
