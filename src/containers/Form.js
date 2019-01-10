@@ -85,22 +85,11 @@ class MainForm extends Component {
         <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
           <CommitteeFormContainer
             id="committee"
-            handleChangeCommittee={(event, { value }) => {
-              let id;
-              if (event.keyCode === 13) { /* Enter */
-                id = event.target.parentNode.attributes.name.value;
-              } else {
-                try {
-                  id = event.currentTarget.parentNode.parentNode.attributes.name.value;
-                } catch (error) {
-                  id = event.target.parentNode.attributes.name.value;
-                }
-              }
-              setFieldValue(`committees[${parseInt(id, 10)}].committee_id`, value);
+            handleChangeCommittee={(field, value) => {
+              setFieldValue(`committees[${parseInt(field, 10)}].committee_id`, value);
             }}
-            handleChangeReason={(event) => {
-              const id = event.target.name;
-              setFieldValue(`committees[${parseInt(id, 10)}].reason`, event.target.value);
+            handleChangeReason={(field, value) => {
+              setFieldValue(`committees[${parseInt(field, 10)}].reason`, value);
             }}
             committees={values.committees}
             errors={errors.committees}
