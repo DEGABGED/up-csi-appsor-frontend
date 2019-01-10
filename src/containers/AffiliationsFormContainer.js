@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react';
 import Button from '@material-ui/core/Button';
 
 
-import AffiliationsFormView from '../components/AffiliationsFormView';
+import AffiliationsFormView from '../components/AffiliationsFormEntry';
 import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/Affiliations.css';
 
@@ -50,12 +50,7 @@ class Affiliations extends Component {
             formID={i}
             affiliations={a}
             deleteForm={() => helpers.remove(i)}
-            handleChange={(e) => {
-              const { name, value } = e.currentTarget;
-              const newAffiliations = [...this.props.affiliations];
-              newAffiliations[i][name] = value;
-              this.props.handleChange(newAffiliations);
-            }}
+            handleChange={this.props.handleChange}
             errors={(typeof (this.props.errors) !== 'undefined' && Array.isArray(this.props.errors))
               ? this.props.errors[i]
               : this.props.errors

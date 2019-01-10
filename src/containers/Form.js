@@ -72,10 +72,12 @@ class MainForm extends Component {
         <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
           <AffiliationsFormContainer
             id="affiliations"
-            handleChange={(value) => {
+            handleChange={(key, name, value) => {
+              const newAffiliations = [...values.affiliations];
+              newAffiliations[key][name] = value;
               setValues({
                 ...values,
-                affiliations: value,
+                affiliations: newAffiliations,
               });
             }}
             affiliations={values.affiliations}
