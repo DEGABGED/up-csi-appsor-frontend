@@ -5,6 +5,11 @@ import Button from '@material-ui/core/Button';
 import preventDefaultEnter from '../helpers/preventDefaultEnter';
 
 function AffiliationsForm(props) {
+  const onChange = (e) => {
+    const { name, value } = e.currentTarget;
+    props.handleChange(props.formID, name, value);
+  };
+
   return (
     <div className="affiliation-form">
       <TextField
@@ -12,7 +17,7 @@ function AffiliationsForm(props) {
         label="Organization"
         name="orgName"
         value={props.affiliations.orgName || ''}
-        onChange={props.handleChange}
+        onChange={onChange}
         error={typeof (props.errors) !== 'undefined' && !!props.errors.orgName}
         helpertext={typeof (props.errors) !== 'undefined' ? props.errors.orgName : undefined}
         onKeyPress={preventDefaultEnter}
@@ -23,7 +28,7 @@ function AffiliationsForm(props) {
         label="Position"
         name="position"
         value={props.affiliations.position || ''}
-        onChange={props.handleChange}
+        onChange={onChange}
         error={typeof (props.errors) !== 'undefined' && !!props.errors.position}
         helpertext={typeof (props.errors) !== 'undefined' ? props.errors.position : undefined}
         onKeyPress={preventDefaultEnter}
@@ -34,7 +39,7 @@ function AffiliationsForm(props) {
         label="Duties"
         name="duties"
         value={props.affiliations.duties || ''}
-        onChange={props.handleChange}
+        onChange={onChange}
         error={typeof (props.errors) !== 'undefined' && !!props.errors.duties}
         helpertext={typeof (props.errors) !== 'undefined' ? props.errors.duties : undefined}
         onKeyPress={preventDefaultEnter}
