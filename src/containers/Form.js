@@ -64,6 +64,7 @@ class MainForm extends Component {
           onChangeSkillsInterests={(field, value) => {
             setFieldValue(`skillsInterests[${field}]`, value);
           }}
+          skillsInterests={values.skillsInterests}
           errorsSkillsInterests={errors.skillsInterests}
           optionsSkillsInterests={updateSkillsInterestsOptions(values.skillsInterests)}
         />
