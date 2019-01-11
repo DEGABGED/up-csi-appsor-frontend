@@ -17,7 +17,7 @@ function Committee(props) {
       key={id}
       formID={id}
       options={committeeOptions}
-      committees={props.committees[id]}
+      value={props.committees[id]}
       onChangeCommittee={props.onChangeCommittee}
       onChangeReason={props.onChangeReason}
       errors={props.errors !== undefined ? props.errors[id] : undefined}

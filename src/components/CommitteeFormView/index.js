@@ -16,7 +16,7 @@ function Form(props) {
 
   return (
     <div className="column">
-      <CommitteeChoiceIcon committee_id={props.committees.committee_id} />
+      <CommitteeChoiceIcon committee_id={props.value.committee_id} />
       <Label circular size="big" color="black">{props.formID + 1}</Label>
       <div className="committee-fields">
         <p>Committee</p>
@@ -32,6 +32,7 @@ function Form(props) {
           className="reason-field"
           label="Reason"
           name="reason"
+          value={props.value.reason}
           formID={props.formID}
           onChange={props.onChangeReason}
           errors={props.errors}
@@ -42,11 +43,11 @@ function Form(props) {
 }
 
 Form.propTypes = {
+  value: PropTypes.object.isRequired,
   errors: PropTypes.object,
   duplicates: PropTypes.string,
   formID: PropTypes.number.isRequired,
   options: PropTypes.array.isRequired,
-  committees: PropTypes.object.isRequired,
   onChangeCommittee: PropTypes.func.isRequired,
   onChangeReason: PropTypes.func.isRequired,
 };
