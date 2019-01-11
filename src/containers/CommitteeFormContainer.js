@@ -18,8 +18,8 @@ function Committee(props) {
       formID={id}
       options={committeeOptions}
       committees={props.committees[id]}
-      handleChangeCommittee={props.handleChangeCommittee}
-      handleChangeReason={props.handleChangeReason}
+      onChangeCommittee={props.onChangeCommittee}
+      onChangeReason={props.onChangeReason}
       errors={props.errors !== undefined ? props.errors[id] : undefined}
       duplicates={props.duplicates !== undefined ? props.duplicates[id] : undefined}
     />);
@@ -40,8 +40,8 @@ Committee.propTypes = {
   id: PropTypes.string,
   errors: PropTypes.array,
   duplicates: PropTypes.array,
-  handleChangeCommittee: PropTypes.func.isRequired,
-  handleChangeReason: PropTypes.func.isRequired,
+  onChangeCommittee: PropTypes.func.isRequired,
+  onChangeReason: PropTypes.func.isRequired,
   committees: PropTypes.array.isRequired,
   isSubmitting: PropTypes.bool.isRequired,
 };
