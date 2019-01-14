@@ -26,7 +26,7 @@ function PersonalInfo(props) {
           <h1 className="page-title">Personal Information</h1>
           <BasicInfo
             onChange={props.onChangeBasicInfo}
-            basicInfo={props.basicInfo}
+            values={props.basicInfo}
             errors={props.errorsBasicInfo}
           />
           <SkillsInterests
