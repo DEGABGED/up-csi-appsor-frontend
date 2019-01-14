@@ -11,6 +11,11 @@ import '../assets/stylesheets/Committee.css';
 
 class Committee extends Component {
   shouldComponentUpdate(nextProps) {
+    // Check if the form is submitting
+    if (nextProps.isSubmitting !== this.props.isSubmitting) {
+      return true;
+    }
+
     // Check if the list of objects are equal
     const prev = this.props.committees;
     const next = nextProps.committees;
