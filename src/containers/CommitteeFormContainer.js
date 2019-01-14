@@ -16,6 +16,8 @@ class Committee extends Component {
     const next = nextProps.committees;
     let areEqual = prev.length === next.length;
 
+    areEqual = areEqual && shallowEqual(this.props.errors, nextProps.errors);
+
     areEqual = areEqual && prev
       .map((element, index) => shallowEqual(element, next[index]))
       .reduce((acc, element) => acc && element, true);

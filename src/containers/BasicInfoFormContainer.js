@@ -8,7 +8,8 @@ import { shallowEqual } from '../helpers/generics';
 
 class BasicInfo extends Component {
   shouldComponentUpdate(nextProps) {
-    return !shallowEqual(this.props.values, nextProps.values);
+    return !shallowEqual(this.props.values, nextProps.values)
+      || !shallowEqual(this.props.errors, nextProps.errors);
   }
 
   render() {
