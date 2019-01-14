@@ -20,12 +20,12 @@ class Affiliations extends Component {
   // Add Forms to the UI (the state handles the
   //  additional form through a loop)
   addForm() {
-    this.props.handleChange([
+    this.props.onChange([
       ...this.props.affiliations,
       {
-        orgName: null,
-        position: null,
-        duties: null,
+        orgName: '',
+        position: '',
+        duties: '',
       },
     ]);
   }
@@ -34,7 +34,7 @@ class Affiliations extends Component {
   deleteForm(formID) {
     const value = this.props.affiliations.slice();
     value.splice(formID, 1);
-    this.props.handleChange(value);
+    this.props.onChange(value);
   }
 
   // Render all the Forms
@@ -50,7 +50,7 @@ class Affiliations extends Component {
             formID={i}
             affiliations={a}
             deleteForm={() => helpers.remove(i)}
-            handleChange={this.props.handleChange}
+            onChange={this.props.onChange}
             errors={(typeof (this.props.errors) !== 'undefined' && Array.isArray(this.props.errors))
               ? this.props.errors[i]
               : this.props.errors
@@ -60,9 +60,9 @@ class Affiliations extends Component {
         <div className="add-org-button">
           <Button
             onClick={() => helpers.push({
-              orgName: null,
-              position: null,
-              duties: null,
+              orgName: '',
+              position: '',
+              duties: '',
             })}
             disabled={this.props.affiliations.length >= 6}
           >+ Add Organization
@@ -85,7 +85,7 @@ class Affiliations extends Component {
 
 Affiliations.propTypes = {
   id: PropTypes.string,
-  handleChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   affiliations: PropTypes.array.isRequired,
   errors: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object),

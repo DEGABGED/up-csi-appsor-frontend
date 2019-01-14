@@ -8,15 +8,13 @@ function FormTextField(props) {
   return (
     <TextField
       {...props}
-      label={props.label}
-      name={props.name}
-      type={props.type}
-      value={props.values[props.name] || props.defaultvalues}
       onChange={(event) => {
         const { name, value } = event.currentTarget;
-        const newValues = { ...props.values, [name]: value };
-        newValues[name] = value;
-        props.onChange(newValues);
+        const params = { name, value };
+        if (typeof (props.formID) !== 'undefined') {
+          params.formID = props.formID;
+        }
+        props.onChange(params);
       }}
       error={typeof (props.errors) !== 'undefined' && !!props.errors[props.name]}
       helperText={typeof (props.errors) !== 'undefined' && props.errors[props.name]}
@@ -31,16 +29,16 @@ FormTextField.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string,
   values: PropTypes.object.isRequired,
-  defaultvalues: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object,
   className: PropTypes.string.isRequired,
+  formID: PropTypes.number,
 };
 
 FormTextField.defaultProps = {
   type: '',
-  defaultvalues: '',
   errors: undefined,
+  formID: undefined,
 };
 
 export default FormTextField;

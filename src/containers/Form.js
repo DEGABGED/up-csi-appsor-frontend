@@ -56,11 +56,8 @@ class MainForm extends Component {
       <form onSubmit={handleSubmit}>
         <PersonalInfo
           id="personal-info"
-          onChangeBasicInfo={(value) => {
-            setValues({
-              ...values,
-              basicInfo: value,
-            });
+          onChangeBasicInfo={({ name, value }) => {
+            setFieldValue(`basicInfo[${name}]`, value);
           }}
           basicInfo={values.basicInfo}
           errorsBasicInfo={errors.basicInfo}
@@ -73,9 +70,9 @@ class MainForm extends Component {
         <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
           <AffiliationsFormContainer
             id="affiliations"
-            handleChange={(key, name, value) => {
+            onChange={({ formID, name, value }) => {
               const newAffiliations = [...values.affiliations];
-              newAffiliations[key][name] = value;
+              newAffiliations[formID][name] = value;
               setValues({
                 ...values,
                 affiliations: newAffiliations,
@@ -87,11 +84,11 @@ class MainForm extends Component {
         </ScrollAnimation>
         <CommitteeFormContainer
           id="committee"
-          handleChangeCommittee={(field, value) => {
+          onChangeCommittee={(field, value) => {
             setFieldValue(`committees[${parseInt(field, 10)}].committee_id`, value);
           }}
-          handleChangeReason={(field, value) => {
-            setFieldValue(`committees[${parseInt(field, 10)}].reason`, value);
+          onChangeReason={({ formID, value }) => {
+            setFieldValue(`committees[${parseInt(formID, 10)}].reason`, value);
           }}
           committees={values.committees}
           errors={errors.committees}

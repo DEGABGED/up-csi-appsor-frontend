@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TextField from '@material-ui/core/TextField';
 import { Label } from 'semantic-ui-react';
 
-import preventDefaultEnter from '../../helpers/preventDefaultEnter';
+import FormTextField from '../FormTextField';
 import CommitteeChoiceIcon from './CommitteeChoiceIcon';
 import FormDropdown from '../FormDropdown';
 
@@ -17,7 +16,7 @@ function Form(props) {
 
   return (
     <div className="column">
-      <CommitteeChoiceIcon committee_id={props.committees.committee_id} />
+      <CommitteeChoiceIcon committee_id={props.value.committee_id} />
       <Label circular size="big" color="black">{props.formID + 1}</Label>
       <div className="committee-fields">
         <p>Committee</p>
@@ -26,20 +25,17 @@ function Form(props) {
           placeholder="Select a Committee"
           options={props.options}
           name={`${props.formID}`}
-          onChange={props.handleChangeCommittee}
+          onChange={props.onChangeCommittee}
           error={getDropdownError()}
         />
-        <TextField
+        <FormTextField
           className="reason-field"
           label="Reason"
-          name={`${props.formID}`}
-          value={props.committees.reason || ''}
-          onChange={(event) => {
-            props.handleChangeReason(event.target.name, event.target.value);
-          }}
-          error={typeof (props.errors) !== 'undefined' && !!props.errors.reason}
-          helperText={typeof (props.errors) !== 'undefined' ? props.errors.reason : undefined}
-          onKeyPress={preventDefaultEnter}
+          name="reason"
+          value={props.value.reason}
+          formID={props.formID}
+          onChange={props.onChangeReason}
+          errors={props.errors}
         />
       </div>
     </div>
@@ -47,13 +43,13 @@ function Form(props) {
 }
 
 Form.propTypes = {
+  value: PropTypes.object.isRequired,
   errors: PropTypes.object,
   duplicates: PropTypes.string,
   formID: PropTypes.number.isRequired,
   options: PropTypes.array.isRequired,
-  committees: PropTypes.object.isRequired,
-  handleChangeCommittee: PropTypes.func.isRequired,
-  handleChangeReason: PropTypes.func.isRequired,
+  onChangeCommittee: PropTypes.func.isRequired,
+  onChangeReason: PropTypes.func.isRequired,
 };
 
 Form.defaultProps = {

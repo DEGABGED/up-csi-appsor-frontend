@@ -6,10 +6,6 @@ import FormTextField from '../components/FormTextField';
 import FormMaskedField from '../components/FormMaskedField';
 
 function BasicInfo(props) {
-  const contactNoFormat = '(+63) 9';
-  const studentNoFormat = '20  -';
-  const defaultDate = '1999-01-01';
-
   return (
     <Container className="basic-info-container">
       <div className="row">
@@ -51,7 +47,6 @@ function BasicInfo(props) {
           label="Student Number"
           name="studentNumber"
           values={props.basicInfo}
-          defaultvalues={studentNoFormat}
           onChange={props.onChange}
           errors={props.errors}
           className="student-number"
@@ -61,7 +56,6 @@ function BasicInfo(props) {
           name="birthday"
           type="date"
           values={props.basicInfo}
-          defaultvalues={defaultDate}
           onChange={props.onChange}
           errors={props.errors}
           className="birthday"
@@ -80,7 +74,6 @@ function BasicInfo(props) {
           label="Contact Number"
           name="contactNumber"
           values={props.basicInfo}
-          defaultvalues={contactNoFormat}
           onChange={props.onChange}
           errors={props.errors}
           className="contact-number"
