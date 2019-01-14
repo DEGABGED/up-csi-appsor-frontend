@@ -21,7 +21,7 @@ function AffiliationsForm(props) {
         className="position-input"
         label="Position"
         name="position"
-        value={props.affiliations.position || ''}
+        value={props.affiliations.position}
         onChange={props.onChange}
         formID={props.formID}
         errors={props.errors}
@@ -31,7 +31,7 @@ function AffiliationsForm(props) {
         className="duties-input"
         label="Duties"
         name="duties"
-        value={props.affiliations.duties || ''}
+        value={props.affiliations.duties}
         onChange={props.onChange}
         formID={props.formID}
         errors={props.errors}
@@ -56,6 +56,6 @@ AffiliationsForm.propTypes = {
 
 AffiliationsForm.defaultProps = {
   errors: undefined,
-}
+};
 
 export default AffiliationsForm;
