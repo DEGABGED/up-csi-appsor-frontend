@@ -7,9 +7,7 @@ import preventDefaultEnter from '../helpers/preventDefaultEnter';
 function FormCustomDropdown(props) {
   return (
     <Dropdown
-      placeholder={props.placeholder}
-      name={props.name}
-      options={props.options}
+      {...props}
       closeOnBlur
       allowAdditions
       multiple
