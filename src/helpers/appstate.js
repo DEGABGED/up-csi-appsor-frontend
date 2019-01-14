@@ -2,15 +2,15 @@
 
 const initialState = {
   basicInfo: {
-    firstName: null,
-    middleInitial: null,
-    lastName: null,
-    nickname: null,
-    studentNumber: null,
+    firstName: '',
+    middleInitial: '',
+    lastName: '',
+    nickname: '',
+    studentNumber: '20  -',
     birthday: '1999-01-01',
-    contactNumber: null,
-    email: null,
-    address: null,
+    contactNumber: '(+63) 9',
+    email: '',
+    address: '',
   },
   skillsInterests: {
     skills: [],
@@ -19,26 +19,26 @@ const initialState = {
   },
   affiliations: [
     {
-      orgName: null,
-      position: null,
-      duties: null,
+      orgName: '',
+      position: '',
+      duties: '',
     },
   ],
   committees: [
     {
       priority: 1,
       committee_id: null,
-      reason: null,
+      reason: '',
     },
     {
       priority: 2,
       committee_id: null,
-      reason: null,
+      reason: '',
     },
     {
       priority: 3,
       committee_id: null,
-      reason: null,
+      reason: '',
     },
   ],
 };

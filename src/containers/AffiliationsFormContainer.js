@@ -23,9 +23,9 @@ class Affiliations extends Component {
     this.props.handleChange([
       ...this.props.affiliations,
       {
-        orgName: null,
-        position: null,
-        duties: null,
+        orgName: '',
+        position: '',
+        duties: '',
       },
     ]);
   }
@@ -60,9 +60,9 @@ class Affiliations extends Component {
         <div className="add-org-button">
           <Button
             onClick={() => helpers.push({
-              orgName: null,
-              position: null,
-              duties: null,
+              orgName: '',
+              position: '',
+              duties: '',
             })}
             disabled={this.props.affiliations.length >= 6}
           >+ Add Organization
