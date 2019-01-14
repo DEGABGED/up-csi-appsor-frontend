@@ -12,29 +12,7 @@ import '../assets/stylesheets/Affiliations.css';
 class Affiliations extends Component {
   constructor(props) {
     super(props);
-    this.addForm = this.addForm.bind(this);
-    this.deleteForm = this.deleteForm.bind(this);
     this.renderForms = this.renderForms.bind(this);
-  }
-
-  // Add Forms to the UI (the state handles the
-  //  additional form through a loop)
-  addForm() {
-    this.props.onChange([
-      ...this.props.affiliations,
-      {
-        orgName: '',
-        position: '',
-        duties: '',
-      },
-    ]);
-  }
-
-  // Deletes the ith form from the UI
-  deleteForm(formID) {
-    const value = this.props.affiliations.slice();
-    value.splice(formID, 1);
-    this.props.onChange(value);
   }
 
   // Render all the Forms
