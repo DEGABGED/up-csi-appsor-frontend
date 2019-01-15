@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withFormik } from 'formik';
 import { object } from 'yup';
-import ScrollAnimation from 'react-animate-on-scroll';
 
 import PersonalInfoFormContainer from './PersonalInfoFormContainer';
 import AffiliationsFormContainer from './AffiliationsFormContainer';
@@ -18,7 +17,7 @@ import { updateSkillsInterestsOptions } from '../helpers/defaultOptions';
 import formSubmit from '../helpers/formSubmit';
 
 // add the rest of the pages here
-// if you plan to use a custom input handler, follow the format for Affiliations
+// if you plan to use a custom input handler, follow the format for PersonalInfo
 //    and implement your custom handler in the component itself
 class MainForm extends Component {
   componentDidUpdate(prevProps) {
@@ -68,21 +67,19 @@ class MainForm extends Component {
           errorsSkillsInterests={errors.skillsInterests}
           optionsSkillsInterests={updateSkillsInterestsOptions(values.skillsInterests)}
         />
-        <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
-          <AffiliationsFormContainer
-            id="affiliations"
-            onChange={({ formID, name, value }) => {
-              const newAffiliations = [...values.affiliations];
-              newAffiliations[formID][name] = value;
-              setValues({
-                ...values,
-                affiliations: newAffiliations,
-              });
-            }}
-            affiliations={values.affiliations}
-            errors={errors.affiliations}
-          />
-        </ScrollAnimation>
+        <AffiliationsFormContainer
+          id="affiliations"
+          onChange={({ formID, name, value }) => {
+            const newAffiliations = [...values.affiliations];
+            newAffiliations[formID][name] = value;
+            setValues({
+              ...values,
+              affiliations: newAffiliations,
+            });
+          }}
+          affiliations={values.affiliations}
+          errors={errors.affiliations}
+        />
         <CommitteeFormContainer
           id="committee"
           onChangeCommittee={(field, value) => {

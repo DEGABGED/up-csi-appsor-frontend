@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { FieldArray } from 'formik';
 import { Container } from 'semantic-ui-react';
 import Button from '@material-ui/core/Button';
-
+import ScrollAnimation from 'react-animate-on-scroll';
 
 import AffiliationsFormView from '../components/AffiliationsFormEntry';
 import '../assets/stylesheets/Base.css';
@@ -52,11 +52,13 @@ class AffiliationsFormContainer extends Component {
 
   render() {
     return (
-      <FieldArray
-        name="affiliations"
-        validateOnChange={false}
-        render={this.renderForms}
-      />
+      <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
+        <FieldArray
+          name="affiliations"
+          validateOnChange={false}
+          render={this.renderForms}
+        />
+      </ScrollAnimation>
     );
   }
 }
