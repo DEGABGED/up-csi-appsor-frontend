@@ -5,7 +5,7 @@ import { Container } from 'semantic-ui-react';
 import Button from '@material-ui/core/Button';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import AffiliationsFormView from '../components/AffiliationsFormEntry';
+import AffiliationsFormEntry from '../components/AffiliationsFormEntry';
 import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/Affiliations.css';
 
@@ -23,7 +23,7 @@ class AffiliationsFormContainer extends Component {
       <Container className="page-container" id={this.props.id}>
         <h1 className="page-title">Affiliations</h1>
         {this.props.values.map((a, i) => (
-          <AffiliationsFormView
+          <AffiliationsFormEntry
             key={i}
             formID={i}
             value={a}

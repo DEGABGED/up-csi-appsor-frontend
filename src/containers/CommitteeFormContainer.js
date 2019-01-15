@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { Container, Button } from 'semantic-ui-react';
 
-import CommitteeFormView from '../components/CommitteeFormView';
+import CommitteeFormEntry from '../components/CommitteeFormEntry';
 import { committeeOptions } from '../helpers/defaultOptions';
 import { shallowEqual } from '../helpers/generics';
 import '../assets/stylesheets/Base.css';
@@ -35,7 +35,7 @@ class CommitteeFormContainer extends Component {
     const forms = [];
 
     for (let id = 0; id < 3; id++) {
-      forms.push(<CommitteeFormView
+      forms.push(<CommitteeFormEntry
         key={id}
         formID={id}
         options={committeeOptions}

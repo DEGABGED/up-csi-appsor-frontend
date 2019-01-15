@@ -4,7 +4,7 @@ import Button from '@material-ui/core/Button';
 
 import FormTextField from './FormTextField';
 
-function AffiliationsForm(props) {
+function AffiliationsFormEntry(props) {
   return (
     <div className="affiliation-form">
       <FormTextField
@@ -46,7 +46,7 @@ function AffiliationsForm(props) {
   );
 }
 
-AffiliationsForm.propTypes = {
+AffiliationsFormEntry.propTypes = {
   formID: PropTypes.number.isRequired,
   value: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -54,8 +54,8 @@ AffiliationsForm.propTypes = {
   deleteForm: PropTypes.func.isRequired,
 };
 
-AffiliationsForm.defaultProps = {
+AffiliationsFormEntry.defaultProps = {
   errors: undefined,
 };
 
-export default AffiliationsForm;
+export default AffiliationsFormEntry;
