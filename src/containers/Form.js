@@ -4,9 +4,9 @@ import { withFormik } from 'formik';
 import { object } from 'yup';
 import ScrollAnimation from 'react-animate-on-scroll';
 
+import PersonalInfoFormContainer from './PersonalInfoFormContainer';
 import AffiliationsFormContainer from './AffiliationsFormContainer';
 import CommitteeFormContainer from './CommitteeFormContainer';
-import PersonalInfo from './PersonalInfoFormContainer';
 import SubmitModal from '../components/design/SubmitModal';
 
 import basicInfoSchema from '../schemas/BasicInfoSchema';
@@ -54,7 +54,7 @@ class MainForm extends Component {
     } = this.props;
     return (
       <form onSubmit={handleSubmit}>
-        <PersonalInfo
+        <PersonalInfoFormContainer
           id="personal-info"
           onChangeBasicInfo={({ name, value }) => {
             setFieldValue(`basicInfo[${name}]`, value);

@@ -9,7 +9,7 @@ import AffiliationsFormView from '../components/AffiliationsFormEntry';
 import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/Affiliations.css';
 
-class Affiliations extends Component {
+class AffiliationsFormContainer extends Component {
   constructor(props) {
     super(props);
     this.renderForms = this.renderForms.bind(this);
@@ -61,7 +61,7 @@ class Affiliations extends Component {
   }
 }
 
-Affiliations.propTypes = {
+AffiliationsFormContainer.propTypes = {
   id: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   affiliations: PropTypes.array.isRequired,
@@ -71,9 +71,9 @@ Affiliations.propTypes = {
   ]),
 };
 
-Affiliations.defaultProps = {
+AffiliationsFormContainer.defaultProps = {
   id: 'affiliations',
   errors: undefined,
 };
 
-export default Affiliations;
+export default AffiliationsFormContainer;

@@ -9,7 +9,7 @@ import { shallowEqual } from '../helpers/generics';
 import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/Committee.css';
 
-class Committee extends Component {
+class CommitteeFormContainer extends Component {
   shouldComponentUpdate(nextProps) {
     // Check if the form is submitting
     if (nextProps.isSubmitting !== this.props.isSubmitting) {
@@ -59,7 +59,7 @@ class Committee extends Component {
   }
 }
 
-Committee.propTypes = {
+CommitteeFormContainer.propTypes = {
   id: PropTypes.string,
   errors: PropTypes.array,
   duplicates: PropTypes.array,
@@ -69,10 +69,10 @@ Committee.propTypes = {
   isSubmitting: PropTypes.bool.isRequired,
 };
 
-Committee.defaultProps = {
+CommitteeFormContainer.defaultProps = {
   id: 'committee',
   errors: undefined,
   duplicates: undefined,
 };
 
-export default Committee;
+export default CommitteeFormContainer;
