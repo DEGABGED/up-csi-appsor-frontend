@@ -11,7 +11,7 @@ function AffiliationsForm(props) {
         className="org-name-input"
         label="Organization"
         name="orgName"
-        value={props.affiliations.orgName}
+        value={props.value.orgName}
         onChange={props.onChange}
         formID={props.formID}
         errors={props.errors}
@@ -21,7 +21,7 @@ function AffiliationsForm(props) {
         className="position-input"
         label="Position"
         name="position"
-        value={props.affiliations.position}
+        value={props.value.position}
         onChange={props.onChange}
         formID={props.formID}
         errors={props.errors}
@@ -31,7 +31,7 @@ function AffiliationsForm(props) {
         className="duties-input"
         label="Duties"
         name="duties"
-        value={props.affiliations.duties}
+        value={props.value.duties}
         onChange={props.onChange}
         formID={props.formID}
         errors={props.errors}
@@ -48,10 +48,10 @@ function AffiliationsForm(props) {
 
 AffiliationsForm.propTypes = {
   formID: PropTypes.number.isRequired,
-  affiliations: PropTypes.object.isRequired,
-  deleteForm: PropTypes.func.isRequired,
+  value: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object,
+  deleteForm: PropTypes.func.isRequired,
 };
 
 AffiliationsForm.defaultProps = {

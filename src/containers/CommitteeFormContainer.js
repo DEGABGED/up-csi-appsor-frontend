@@ -17,8 +17,8 @@ class CommitteeFormContainer extends Component {
     }
 
     // Check if the list of objects are equal
-    const prev = this.props.committees;
-    const next = nextProps.committees;
+    const prev = this.props.values;
+    const next = nextProps.values;
     let areEqual = prev.length === next.length;
 
     areEqual = areEqual && shallowEqual(this.props.errors, nextProps.errors);
@@ -39,7 +39,7 @@ class CommitteeFormContainer extends Component {
         key={id}
         formID={id}
         options={committeeOptions}
-        value={this.props.committees[id]}
+        value={this.props.values[id]}
         onChangeCommittee={this.props.onChangeCommittee}
         onChangeReason={this.props.onChangeReason}
         errors={this.props.errors !== undefined ? this.props.errors[id] : undefined}
@@ -65,7 +65,7 @@ CommitteeFormContainer.propTypes = {
   duplicates: PropTypes.array,
   onChangeCommittee: PropTypes.func.isRequired,
   onChangeReason: PropTypes.func.isRequired,
-  committees: PropTypes.array.isRequired,
+  values: PropTypes.array.isRequired,
   isSubmitting: PropTypes.bool.isRequired,
 };
 

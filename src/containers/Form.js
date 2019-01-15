@@ -55,20 +55,21 @@ class MainForm extends Component {
       <form onSubmit={handleSubmit}>
         <PersonalInfoFormContainer
           id="personal-info"
+          basicInfo={values.basicInfo}
           onChangeBasicInfo={({ name, value }) => {
             setFieldValue(`basicInfo[${name}]`, value);
           }}
-          basicInfo={values.basicInfo}
           errorsBasicInfo={errors.basicInfo}
+          skillsInterests={values.skillsInterests}
           onChangeSkillsInterests={(field, value) => {
             setFieldValue(`skillsInterests[${field}]`, value);
           }}
-          skillsInterests={values.skillsInterests}
           errorsSkillsInterests={errors.skillsInterests}
           optionsSkillsInterests={updateSkillsInterestsOptions(values.skillsInterests)}
         />
         <AffiliationsFormContainer
           id="affiliations"
+          values={values.affiliations}
           onChange={({ formID, name, value }) => {
             const newAffiliations = [...values.affiliations];
             newAffiliations[formID][name] = value;
@@ -77,18 +78,17 @@ class MainForm extends Component {
               affiliations: newAffiliations,
             });
           }}
-          affiliations={values.affiliations}
           errors={errors.affiliations}
         />
         <CommitteeFormContainer
           id="committee"
+          values={values.committees}
           onChangeCommittee={(field, value) => {
             setFieldValue(`committees[${parseInt(field, 10)}].committee_id`, value);
           }}
           onChangeReason={({ formID, value }) => {
             setFieldValue(`committees[${parseInt(formID, 10)}].reason`, value);
           }}
-          committees={values.committees}
           errors={errors.committees}
           duplicates={errors.committeeDuplicates}
           isSubmitting={isSubmitting}

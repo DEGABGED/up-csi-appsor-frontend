@@ -22,11 +22,11 @@ class AffiliationsFormContainer extends Component {
     return (
       <Container className="page-container" id={this.props.id}>
         <h1 className="page-title">Affiliations</h1>
-        {this.props.affiliations.map((a, i) => (
+        {this.props.values.map((a, i) => (
           <AffiliationsFormView
             key={i}
             formID={i}
-            affiliations={a}
+            value={a}
             deleteForm={() => helpers.remove(i)}
             onChange={this.props.onChange}
             errors={(typeof (this.props.errors) !== 'undefined' && Array.isArray(this.props.errors))
@@ -42,7 +42,7 @@ class AffiliationsFormContainer extends Component {
               position: '',
               duties: '',
             })}
-            disabled={this.props.affiliations.length >= 6}
+            disabled={this.props.values.length >= 6}
           >+ Add Organization
           </Button>
         </div>
@@ -66,7 +66,7 @@ class AffiliationsFormContainer extends Component {
 AffiliationsFormContainer.propTypes = {
   id: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  affiliations: PropTypes.array.isRequired,
+  values: PropTypes.array.isRequired,
   errors: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object),
     PropTypes.string,

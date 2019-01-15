@@ -25,15 +25,15 @@ function PersonalInfoFormContainer(props) {
         <div className="personal-info-form">
           <h1 className="page-title">Personal Information</h1>
           <BasicInfoFormContainer
-            onChange={props.onChangeBasicInfo}
             values={props.basicInfo}
+            onChange={props.onChangeBasicInfo}
             errors={props.errorsBasicInfo}
           />
           <SkillsInterestsFormContainer
-            options={props.optionsSkillsInterests}
             values={props.skillsInterests}
             onChange={props.onChangeSkillsInterests}
             errors={props.errorsSkillsInterests}
+            options={props.optionsSkillsInterests}
           />
         </div>
         <GlitterPics
