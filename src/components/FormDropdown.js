@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import { Dropdown } from 'semantic-ui-react';
 
 class FormDropdown extends Component {
-  shouldComponentUpdate() {
-    return true;
+  shouldComponentUpdate(nextProps) {
+    return nextProps.value !== this.props.value
+      || nextProps.error !== this.props.error;
   }
 
   render() {
@@ -32,6 +33,8 @@ class FormDropdown extends Component {
 }
 
 FormDropdown.propTypes = {
+  value: PropTypes.number.isRequired,
+  error: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
