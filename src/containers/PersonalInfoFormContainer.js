@@ -26,11 +26,12 @@ function PersonalInfo(props) {
           <h1 className="page-title">Personal Information</h1>
           <BasicInfo
             onChange={props.onChangeBasicInfo}
-            basicInfo={props.basicInfo}
+            values={props.basicInfo}
             errors={props.errorsBasicInfo}
           />
           <SkillsInterests
             options={props.optionsSkillsInterests}
+            values={props.skillsInterests}
             onChange={props.onChangeSkillsInterests}
             errors={props.errorsSkillsInterests}
           />
@@ -48,9 +49,10 @@ function PersonalInfo(props) {
 
 PersonalInfo.propTypes = {
   id: PropTypes.string,
-  onChangeBasicInfo: PropTypes.func.isRequired,
   basicInfo: PropTypes.object.isRequired,
+  onChangeBasicInfo: PropTypes.func.isRequired,
   errorsBasicInfo: PropTypes.object,
+  skillsInterests: PropTypes.object.isRequired,
   onChangeSkillsInterests: PropTypes.func.isRequired,
   errorsSkillsInterests: PropTypes.object,
   optionsSkillsInterests: PropTypes.object.isRequired,

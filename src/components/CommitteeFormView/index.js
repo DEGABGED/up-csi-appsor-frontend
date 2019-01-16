@@ -25,6 +25,7 @@ function Form(props) {
           placeholder="Select a Committee"
           options={props.options}
           name={`${props.formID}`}
+          value={props.value.committee_id}
           onChange={props.onChangeCommittee}
           error={getDropdownError()}
         />
