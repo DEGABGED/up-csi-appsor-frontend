@@ -33,9 +33,13 @@ class FormDropdown extends Component {
 }
 
 FormDropdown.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.number,
   error: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
+};
+
+FormDropdown.defaultProps = {
+  value: null,
 };
 
 export default FormDropdown;
