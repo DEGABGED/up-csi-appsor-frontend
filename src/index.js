@@ -7,3 +7,6 @@ import registerServiceWorker from './registerServiceWorker';
 //    while making the transition
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
+
+// Prompts the user before closing the window (in case form data is present)
+window.onbeforeunload = evt => true;
