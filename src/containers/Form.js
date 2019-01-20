@@ -40,6 +40,10 @@ class MainForm extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.setFormState(this.props.values);
+  }
+
   render() {
     const {
       status,
@@ -117,6 +121,7 @@ MainForm.propTypes = {
   setSubmitting: PropTypes.func.isRequired,
   isSubmitting: PropTypes.bool.isRequired,
   isValid: PropTypes.bool.isRequired,
+  setFormState: PropTypes.func.isRequired,
 };
 
 MainForm.defaultProps = {
