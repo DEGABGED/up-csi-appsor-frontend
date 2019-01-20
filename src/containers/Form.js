@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withFormik } from 'formik';
 import { object } from 'yup';
-import ScrollAnimation from 'react-animate-on-scroll';
 
+import PersonalInfoFormContainer from './PersonalInfoFormContainer';
 import AffiliationsFormContainer from './AffiliationsFormContainer';
 import CommitteeFormContainer from './CommitteeFormContainer';
-import PersonalInfo from './PersonalInfoFormContainer';
 import SubmitModal from '../components/design/SubmitModal';
 
 import basicInfoSchema from '../schemas/BasicInfoSchema';
@@ -18,7 +17,7 @@ import { updateSkillsInterestsOptions } from '../helpers/defaultOptions';
 import formSubmit from '../helpers/formSubmit';
 
 // add the rest of the pages here
-// if you plan to use a custom input handler, follow the format for Affiliations
+// if you plan to use a custom input handler, follow the format for PersonalInfo
 //    and implement your custom handler in the component itself
 class MainForm extends Component {
   componentDidUpdate(prevProps) {
@@ -54,44 +53,42 @@ class MainForm extends Component {
     } = this.props;
     return (
       <form onSubmit={handleSubmit}>
-        <PersonalInfo
+        <PersonalInfoFormContainer
           id="personal-info"
+          basicInfo={values.basicInfo}
           onChangeBasicInfo={({ name, value }) => {
             setFieldValue(`basicInfo[${name}]`, value);
           }}
-          basicInfo={values.basicInfo}
           errorsBasicInfo={errors.basicInfo}
+          skillsInterests={values.skillsInterests}
           onChangeSkillsInterests={(field, value) => {
             setFieldValue(`skillsInterests[${field}]`, value);
           }}
-          skillsInterests={values.skillsInterests}
           errorsSkillsInterests={errors.skillsInterests}
           optionsSkillsInterests={updateSkillsInterestsOptions(values.skillsInterests)}
         />
-        <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
-          <AffiliationsFormContainer
-            id="affiliations"
-            onChange={({ formID, name, value }) => {
-              const newAffiliations = [...values.affiliations];
-              newAffiliations[formID][name] = value;
-              setValues({
-                ...values,
-                affiliations: newAffiliations,
-              });
-            }}
-            affiliations={values.affiliations}
-            errors={errors.affiliations}
-          />
-        </ScrollAnimation>
+        <AffiliationsFormContainer
+          id="affiliations"
+          values={values.affiliations}
+          onChange={({ formID, name, value }) => {
+            const newAffiliations = [...values.affiliations];
+            newAffiliations[formID][name] = value;
+            setValues({
+              ...values,
+              affiliations: newAffiliations,
+            });
+          }}
+          errors={errors.affiliations}
+        />
         <CommitteeFormContainer
           id="committee"
+          values={values.committees}
           onChangeCommittee={(field, value) => {
             setFieldValue(`committees[${parseInt(field, 10)}].committee_id`, value);
           }}
           onChangeReason={({ formID, value }) => {
             setFieldValue(`committees[${parseInt(formID, 10)}].reason`, value);
           }}
-          committees={values.committees}
           errors={errors.committees}
           duplicates={errors.committeeDuplicates}
           isSubmitting={isSubmitting}

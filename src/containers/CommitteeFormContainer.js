@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { Container, Button } from 'semantic-ui-react';
 
-import CommitteeFormView from '../components/CommitteeFormView';
+import CommitteeFormEntry from '../components/CommitteeFormEntry';
 import { committeeOptions } from '../helpers/defaultOptions';
 import { shallowEqual } from '../helpers/generics';
 import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/Committee.css';
 
-class Committee extends Component {
+class CommitteeFormContainer extends Component {
   shouldComponentUpdate(nextProps) {
     // Check if the form is submitting
     if (nextProps.isSubmitting !== this.props.isSubmitting) {
@@ -17,8 +17,8 @@ class Committee extends Component {
     }
 
     // Check if the list of objects are equal
-    const prev = this.props.committees;
-    const next = nextProps.committees;
+    const prev = this.props.values;
+    const next = nextProps.values;
     let areEqual = prev.length === next.length;
 
     areEqual = areEqual && shallowEqual(this.props.errors, nextProps.errors);
@@ -35,11 +35,11 @@ class Committee extends Component {
     const forms = [];
 
     for (let id = 0; id < 3; id++) {
-      forms.push(<CommitteeFormView
+      forms.push(<CommitteeFormEntry
         key={id}
         formID={id}
         options={committeeOptions}
-        value={this.props.committees[id]}
+        value={this.props.values[id]}
         onChangeCommittee={this.props.onChangeCommittee}
         onChangeReason={this.props.onChangeReason}
         errors={this.props.errors !== undefined ? this.props.errors[id] : undefined}
@@ -59,20 +59,20 @@ class Committee extends Component {
   }
 }
 
-Committee.propTypes = {
+CommitteeFormContainer.propTypes = {
   id: PropTypes.string,
   errors: PropTypes.array,
   duplicates: PropTypes.array,
   onChangeCommittee: PropTypes.func.isRequired,
   onChangeReason: PropTypes.func.isRequired,
-  committees: PropTypes.array.isRequired,
+  values: PropTypes.array.isRequired,
   isSubmitting: PropTypes.bool.isRequired,
 };
 
-Committee.defaultProps = {
+CommitteeFormContainer.defaultProps = {
   id: 'committee',
   errors: undefined,
   duplicates: undefined,
 };
 
-export default Committee;
+export default CommitteeFormContainer;

@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { Container } from 'semantic-ui-react';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import BasicInfo from './BasicInfoFormContainer';
-import SkillsInterests from './SkillsInterestsFormContainer';
+import BasicInfoFormContainer from './BasicInfoFormContainer';
+import SkillsInterestsFormContainer from './SkillsInterestsFormContainer';
 import GlitterPics from '../components/design/DesktopGlitter';
 import MobileGlitter from '../components/design/MobileGlitter';
 
 import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/PersonalInfo.css';
 
-function PersonalInfo(props) {
+function PersonalInfoFormContainer(props) {
   return (
     <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
       <MobileGlitter />
@@ -24,16 +24,16 @@ function PersonalInfo(props) {
         />
         <div className="personal-info-form">
           <h1 className="page-title">Personal Information</h1>
-          <BasicInfo
-            onChange={props.onChangeBasicInfo}
+          <BasicInfoFormContainer
             values={props.basicInfo}
+            onChange={props.onChangeBasicInfo}
             errors={props.errorsBasicInfo}
           />
-          <SkillsInterests
-            options={props.optionsSkillsInterests}
+          <SkillsInterestsFormContainer
             values={props.skillsInterests}
             onChange={props.onChangeSkillsInterests}
             errors={props.errorsSkillsInterests}
+            options={props.optionsSkillsInterests}
           />
         </div>
         <GlitterPics
@@ -47,7 +47,7 @@ function PersonalInfo(props) {
   );
 }
 
-PersonalInfo.propTypes = {
+PersonalInfoFormContainer.propTypes = {
   id: PropTypes.string,
   basicInfo: PropTypes.object.isRequired,
   onChangeBasicInfo: PropTypes.func.isRequired,
@@ -58,10 +58,10 @@ PersonalInfo.propTypes = {
   optionsSkillsInterests: PropTypes.object.isRequired,
 };
 
-PersonalInfo.defaultProps = {
+PersonalInfoFormContainer.defaultProps = {
   errorsBasicInfo: undefined,
   errorsSkillsInterests: undefined,
   id: 'personal-info',
 };
 
-export default PersonalInfo;
+export default PersonalInfoFormContainer;

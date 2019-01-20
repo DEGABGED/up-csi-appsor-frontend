@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { FieldArray } from 'formik';
 import { Container } from 'semantic-ui-react';
 import Button from '@material-ui/core/Button';
+import ScrollAnimation from 'react-animate-on-scroll';
 
-
-import AffiliationsFormView from '../components/AffiliationsFormEntry';
+import AffiliationsFormEntry from '../components/AffiliationsFormEntry';
 import '../assets/stylesheets/Base.css';
 import '../assets/stylesheets/Affiliations.css';
 
-class Affiliations extends Component {
+class AffiliationsFormContainer extends Component {
   constructor(props) {
     super(props);
     this.renderForms = this.renderForms.bind(this);
@@ -22,11 +22,11 @@ class Affiliations extends Component {
     return (
       <Container className="page-container" id={this.props.id}>
         <h1 className="page-title">Affiliations</h1>
-        {this.props.affiliations.map((a, i) => (
-          <AffiliationsFormView
+        {this.props.values.map((a, i) => (
+          <AffiliationsFormEntry
             key={i}
             formID={i}
-            affiliations={a}
+            value={a}
             deleteForm={() => helpers.remove(i)}
             onChange={this.props.onChange}
             errors={(typeof (this.props.errors) !== 'undefined' && Array.isArray(this.props.errors))
@@ -42,7 +42,7 @@ class Affiliations extends Component {
               position: '',
               duties: '',
             })}
-            disabled={this.props.affiliations.length >= 6}
+            disabled={this.props.values.length >= 6}
           >+ Add Organization
           </Button>
         </div>
@@ -52,28 +52,30 @@ class Affiliations extends Component {
 
   render() {
     return (
-      <FieldArray
-        name="affiliations"
-        validateOnChange={false}
-        render={this.renderForms}
-      />
+      <ScrollAnimation animateIn="fadeIn" animateOut="fadeOutLeft" duration={0.5}>
+        <FieldArray
+          name="affiliations"
+          validateOnChange={false}
+          render={this.renderForms}
+        />
+      </ScrollAnimation>
     );
   }
 }
 
-Affiliations.propTypes = {
+AffiliationsFormContainer.propTypes = {
   id: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  affiliations: PropTypes.array.isRequired,
+  values: PropTypes.array.isRequired,
   errors: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.object),
     PropTypes.string,
   ]),
 };
 
-Affiliations.defaultProps = {
+AffiliationsFormContainer.defaultProps = {
   id: 'affiliations',
   errors: undefined,
 };
 
-export default Affiliations;
+export default AffiliationsFormContainer;

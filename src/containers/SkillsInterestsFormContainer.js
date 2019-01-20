@@ -4,7 +4,7 @@ import { Container } from 'semantic-ui-react';
 
 import FormCustomDropdown from '../components/FormCustomDropdown';
 
-class SkillsInterests extends Component {
+class SkillsInterestsFormContainer extends Component {
   shouldComponentUpdate(nextProps) {
     // Compare the values of each of the 3 arrays
     const prev = this.props.values;
@@ -60,10 +60,10 @@ class SkillsInterests extends Component {
   }
 }
 
-SkillsInterests.propTypes = {
+SkillsInterestsFormContainer.propTypes = {
   options: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   values: PropTypes.object.isRequired,
 };
 
-export default SkillsInterests;
+export default SkillsInterestsFormContainer;

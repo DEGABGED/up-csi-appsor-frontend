@@ -4,14 +4,14 @@ import Button from '@material-ui/core/Button';
 
 import FormTextField from './FormTextField';
 
-function AffiliationsForm(props) {
+function AffiliationsFormEntry(props) {
   return (
     <div className="affiliation-form">
       <FormTextField
         className="org-name-input"
         label="Organization"
         name="orgName"
-        value={props.affiliations.orgName}
+        value={props.value.orgName}
         onChange={props.onChange}
         formID={props.formID}
         errors={props.errors}
@@ -21,7 +21,7 @@ function AffiliationsForm(props) {
         className="position-input"
         label="Position"
         name="position"
-        value={props.affiliations.position}
+        value={props.value.position}
         onChange={props.onChange}
         formID={props.formID}
         errors={props.errors}
@@ -31,7 +31,7 @@ function AffiliationsForm(props) {
         className="duties-input"
         label="Duties"
         name="duties"
-        value={props.affiliations.duties}
+        value={props.value.duties}
         onChange={props.onChange}
         formID={props.formID}
         errors={props.errors}
@@ -46,16 +46,16 @@ function AffiliationsForm(props) {
   );
 }
 
-AffiliationsForm.propTypes = {
+AffiliationsFormEntry.propTypes = {
   formID: PropTypes.number.isRequired,
-  affiliations: PropTypes.object.isRequired,
-  deleteForm: PropTypes.func.isRequired,
+  value: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object,
+  deleteForm: PropTypes.func.isRequired,
 };
 
-AffiliationsForm.defaultProps = {
+AffiliationsFormEntry.defaultProps = {
   errors: undefined,
 };
 
-export default AffiliationsForm;
+export default AffiliationsFormEntry;

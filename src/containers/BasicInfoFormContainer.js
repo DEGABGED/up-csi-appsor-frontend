@@ -6,7 +6,7 @@ import FormTextField from '../components/FormTextField';
 import FormMaskedField from '../components/FormMaskedField';
 import { shallowEqual } from '../helpers/generics';
 
-class BasicInfo extends Component {
+class BasicInfoFormContainer extends Component {
   shouldComponentUpdate(nextProps) {
     return !shallowEqual(this.props.values, nextProps.values)
       || !shallowEqual(this.props.errors, nextProps.errors);
@@ -101,14 +101,14 @@ class BasicInfo extends Component {
   }
 }
 
-BasicInfo.propTypes = {
+BasicInfoFormContainer.propTypes = {
   values: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object,
 };
 
-BasicInfo.defaultProps = {
+BasicInfoFormContainer.defaultProps = {
   errors: undefined,
 };
 
-export default BasicInfo;
+export default BasicInfoFormContainer;
