@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'semantic-ui-react';
 
-import bubble from '../../assets/images/drinks/bubble-tea.png';
-import drink from '../../assets/images/drinks/drink.png';
-import energy from '../../assets/images/drinks/energy-drink.png';
-import lemonade from '../../assets/images/drinks/lemonade.png';
-import milk from '../../assets/images/drinks/milk.png';
-import soda from '../../assets/images/drinks/soda.png';
-import tea from '../../assets/images/drinks/tea.png';
-import wineBot from '../../assets/images/drinks/wine-bottle.png';
-import wineGla from '../../assets/images/drinks/wine-glass.png';
-import wineSet from '../../assets/images/drinks/wine.png';
+import glitter1 from '../../assets/images/glitters/glitter1.png';
+import glitter2 from '../../assets/images/glitters/glitter2.png';
+import glitter3 from '../../assets/images/glitters/glitter3.png';
+import glitter4 from '../../assets/images/glitters/glitter4.png';
+import glitter5 from '../../assets/images/glitters/glitter5.png';
+import glitter6 from '../../assets/images/glitters/glitter6.png';
+import glitter7 from '../../assets/images/glitters/glitter7.png';
+import glitter8 from '../../assets/images/glitters/glitter8.png';
+import glitter9 from '../../assets/images/glitters/glitter9.png';
+import glitter10 from '../../assets/images/glitters/glitter10.png';
 
 function Glitter(props) {
-  const pics = [bubble, wineBot, soda, tea, lemonade, wineSet, milk, drink, energy, wineGla];
+  const pics = [glitter1, glitter2, glitter3, glitter4, glitter5, glitter6, glitter7, glitter8, glitter9, glitter10];
 
   function slicePics() {
     return pics.slice(props.begin, props.end);

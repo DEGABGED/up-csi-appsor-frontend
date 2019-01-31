@@ -65,12 +65,13 @@ html,body {
     margin: 0;
 }
 
+/* This the code snippet for landing page bg */
 body {
-    background-image: url('../images/background.png');
-    background-repeat: repeat;
+    background-image: url('../images/landing_bg.png');
+    background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: bottom right;
-    background-size: 75%;
+    background-position: center;
+    background-size: cover;
 }
 
 @media only screen and (max-width: 900px) {

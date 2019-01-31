@@ -24,22 +24,23 @@
 }
 
 .chevron-button {
-    color: #000000;
+    color: #FFFFFF;
+    margin-left: 2px;
 }
 
 .chevron-button:hover {
-    color: #000000;
+    color: #FFFFFF;
 }
 
 @media only screen and (max-width: 768px) {
     .main-title {
-        font-family: 'Handletterink';
+        font-family: 'Oswald-ExtraLight';
         font-size: 60px;
         margin-bottom: -6px;
     }
 
     .sub-title {
-        font-family: 'Nexa Light';
+        font-family: 'Oswald-ExtraLight';
         font-size: 20px;
         margin-bottom: -3px;
     }

@@ -1,16 +1,16 @@
 import React from 'react';
 import { Image, Responsive } from 'semantic-ui-react';
 
-import soda from '../../assets/images/drinks/soda.png';
-import milk from '../../assets/images/drinks/milk.png';
-import energy from '../../assets/images/drinks/energy-drink.png';
-import wineGla from '../../assets/images/drinks/wine-glass.png';
-import tea from '../../assets/images/drinks/tea.png';
-import bubble from '../../assets/images/drinks/bubble-tea.png';
+import glitter1 from '../../assets/images/glitters/glitter1.png';
+import glitter2 from '../../assets/images/glitters/glitter2.png';
+import glitter3 from '../../assets/images/glitters/glitter3.png';
+import glitter4 from '../../assets/images/glitters/glitter4.png';
+import glitter5 from '../../assets/images/glitters/glitter5.png';
+import glitter10 from '../../assets/images/glitters/glitter10.png';
 import '../../assets/stylesheets/MobileGlitter.css';
 
 function MobileGlitter() {
-  const pics = [soda, milk, energy, wineGla, tea, bubble];
+  const pics = [glitter1, glitter2, glitter3, glitter4, glitter5, glitter10];
 
   return (
     <Responsive {...Responsive.onlyMobile} className="drinks-display-case" >

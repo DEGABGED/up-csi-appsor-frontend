@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Image, Modal, Header } from 'semantic-ui-react';
 import '../../assets/stylesheets/SubmitModal.css';
 
-import successImg from '../../assets/images/fin.jpg';
+import successImg from '../../assets/images/fin.png';
 import errorImg from '../../assets/images/people/error.png';
 
 function ErrorModalMessage(props) {

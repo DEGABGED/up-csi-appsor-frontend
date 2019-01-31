@@ -28,7 +28,7 @@ class SkillsInterestsFormContainer extends Component {
         <div className="dropdown-div">
           <label className="dropdown-label">Skills</label>
           <FormCustomDropdown
-            placeholder="Skills"
+            placeholder="Choose or Add Skills"
             name="skills"
             values={this.props.values.skills}
             options={this.props.options.skills}
@@ -38,7 +38,7 @@ class SkillsInterestsFormContainer extends Component {
         <div className="dropdown-div">
           <label className="dropdown-label">Interests</label>
           <FormCustomDropdown
-            placeholder="Interests"
+            placeholder="Choose or Add Interests"
             name="interests"
             values={this.props.values.interests}
             options={this.props.options.interests}
@@ -46,9 +46,9 @@ class SkillsInterestsFormContainer extends Component {
           />
         </div>
         <div className="dropdown-div">
-          <label className="dropdown-label">Experience</label>
+          <label className="dropdown-label">Experiences</label>
           <FormCustomDropdown
-            placeholder="Experience"
+            placeholder="Choose or Add Experiences"
             name="experience"
             values={this.props.values.experience}
             options={this.props.options.experience}
