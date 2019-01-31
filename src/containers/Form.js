@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withFormik } from 'formik';
+import { Persist } from 'formik-persist';
 import { object } from 'yup';
 
 import PersonalInfoFormContainer from './PersonalInfoFormContainer';
@@ -38,10 +39,6 @@ class MainForm extends Component {
         errorTags[Object.keys(this.props.errors)[0]],
       ).scrollIntoView();
     }
-  }
-
-  componentWillUnmount() {
-    this.props.setFormState(this.props.values);
   }
 
   render() {
@@ -98,6 +95,7 @@ class MainForm extends Component {
           isSubmitting={isSubmitting}
         />
         <SubmitModal {...status} setSubmitting={setSubmitting} />
+        <Persist name="form-values" />
       </form>
     );
   }
