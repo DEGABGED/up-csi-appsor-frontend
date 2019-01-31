@@ -9,17 +9,18 @@
 }
 
 .main-title {
-    font-family: 'Handletterink';
+    font-family: 'Oswald-ExtraLight';
     font-size: 130px;
     margin-top: -10px;
+    color: #F6CE42;
 }
 
 .sub-title {
-    font-family: Nexa Bold;
-    font-size: 35px;
-    margin-bottom: -30px;
+    font-family: 'Oswald-ExtraLight';
+    font-size: 30px;
+    margin-bottom: -20px;
     letter-spacing: 3px;
-    color: #555555;
+    color: #00C6D7;
 }
 
 .chevron-button {

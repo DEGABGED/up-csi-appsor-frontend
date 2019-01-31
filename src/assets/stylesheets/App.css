@@ -19,6 +19,48 @@
     src: local('Handletterink'), url('../fonts/Handletterink.otf') format('opentype');
 }
 
+@font-face {
+    font-family: 'Oswald-Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Oswald-Bold'), url('../fonts/Oswald-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald-ExtraLight';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Oswald-ExtraLight'), url('../fonts/Oswald-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald-Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Oswald-Light'), url('../fonts/Oswald-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald-Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Oswald-Medium'), url('../fonts/Oswald-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald-Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Oswald-Regular'), url('../fonts/Oswald-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Oswald-SemiBold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Oswald-SemiBold'), url('../fonts/Oswald-SemiBold.ttf') format('truetype');
+}
+
 html,body {
     margin: 0;
 }
