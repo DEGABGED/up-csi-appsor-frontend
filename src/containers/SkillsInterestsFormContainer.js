@@ -30,7 +30,7 @@ class SkillsInterestsFormContainer extends Component {
           <FormCustomDropdown
             placeholder="Choose or Add Skills"
             name="skills"
-            values={this.props.values.skills}
+            value={this.props.values.skills}
             options={this.props.options.skills}
             onChange={this.props.onChange}
           />
@@ -40,7 +40,7 @@ class SkillsInterestsFormContainer extends Component {
           <FormCustomDropdown
             placeholder="Choose or Add Interests"
             name="interests"
-            values={this.props.values.interests}
+            value={this.props.values.interests}
             options={this.props.options.interests}
             onChange={this.props.onChange}
           />
@@ -50,7 +50,7 @@ class SkillsInterestsFormContainer extends Component {
           <FormCustomDropdown
             placeholder="Choose or Add Experiences"
             name="experience"
-            values={this.props.values.experience}
+            value={this.props.values.experience}
             options={this.props.options.experience}
             onChange={this.props.onChange}
           />

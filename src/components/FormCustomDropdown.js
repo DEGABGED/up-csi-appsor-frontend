@@ -6,8 +6,8 @@ import preventDefaultEnter from '../helpers/preventDefaultEnter';
 
 class FormCustomDropdown extends Component {
   shouldComponentUpdate(nextProps) {
-    const prev = this.props.values;
-    const next = nextProps.values;
+    const prev = this.props.value;
+    const next = nextProps.value;
 
     // Check if the arrays are different in length
     if (prev.length !== next.length) {
@@ -51,7 +51,7 @@ class FormCustomDropdown extends Component {
 FormCustomDropdown.propTypes = {
   placeholder: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  values: PropTypes.arrayOf(PropTypes.string).isRequired,
+  value: PropTypes.arrayOf(PropTypes.string).isRequired,
   options: PropTypes.arrayOf(PropTypes.object).isRequired,
   onChange: PropTypes.func.isRequired,
 };
