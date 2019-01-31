@@ -16,7 +16,7 @@ function MobileCarousel() {
           img={comm.img}
           trigger={
             <div
-              className={`mobile-div${(comm.name === 'MEMBERSHIPS AND INTERNALS') ? ' inte-div' : ''}`}
+              className="mobile-div"
               style={{ backgroundImage: `url(${comm.img})` }}
             >
               <div className="mobile-title" >

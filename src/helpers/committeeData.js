@@ -1,9 +1,9 @@
-import enggComm from '../assets/images/carousel/BG_Engg.png';
-import exteComm from '../assets/images/carousel/BG_exte.png';
-import pubComm from '../assets/images/carousel/Pub_BG.png';
-import servComm from '../assets/images/carousel/Service_BG.png';
-import inteComm from '../assets/images/carousel/BG_Inte.png';
-import innoComm from '../assets/images/carousel/BG_Innov.png';
+import enggComm from '../assets/images/carousel/bg_engg.png';
+import exteComm from '../assets/images/carousel/bg_exte.png';
+import pubComm from '../assets/images/carousel/bg_pub.png';
+import servComm from '../assets/images/carousel/bg_service.png';
+import inteComm from '../assets/images/carousel/bg_mni.png';
+import innoComm from '../assets/images/carousel/bg_innov.png';
 
 const commArray = [{
   name: 'INNOVATION',
@@ -26,14 +26,14 @@ const commArray = [{
   description: 'The External Relations Committee oversees the external and financial concerns of the organization by communicating with other entities and gathering ideas for income generating projects.',
 },
 {
-  name: 'MEMBERSHIPS AND INTERNALS',
+  name: 'MEMBERSHIP AND INTERNALS',
   img: inteComm,
   description: 'The Membership and Internals Committee is responsible for the welfare of the organization\'s members and internal affairs such as logistics, records, and academics. They also spearhead the application process of the organization.',
 },
 {
   name: 'PUBLICITY',
   img: pubComm,
-  description: 'The Publicity Committee create the promotional materials and handle the advertising and announcements of the organization. They also spearhead the branding for the organization and its projects and events.',
+  description: 'The Publicity Committee creates the promotional materials and handle the advertising and announcements of the organization. They also spearhead the branding for the organization and its projects and events.',
 },
 ];
 
