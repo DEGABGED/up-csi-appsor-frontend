@@ -138,7 +138,7 @@ SuccessModal.propTypes = {
 ErrorModal.defaultProps = {
   display: undefined,
   message: undefined,
-  onClose: undefined,
+  onClose: () => {},
 };
 
 SubmitModal.propTypes = {

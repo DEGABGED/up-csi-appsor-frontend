@@ -9,4 +9,7 @@ ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
 
 // Prompts the user before closing the window (in case form data is present)
-window.onbeforeunload = evt => true;
+window.onbeforeunload = (evt) => {
+  localStorage.removeItem('form-values');
+  return true;
+};
