@@ -67,7 +67,7 @@ html,body {
 
 /* This the code snippet for landing page bg */
 body {
-    background-image: url('../images/landing_bg.png');
+    background-image: url('../images/forms_bg.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -78,5 +78,11 @@ body {
     .navbar-item a {
         font-size: 0.8em;
         padding: 0.6em 1em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        background-image: url('../images/forms_mobile_bg.png');
     }
 }
